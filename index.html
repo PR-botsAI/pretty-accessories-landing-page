@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta http-equiv="Permissions-Policy" content="autoplay=*">
 <title>Pretty Accessories 🎀 | Club Arsenal Arecibo · Puerto Rico</title>
 <meta name="description" content="Pulseras customizadas, glitter gel y más — tres atletas de volleyball de Puerto Rico. @pretty.accessorie7">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -57,7 +58,7 @@ nav.stuck{background:rgba(13,10,26,.85);backdrop-filter:blur(24px);-webkit-backd
 .hero-tagline{font-size:clamp(.95rem,2.8vw,1.35rem);color:rgba(255,255,255,.72);font-weight:600;letter-spacing:.3px;margin-bottom:32px}
 .hero-btns{display:flex;flex-wrap:wrap;gap:12px}
 
-/* ═══ TT-CARD: VIDEO + BUTTON ONLY ═══ */
+/* ═══ TT-CARD ═══ */
 .tt-card{
   background:rgba(10,5,20,.7);
   border:1.5px solid rgba(255,61,127,.2);
@@ -65,64 +66,75 @@ nav.stuck{background:rgba(13,10,26,.85);backdrop-filter:blur(24px);-webkit-backd
   padding:12px 12px 16px;
   backdrop-filter:blur(24px);
   -webkit-backdrop-filter:blur(24px);
-  display:flex;
-  flex-direction:column;
-  gap:12px;
+  display:flex;flex-direction:column;gap:12px;
   animation:cardGlow 4s ease-in-out infinite alternate;
 }
 @keyframes cardGlow{
   from{box-shadow:0 0 20px rgba(255,61,127,.08),0 16px 48px rgba(0,0,0,.5)}
   to{box-shadow:0 0 45px rgba(255,61,127,.2),0 16px 56px rgba(0,0,0,.6)}
 }
+/* Video wrap — iframe stacked on top of fallback thumbnail */
 .tt-video-wrap{
   border-radius:16px;
   overflow:hidden;
   background:#000;
   line-height:0;
   position:relative;
-  flex:1;
+  min-height:520px;
 }
-.tt-video-wrap iframe{
-  width:100%;
-  height:520px;
-  border:none;
+/* Fallback thumbnail — always rendered behind the iframe */
+.tt-thumb{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:16px;
+  background:linear-gradient(160deg,#1a0533 0%,#0D0A1A 60%,#140820 100%);
   border-radius:16px;
-  display:block;
-}
-.tt-cta-btn{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:9px;
-  width:100%;
-  background:linear-gradient(135deg,var(--pink) 0%,#9B1DFF 100%);
-  color:#fff;
-  font-family:'Plus Jakarta Sans',sans-serif;
-  font-weight:800;
-  font-size:.95rem;
-  letter-spacing:.2px;
-  padding:15px 20px;
-  border-radius:14px;
+  cursor:pointer;
   text-decoration:none;
-  box-shadow:0 0 28px rgba(255,61,127,.45),0 4px 20px rgba(0,0,0,.35);
-  transition:all .3s;
-  position:relative;
-  overflow:hidden;
+  z-index:1;
+}
+.tt-thumb-title{
+  font-family:'Fredoka One',cursive;
+  font-size:1.1rem;color:rgba(255,255,255,.85);
+  text-align:center;padding:0 20px;line-height:1.4;
+}
+.tt-thumb-handle{
+  font-size:.78rem;font-weight:700;
+  color:rgba(255,255,255,.4);letter-spacing:.5px;
+}
+/* Big pink play button */
+.tt-play{
+  width:68px;height:68px;border-radius:50%;
+  background:linear-gradient(135deg,var(--pink),#9B1DFF);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 32px rgba(255,61,127,.6);
+  transition:transform .25s,box-shadow .25s;
   flex-shrink:0;
 }
-.tt-cta-btn::before{
-  content:'';
-  position:absolute;
-  inset:0;
-  background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.15) 50%,transparent 70%);
-  transform:translateX(-100%);
-  transition:transform .7s;
+.tt-thumb:hover .tt-play{transform:scale(1.1);box-shadow:0 0 50px rgba(255,61,127,.8)}
+.tt-play svg{width:28px;height:28px;fill:#fff;margin-left:4px}
+/* The actual embed iframe — sits above fallback */
+.tt-video-wrap iframe{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  border:none;border-radius:16px;
+  display:block;
+  z-index:2;
 }
+.tt-cta-btn{
+  display:flex;align-items:center;justify-content:center;gap:9px;
+  width:100%;
+  background:linear-gradient(135deg,var(--pink) 0%,#9B1DFF 100%);
+  color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;
+  font-size:.95rem;letter-spacing:.2px;
+  padding:15px 20px;border-radius:14px;text-decoration:none;
+  box-shadow:0 0 28px rgba(255,61,127,.45),0 4px 20px rgba(0,0,0,.35);
+  transition:all .3s;position:relative;overflow:hidden;flex-shrink:0;
+}
+.tt-cta-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.15) 50%,transparent 70%);transform:translateX(-100%);transition:transform .7s;}
 .tt-cta-btn:hover::before{transform:translateX(100%)}
-.tt-cta-btn:hover{
-  transform:translateY(-2px);
-  box-shadow:0 0 50px rgba(255,61,127,.6),0 8px 28px rgba(0,0,0,.4);
-}
+.tt-cta-btn:hover{transform:translateY(-2px);box-shadow:0 0 50px rgba(255,61,127,.6),0 8px 28px rgba(0,0,0,.4)}
 
 .scroll-cue{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:5px;opacity:.35;animation:scuePulse 2.5s ease-in-out infinite}
 .scroll-cue span{font-size:.58rem;letter-spacing:3px;text-transform:uppercase;font-weight:700}
@@ -184,8 +196,8 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:150px;ba
 .foot-tt{display:inline-flex;align-items:center;gap:7px;background:linear-gradient(135deg,var(--pink),#9B1DFF);color:#fff;font-weight:800;font-size:.88rem;padding:10px 24px;border-radius:50px;text-decoration:none;box-shadow:0 0 24px var(--pink-glow);transition:all .3s;margin:12px 0}
 .foot-tt:hover{transform:translateY(-3px)}
 .foot-meta{font-size:.74rem;color:rgba(255,255,255,.25);line-height:2}
-@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:28px}.hero-left{align-items:center;text-align:center}.badge-row{justify-content:center}.hero-btns{justify-content:center}.tt-video-wrap iframe{height:420px}.girls-grid{grid-template-columns:1fr}.bento{grid-template-columns:1fr}.p-card.large,.p-card.wide{grid-row:auto;grid-column:auto}}
-@media(max-width:600px){nav{padding:13px 16px}.brand-name{font-size:clamp(3.8rem,17vw,5.5rem)}.tt-video-wrap iframe{height:340px}.world-wrap{height:220px}}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:28px}.hero-left{align-items:center;text-align:center}.badge-row{justify-content:center}.hero-btns{justify-content:center}.tt-video-wrap{min-height:420px}.girls-grid{grid-template-columns:1fr}.bento{grid-template-columns:1fr}.p-card.large,.p-card.wide{grid-row:auto;grid-column:auto}}
+@media(max-width:600px){nav{padding:13px 16px}.brand-name{font-size:clamp(3.8rem,17vw,5.5rem)}.tt-video-wrap{min-height:340px}.world-wrap{height:220px}}
 </style>
 </head>
 <body>
@@ -222,16 +234,32 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:150px;ba
       </div>
     </div>
 
-    <!-- TikTok card: video + one button. Nothing else. -->
+    <!-- TikTok card: video + one button -->
     <div class="tt-card">
-      <div class="tt-video-wrap">
+      <div class="tt-video-wrap" id="tt-video-wrap">
+
+        <!-- FALLBACK THUMBNAIL — shows if iframe blocked -->
+        <a class="tt-thumb" id="tt-thumb"
+           href="https://www.tiktok.com/@pretty.accessorie7/video/7608660505602919711"
+           target="_blank">
+          <div class="tt-play">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </div>
+          <div class="tt-thumb-title">Yo y las que hacemos pulseras 😍</div>
+          <div class="tt-thumb-handle">@pretty.accessorie7 · Ver en TikTok</div>
+        </a>
+
+        <!-- IFRAME — autoplay muted, stacked on top of fallback -->
         <iframe
-          src="https://www.tiktok.com/embed/v2/7608660505602919711"
+          id="tt-iframe"
+          src="https://www.tiktok.com/embed/v2/7608660505602919711?autoplay=1&muted=1"
           allowfullscreen
-          allow="encrypted-media; autoplay"
-          scrolling="no"
-          loading="lazy">
+          allow="autoplay; encrypted-media"
+          scrolling="no">
         </iframe>
+
       </div>
       <a class="tt-cta-btn t"
          href="https://www.tiktok.com/@pretty.accessorie7"
@@ -346,18 +374,19 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:150px;ba
   </div>
 </footer>
 
+<!-- Luna 🎀 — PMGT Voice Widget -->
 <script>
   window.PayMeGPTConfig = {
     widgetId: '88975005',
     type: 'voice_launcher',
     primaryColor: '#FF3D7F',
     position: 'bottom-right',
-    label: '🎀 Habla con Nena',
+    label: '💬 Habla con Luna',
     icon: 'mic',
     startButtonText: '🎵 Hablar',
     stopButtonText: 'Parar',
     theme: 'dark',
-    customFooterText: 'Nena 🎀 — Pretty Accessories'
+    customFooterText: 'Luna 🎀 — Pretty Accessories'
   };
 </script>
 <script src="https://paymegpt.com/widget.js" data-config="PayMeGPT"></script>
@@ -374,6 +403,25 @@ document.addEventListener('mouseleave',()=>{t3d.style.transition='transform .9s 
 particlesJS('particles-js',{particles:{number:{value:80,density:{enable:true,value_area:900}},color:{value:['#FF3D7F','#00E5CC','#FFD700','#C026D3','#fff']},shape:{type:'star'},opacity:{value:.5,random:true,anim:{enable:true,speed:1,opacity_min:.1,sync:false}},size:{value:3,random:true,anim:{enable:true,speed:2,size_min:.5,sync:false}},line_linked:{enable:false},move:{enable:true,speed:1.1,direction:'top',random:true,straight:false,out_mode:'out'}},interactivity:{detect_on:'canvas',events:{onhover:{enable:true,mode:'bubble'},onclick:{enable:true,mode:'repulse'},resize:true},modes:{bubble:{distance:180,size:5,duration:2,opacity:.8},repulse:{distance:130,duration:.4}}},retina_detect:true});
 VanillaTilt.init(document.querySelectorAll('[data-tilt]'),{max:13,speed:400,glare:true,'max-glare':.18,gyroscope:true,perspective:850});
 AOS.init({duration:780,once:true,offset:55,easing:'ease-out-cubic'});
+
+/* If iframe loads successfully, hide the fallback thumbnail behind it */
+const ttIframe = document.getElementById('tt-iframe');
+const ttThumb  = document.getElementById('tt-thumb');
+if(ttIframe){
+  ttIframe.addEventListener('load', () => {
+    if(ttThumb) ttThumb.style.pointerEvents = 'none';
+  });
+  /* Safety net: if no load event in 7s, keep fallback visible and clickable */
+  setTimeout(() => {
+    try {
+      const doc = ttIframe.contentDocument || ttIframe.contentWindow.document;
+      if (!doc || doc.body.innerHTML === '') {
+        ttIframe.style.display = 'none';
+      }
+    } catch(e) { /* cross-origin — iframe loaded fine, do nothing */ }
+  }, 7000);
+}
+
 const DOTS=[{x:26.5,y:41.5,done:true},{x:20,y:33},{x:24.5,y:40.5},{x:26,y:56},{x:46,y:26},{x:50,y:24},{x:83,y:25},{x:54,y:52},{x:80,y:68}];
 let shown=0;
 function showDots(){const wrap=document.getElementById('world-wrap');DOTS.forEach((c,i)=>{setTimeout(()=>{const d=document.createElement('div');d.className='map-dot'+(c.done?' done':'');d.style.cssText=`left:${c.x}%;top:${c.y}%;color:${c.done?'#FFD700':'#00E5CC'}`;wrap.appendChild(d);shown++;const el=document.getElementById('count-num');if(el)el.textContent=shown;},i*280);});}
