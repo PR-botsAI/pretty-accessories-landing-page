@@ -26,7 +26,13 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--dark);color:#ff
 nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;transition:all .4s}
 nav.stuck{background:rgba(13,10,26,.85);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);box-shadow:0 1px 0 rgba(255,255,255,.06)}
 .nav-logo{display:flex;align-items:center;gap:9px;text-decoration:none}
-.nav-logo-img{width:45px;height:45px;border-radius:50%;object-fit:cover;box-shadow:0 0 15px rgba(255,61,127,.4),0 0 30px rgba(255,61,127,.15);flex-shrink:0;transition:box-shadow .3s}
+/* Logo circle — shows image if loaded, pink gradient fallback if blocked */
+.nav-logo-img{
+  width:45px;height:45px;border-radius:50%;object-fit:cover;flex-shrink:0;
+  box-shadow:0 0 15px rgba(255,61,127,.4),0 0 30px rgba(255,61,127,.15);
+  transition:box-shadow .3s;
+  background:linear-gradient(135deg,var(--pink),#9B1DFF); /* fallback bg if img fails */
+}
 .nav-logo:hover .nav-logo-img{box-shadow:0 0 25px rgba(255,61,127,.6),0 0 50px rgba(255,61,127,.25)}
 .nav-logo-text{font-family:'Pacifico',cursive;font-size:1rem;color:var(--pink);text-shadow:0 0 18px var(--pink-glow);letter-spacing:.5px;white-space:nowrap}
 .nav-r{display:flex;align-items:center;gap:10px}
@@ -66,88 +72,19 @@ nav.stuck{background:rgba(13,10,26,.85);backdrop-filter:blur(24px);-webkit-backd
 .hero-tagline{font-size:clamp(.95rem,2.8vw,1.35rem);color:rgba(255,255,255,.72);font-weight:600;letter-spacing:.3px;margin-bottom:32px}
 .hero-btns{display:flex;flex-wrap:wrap;gap:12px}
 
-/* ─── TT CARD: thumbnail + button ─── */
-.tt-card{
-  background:rgba(10,5,20,.7);
-  border:1.5px solid rgba(255,61,127,.2);
-  border-radius:24px;
-  padding:12px 12px 16px;
-  backdrop-filter:blur(24px);
-  -webkit-backdrop-filter:blur(24px);
-  display:flex;flex-direction:column;gap:12px;
-  animation:cardGlow 4s ease-in-out infinite alternate;
-}
-@keyframes cardGlow{
-  from{box-shadow:0 0 20px rgba(255,61,127,.08),0 16px 48px rgba(0,0,0,.5)}
-  to{box-shadow:0 0 45px rgba(255,61,127,.2),0 16px 56px rgba(0,0,0,.6)}
-}
-
-/* Thumbnail card — the ONLY video element, no iframe */
-.tt-thumb{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:14px;
-  border-radius:16px;
-  overflow:hidden;
-  position:relative;
-  height:480px;
-  text-decoration:none;
-  cursor:pointer;
-  background:linear-gradient(160deg,#2a0845 0%,#0D0A1A 55%,#1a0533 100%);
-}
-/* oEmbed thumbnail fills behind overlay */
-.tt-thumb-bg{
-  position:absolute;inset:0;
-  background-size:cover;
-  background-position:center;
-  background-repeat:no-repeat;
-  transition:transform .5s ease;
-  border-radius:16px;
-}
+/* ─── TT CARD ─── */
+.tt-card{background:rgba(10,5,20,.7);border:1.5px solid rgba(255,61,127,.2);border-radius:24px;padding:12px 12px 16px;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);display:flex;flex-direction:column;gap:12px;animation:cardGlow 4s ease-in-out infinite alternate;}
+@keyframes cardGlow{from{box-shadow:0 0 20px rgba(255,61,127,.08),0 16px 48px rgba(0,0,0,.5)}to{box-shadow:0 0 45px rgba(255,61,127,.2),0 16px 56px rgba(0,0,0,.6)}}
+.tt-thumb{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;border-radius:16px;overflow:hidden;position:relative;height:480px;text-decoration:none;cursor:pointer;background:linear-gradient(160deg,#2a0845 0%,#0D0A1A 55%,#1a0533 100%);}
+.tt-thumb-bg{position:absolute;inset:0;background-size:cover;background-position:center;background-repeat:no-repeat;transition:transform .5s ease;border-radius:16px;}
 .tt-thumb:hover .tt-thumb-bg{transform:scale(1.04)}
-/* Dark gradient overlay so play button pops */
-.tt-thumb-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(to top,rgba(10,5,20,.85) 0%,rgba(10,5,20,.2) 45%,transparent 100%);
-  border-radius:16px;
-}
-/* Pulsing play button */
-.tt-play{
-  position:relative;z-index:2;
-  width:72px;height:72px;border-radius:50%;
-  background:linear-gradient(135deg,var(--pink),#9B1DFF);
-  display:flex;align-items:center;justify-content:center;
-  animation:playPulse 2.2s ease-in-out infinite;
-  flex-shrink:0;
-}
-@keyframes playPulse{
-  0%{box-shadow:0 0 0 0 rgba(255,61,127,.7)}
-  60%{box-shadow:0 0 0 20px rgba(255,61,127,0)}
-  100%{box-shadow:0 0 0 0 rgba(255,61,127,0)}
-}
+.tt-thumb-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,5,20,.85) 0%,rgba(10,5,20,.2) 45%,transparent 100%);border-radius:16px;}
+.tt-play{position:relative;z-index:2;width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--pink),#9B1DFF);display:flex;align-items:center;justify-content:center;animation:playPulse 2.2s ease-in-out infinite;flex-shrink:0;}
+@keyframes playPulse{0%{box-shadow:0 0 0 0 rgba(255,61,127,.7)}60%{box-shadow:0 0 0 20px rgba(255,61,127,0)}100%{box-shadow:0 0 0 0 rgba(255,61,127,0)}}
 .tt-thumb:hover .tt-play{transform:scale(1.1)}
 .tt-play svg{width:30px;height:30px;fill:#fff;margin-left:5px}
-/* Watch label at bottom */
-.tt-watch-lbl{
-  position:absolute;bottom:16px;left:0;right:0;z-index:2;
-  text-align:center;
-  font-size:.78rem;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;
-  color:rgba(255,255,255,.7);
-}
-
-/* CTA button */
-.tt-cta-btn{
-  display:flex;align-items:center;justify-content:center;gap:9px;
-  width:100%;
-  background:linear-gradient(135deg,var(--pink) 0%,#9B1DFF 100%);
-  color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;
-  font-size:.95rem;letter-spacing:.2px;
-  padding:15px 20px;border-radius:14px;text-decoration:none;
-  box-shadow:0 0 28px rgba(255,61,127,.45),0 4px 20px rgba(0,0,0,.35);
-  transition:all .3s;position:relative;overflow:hidden;flex-shrink:0;
-}
+.tt-watch-lbl{position:absolute;bottom:16px;left:0;right:0;z-index:2;text-align:center;font-size:.78rem;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,.7);}
+.tt-cta-btn{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;background:linear-gradient(135deg,var(--pink) 0%,#9B1DFF 100%);color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:.95rem;letter-spacing:.2px;padding:15px 20px;border-radius:14px;text-decoration:none;box-shadow:0 0 28px rgba(255,61,127,.45),0 4px 20px rgba(0,0,0,.35);transition:all .3s;position:relative;overflow:hidden;flex-shrink:0;}
 .tt-cta-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.15) 50%,transparent 70%);transform:translateX(-100%);transition:transform .7s;}
 .tt-cta-btn:hover::before{transform:translateX(100%)}
 .tt-cta-btn:hover{transform:translateY(-2px);box-shadow:0 0 50px rgba(255,61,127,.6),0 8px 28px rgba(0,0,0,.4)}
@@ -217,30 +154,19 @@ nav.stuck{background:rgba(13,10,26,.85);backdrop-filter:blur(24px);-webkit-backd
 footer{position:relative;z-index:10;background:var(--dark);border-top:1px solid rgba(255,255,255,.05);padding:44px 24px 80px;text-align:center}
 footer::before{content:'';position:absolute;top:0;left:0;right:0;height:150px;background:radial-gradient(ellipse 50% 100% at 50% 0%,rgba(255,61,127,.05) 0%,transparent 70%)}
 .foot-logo-wrap{display:flex;flex-direction:column;align-items:center;gap:10px;margin-bottom:12px}
-.foot-logo-img{width:80px;height:80px;border-radius:50%;object-fit:cover;box-shadow:0 0 20px rgba(255,61,127,.4),0 0 50px rgba(255,61,127,.15)}
+.foot-logo-img{
+  width:80px;height:80px;border-radius:50%;object-fit:cover;
+  box-shadow:0 0 20px rgba(255,61,127,.4),0 0 50px rgba(255,61,127,.15);
+  background:linear-gradient(135deg,var(--pink),#9B1DFF); /* fallback if img blocked */
+}
 .foot-logo-text{font-family:'Pacifico',cursive;font-size:1.4rem;color:var(--pink);text-shadow:0 0 20px var(--pink-glow)}
 .foot-tt{display:inline-flex;align-items:center;gap:7px;background:linear-gradient(135deg,var(--pink),#9B1DFF);color:#fff;font-weight:800;font-size:.88rem;padding:10px 24px;border-radius:50px;text-decoration:none;box-shadow:0 0 24px var(--pink-glow);transition:all .3s;margin:12px 0}
 .foot-tt:hover{transform:translateY(-3px)}
 .foot-meta{font-size:.74rem;color:rgba(255,255,255,.25);line-height:2}
 
 /* ─── RESPONSIVE ─── */
-@media(max-width:900px){
-  .hero-grid{grid-template-columns:1fr;gap:28px}
-  .hero-left{align-items:center;text-align:center}
-  .badge-row{justify-content:center}
-  .hero-btns{justify-content:center}
-  .tt-thumb{height:400px}
-  .girls-grid{grid-template-columns:1fr}
-  .bento{grid-template-columns:1fr}
-  .p-card.large,.p-card.wide{grid-row:auto;grid-column:auto}
-}
-@media(max-width:600px){
-  nav{padding:10px 16px}
-  .nav-logo-text{display:none}
-  .brand-name{font-size:clamp(3.8rem,17vw,5.5rem)}
-  .tt-thumb{height:320px}
-  .world-wrap{height:220px}
-}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:28px}.hero-left{align-items:center;text-align:center}.badge-row{justify-content:center}.hero-btns{justify-content:center}.tt-thumb{height:400px}.girls-grid{grid-template-columns:1fr}.bento{grid-template-columns:1fr}.p-card.large,.p-card.wide{grid-row:auto;grid-column:auto}}
+@media(max-width:600px){nav{padding:10px 16px}.nav-logo-text{display:none}.brand-name{font-size:clamp(3.8rem,17vw,5.5rem)}.tt-thumb{height:320px}.world-wrap{height:220px}}
 </style>
 </head>
 <body>
@@ -252,7 +178,9 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:150px;ba
   <a class="nav-logo" href="#">
     <img class="nav-logo-img"
          src="https://storage.googleapis.com/wttus/assets/1094068/images/Untitled_design__8_.png"
-         alt="Pretty Accessories logo">
+         alt="Pretty Accessories"
+         loading="eager"
+         onerror="this.style.display='none'">
     <span class="nav-logo-text">Pretty Accessories</span>
   </a>
   <div class="nav-r">
@@ -285,7 +213,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:150px;ba
       </div>
     </div>
 
-    <!-- TikTok card: thumbnail + button ONLY. No iframe. -->
+    <!-- TikTok card: thumbnail + button ONLY -->
     <div class="tt-card">
       <a class="tt-thumb"
          href="https://www.tiktok.com/@pretty.accessorie7/video/7608660505602919711"
@@ -409,7 +337,9 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:150px;ba
   <div class="foot-logo-wrap">
     <img class="foot-logo-img"
          src="https://storage.googleapis.com/wttus/assets/1094068/images/Untitled_design__8_.png"
-         alt="Pretty Accessories logo">
+         alt="Pretty Accessories"
+         loading="eager"
+         onerror="this.style.display='none'">
     <span class="foot-logo-text">Pretty Accessories</span>
   </div>
   <a class="foot-tt" href="https://www.tiktok.com/@pretty.accessorie7" target="_blank">📱 @pretty.accessorie7</a>
@@ -439,41 +369,26 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:150px;ba
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <script>
-/* ── LANG ── */
 let lang='es';
 function setLang(l){lang=l;document.documentElement.lang=l;document.getElementById('lb-es').classList.toggle('on',l==='es');document.getElementById('lb-en').classList.toggle('on',l==='en');document.querySelectorAll('[data-'+l+']').forEach(el=>{el.innerHTML=el.getAttribute('data-'+l);});}
-
-/* ── NAV SCROLL ── */
 window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('stuck',window.scrollY>50);});
-
-/* ── 3D PARALLAX ── */
 const t3d=document.getElementById('t3d');
 window.addEventListener('mousemove',e=>{if(window.innerWidth<600)return;const cx=window.innerWidth/2,cy=window.innerHeight/2;t3d.style.transform=`rotateX(${((e.clientY-cy)/cy)*-11}deg) rotateY(${((e.clientX-cx)/cx)*11}deg)`;t3d.style.transition='transform .06s linear';});
 document.addEventListener('mouseleave',()=>{t3d.style.transition='transform .9s cubic-bezier(.16,1,.3,1)';t3d.style.transform='';});
-
-/* ── PARTICLES ── */
 particlesJS('particles-js',{particles:{number:{value:80,density:{enable:true,value_area:900}},color:{value:['#FF3D7F','#00E5CC','#FFD700','#C026D3','#fff']},shape:{type:'star'},opacity:{value:.5,random:true,anim:{enable:true,speed:1,opacity_min:.1,sync:false}},size:{value:3,random:true,anim:{enable:true,speed:2,size_min:.5,sync:false}},line_linked:{enable:false},move:{enable:true,speed:1.1,direction:'top',random:true,straight:false,out_mode:'out'}},interactivity:{detect_on:'canvas',events:{onhover:{enable:true,mode:'bubble'},onclick:{enable:true,mode:'repulse'},resize:true},modes:{bubble:{distance:180,size:5,duration:2,opacity:.8},repulse:{distance:130,duration:.4}}},retina_detect:true});
-
-/* ── TILT & AOS ── */
 VanillaTilt.init(document.querySelectorAll('[data-tilt]'),{max:13,speed:400,glare:true,'max-glare':.18,gyroscope:true,perspective:850});
 AOS.init({duration:780,once:true,offset:55,easing:'ease-out-cubic'});
 
-/* ── TIKTOK OEMBED THUMBNAIL ── */
+/* TikTok oEmbed thumbnail */
 (function(){
-  const bg = document.getElementById('tt-thumb-bg');
-  if(!bg) return;
-  const videoUrl = 'https://www.tiktok.com/@pretty.accessorie7/video/7608660505602919711';
-  fetch('https://www.tiktok.com/oembed?url=' + encodeURIComponent(videoUrl))
-    .then(r => r.json())
-    .then(data => {
-      if(data && data.thumbnail_url){
-        bg.style.backgroundImage = 'url(' + data.thumbnail_url + ')';
-      }
-    })
-    .catch(()=>{}); /* silent — fallback gradient already in CSS */
+  const bg=document.getElementById('tt-thumb-bg');
+  if(!bg)return;
+  fetch('https://www.tiktok.com/oembed?url='+encodeURIComponent('https://www.tiktok.com/@pretty.accessorie7/video/7608660505602919711'))
+    .then(r=>r.json()).then(d=>{if(d&&d.thumbnail_url)bg.style.backgroundImage='url('+d.thumbnail_url+')'})
+    .catch(()=>{});
 })();
 
-/* ── WORLD MAP DOTS ── */
+/* World map dots */
 const DOTS=[{x:26.5,y:41.5,done:true},{x:20,y:33},{x:24.5,y:40.5},{x:26,y:56},{x:46,y:26},{x:50,y:24},{x:83,y:25},{x:54,y:52},{x:80,y:68}];
 let shown=0;
 function showDots(){const wrap=document.getElementById('world-wrap');DOTS.forEach((c,i)=>{setTimeout(()=>{const d=document.createElement('div');d.className='map-dot'+(c.done?' done':'');d.style.cssText=`left:${c.x}%;top:${c.y}%;color:${c.done?'#FFD700':'#00E5CC'}`;wrap.appendChild(d);shown++;const el=document.getElementById('count-num');if(el)el.textContent=shown;},i*280);});}
