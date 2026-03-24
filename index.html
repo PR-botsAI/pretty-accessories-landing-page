@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta http-equiv="Permissions-Policy" content="autoplay=*">
 <title>Pretty Accessories 🎀 | Club Arsenal Arecibo · Puerto Rico</title>
 <meta name="description" content="Pulseras customizadas, glitter gel y más — tres atletas de volleyball de Puerto Rico. @pretty.accessorie7">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,15 +21,22 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--dark);color:#ff
 .mesh::after{width:60%;height:60%;bottom:-20%;right:-20%;background:radial-gradient(ellipse,rgba(0,229,204,.14) 0%,transparent 70%);animation-duration:22s;animation-direction:alternate-reverse}
 @keyframes meshDrift{0%{transform:translate(0,0) scale(1)}50%{transform:translate(5%,5%) scale(1.1)}100%{transform:translate(-5%,3%) scale(.95)}}
 #particles-js{position:fixed;inset:0;z-index:1;pointer-events:none}
-nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;transition:all .4s}
-nav.stuck{background:rgba(13,10,26,.85);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);box-shadow:0 1px 0 rgba(255,255,255,.06);padding:12px 24px}
-.nav-logo{font-family:'Pacifico',cursive;font-size:1.1rem;color:var(--pink);text-decoration:none;text-shadow:0 0 20px var(--pink-glow);letter-spacing:.5px}
+
+/* ─── NAV ─── */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;transition:all .4s}
+nav.stuck{background:rgba(13,10,26,.85);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);box-shadow:0 1px 0 rgba(255,255,255,.06)}
+.nav-logo{display:flex;align-items:center;gap:9px;text-decoration:none}
+.nav-logo-img{width:45px;height:45px;border-radius:50%;object-fit:cover;box-shadow:0 0 15px rgba(255,61,127,.4),0 0 30px rgba(255,61,127,.15);flex-shrink:0;transition:box-shadow .3s}
+.nav-logo:hover .nav-logo-img{box-shadow:0 0 25px rgba(255,61,127,.6),0 0 50px rgba(255,61,127,.25)}
+.nav-logo-text{font-family:'Pacifico',cursive;font-size:1rem;color:var(--pink);text-shadow:0 0 18px var(--pink-glow);letter-spacing:.5px;white-space:nowrap}
 .nav-r{display:flex;align-items:center;gap:10px}
 .lang-wrap{display:flex;align-items:center;background:var(--glass);border:1px solid rgba(255,255,255,.12);border-radius:28px;padding:3px;backdrop-filter:blur(12px)}
 .lb{background:none;border:none;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;font-size:.72rem;font-weight:800;letter-spacing:.6px;color:rgba(255,255,255,.4);padding:5px 12px;border-radius:22px;transition:all .25s;text-transform:uppercase}
 .lb.on{background:var(--pink);color:#fff;box-shadow:0 0 14px var(--pink-glow)}
 .nav-tt{display:flex;align-items:center;gap:6px;background:linear-gradient(135deg,var(--pink),#9B1DFF);color:#fff;font-weight:800;font-size:.76rem;letter-spacing:.3px;padding:8px 15px;border-radius:22px;text-decoration:none;box-shadow:0 4px 16px var(--pink-glow);transition:all .25s;border:none;cursor:pointer}
 .nav-tt:hover{transform:translateY(-2px);box-shadow:0 8px 26px var(--pink-glow)}
+
+/* ─── SHARED ─── */
 .section{position:relative;z-index:10;padding:90px 24px}
 .s-in{max-width:1100px;margin:0 auto}
 .eyebrow{font-size:.68rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--pink);margin-bottom:10px;display:block}
@@ -42,6 +48,8 @@ nav.stuck{background:rgba(13,10,26,.85);backdrop-filter:blur(24px);-webkit-backd
 .btn-hot:hover{transform:translateY(-3px);box-shadow:0 0 50px var(--pink-glow)}
 .btn-ghost{display:inline-flex;align-items:center;gap:8px;background:var(--glass);border:1.5px solid rgba(0,229,204,.35);color:var(--mint);font-weight:800;font-size:.92rem;letter-spacing:.3px;padding:13px 30px;border-radius:50px;text-decoration:none;cursor:pointer;backdrop-filter:blur(12px);box-shadow:0 0 18px var(--mint-glow);transition:all .3s}
 .btn-ghost:hover{background:rgba(0,229,204,.12);transform:translateY(-3px);box-shadow:0 0 36px var(--mint-glow)}
+
+/* ─── HERO ─── */
 .hero{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:110px 24px 80px}
 .hero::before{content:'';position:absolute;inset:0;z-index:0;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse at center,black 0%,transparent 72%)}
 .hero-grid{display:grid;grid-template-columns:1fr 400px;gap:48px;align-items:center;width:100%;max-width:1100px;position:relative;z-index:2}
@@ -58,7 +66,7 @@ nav.stuck{background:rgba(13,10,26,.85);backdrop-filter:blur(24px);-webkit-backd
 .hero-tagline{font-size:clamp(.95rem,2.8vw,1.35rem);color:rgba(255,255,255,.72);font-weight:600;letter-spacing:.3px;margin-bottom:32px}
 .hero-btns{display:flex;flex-wrap:wrap;gap:12px}
 
-/* ═══ TT-CARD ═══ */
+/* ─── TT CARD: thumbnail + button ─── */
 .tt-card{
   background:rgba(10,5,20,.7);
   border:1.5px solid rgba(255,61,127,.2);
@@ -73,55 +81,63 @@ nav.stuck{background:rgba(13,10,26,.85);backdrop-filter:blur(24px);-webkit-backd
   from{box-shadow:0 0 20px rgba(255,61,127,.08),0 16px 48px rgba(0,0,0,.5)}
   to{box-shadow:0 0 45px rgba(255,61,127,.2),0 16px 56px rgba(0,0,0,.6)}
 }
-/* Video wrap — iframe stacked on top of fallback thumbnail */
-.tt-video-wrap{
+
+/* Thumbnail card — the ONLY video element, no iframe */
+.tt-thumb{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
   border-radius:16px;
   overflow:hidden;
-  background:#000;
-  line-height:0;
   position:relative;
-  min-height:520px;
-}
-/* Fallback thumbnail — always rendered behind the iframe */
-.tt-thumb{
-  position:absolute;inset:0;
-  display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-  gap:16px;
-  background:linear-gradient(160deg,#1a0533 0%,#0D0A1A 60%,#140820 100%);
-  border-radius:16px;
-  cursor:pointer;
+  height:480px;
   text-decoration:none;
-  z-index:1;
+  cursor:pointer;
+  background:linear-gradient(160deg,#2a0845 0%,#0D0A1A 55%,#1a0533 100%);
 }
-.tt-thumb-title{
-  font-family:'Fredoka One',cursive;
-  font-size:1.1rem;color:rgba(255,255,255,.85);
-  text-align:center;padding:0 20px;line-height:1.4;
+/* oEmbed thumbnail fills behind overlay */
+.tt-thumb-bg{
+  position:absolute;inset:0;
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  transition:transform .5s ease;
+  border-radius:16px;
 }
-.tt-thumb-handle{
-  font-size:.78rem;font-weight:700;
-  color:rgba(255,255,255,.4);letter-spacing:.5px;
+.tt-thumb:hover .tt-thumb-bg{transform:scale(1.04)}
+/* Dark gradient overlay so play button pops */
+.tt-thumb-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(10,5,20,.85) 0%,rgba(10,5,20,.2) 45%,transparent 100%);
+  border-radius:16px;
 }
-/* Big pink play button */
+/* Pulsing play button */
 .tt-play{
-  width:68px;height:68px;border-radius:50%;
+  position:relative;z-index:2;
+  width:72px;height:72px;border-radius:50%;
   background:linear-gradient(135deg,var(--pink),#9B1DFF);
   display:flex;align-items:center;justify-content:center;
-  box-shadow:0 0 32px rgba(255,61,127,.6);
-  transition:transform .25s,box-shadow .25s;
+  animation:playPulse 2.2s ease-in-out infinite;
   flex-shrink:0;
 }
-.tt-thumb:hover .tt-play{transform:scale(1.1);box-shadow:0 0 50px rgba(255,61,127,.8)}
-.tt-play svg{width:28px;height:28px;fill:#fff;margin-left:4px}
-/* The actual embed iframe — sits above fallback */
-.tt-video-wrap iframe{
-  position:absolute;inset:0;
-  width:100%;height:100%;
-  border:none;border-radius:16px;
-  display:block;
-  z-index:2;
+@keyframes playPulse{
+  0%{box-shadow:0 0 0 0 rgba(255,61,127,.7)}
+  60%{box-shadow:0 0 0 20px rgba(255,61,127,0)}
+  100%{box-shadow:0 0 0 0 rgba(255,61,127,0)}
 }
+.tt-thumb:hover .tt-play{transform:scale(1.1)}
+.tt-play svg{width:30px;height:30px;fill:#fff;margin-left:5px}
+/* Watch label at bottom */
+.tt-watch-lbl{
+  position:absolute;bottom:16px;left:0;right:0;z-index:2;
+  text-align:center;
+  font-size:.78rem;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;
+  color:rgba(255,255,255,.7);
+}
+
+/* CTA button */
 .tt-cta-btn{
   display:flex;align-items:center;justify-content:center;gap:9px;
   width:100%;
@@ -140,6 +156,8 @@ nav.stuck{background:rgba(13,10,26,.85);backdrop-filter:blur(24px);-webkit-backd
 .scroll-cue span{font-size:.58rem;letter-spacing:3px;text-transform:uppercase;font-weight:700}
 .scroll-arrow{width:18px;height:18px;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(45deg)}
 @keyframes scuePulse{0%,100%{opacity:.2;transform:translateX(-50%) translateY(0)}50%{opacity:.55;transform:translateX(-50%) translateY(6px)}}
+
+/* ─── GIRLS ─── */
 .girls-sec{background:var(--dark2)}
 .girls-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 0% 50%,rgba(255,61,127,.07) 0%,transparent 60%)}
 .girls-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:40px}
@@ -157,6 +175,8 @@ nav.stuck{background:rgba(13,10,26,.85);backdrop-filter:blur(24px);-webkit-backd
 .story-txt strong{color:var(--pink)}
 .arsenal-badge{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,rgba(255,61,127,.12),rgba(0,229,204,.07));border:1px solid rgba(255,61,127,.28);border-radius:28px;padding:8px 18px;font-size:.8rem;font-weight:700;color:rgba(255,255,255,.88);margin-top:18px;animation:arsenalGlow 3s ease-in-out infinite alternate}
 @keyframes arsenalGlow{from{box-shadow:0 0 10px rgba(255,61,127,.1)}to{box-shadow:0 0 24px rgba(255,61,127,.35)}}
+
+/* ─── PRODUCTS ─── */
 .products-sec{background:linear-gradient(180deg,var(--dark) 0%,var(--dark3) 100%)}
 .bento{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .p-card{background:var(--glass);border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:34px 26px 26px;backdrop-filter:blur(18px);position:relative;overflow:hidden;cursor:pointer;transition:box-shadow .3s}
@@ -175,6 +195,8 @@ nav.stuck{background:rgba(13,10,26,.85);backdrop-filter:blur(24px);-webkit-backd
 @keyframes sparkBorder{from{opacity:0}to{opacity:1}}
 .sparkle-top{position:absolute;top:14px;right:14px;font-size:1.2rem;animation:sparkPop 2.5s ease-in-out infinite}
 @keyframes sparkPop{0%,100%{transform:scale(1) rotate(0)}50%{transform:scale(1.35) rotate(18deg)}}
+
+/* ─── DREAM ─── */
 .dream-sec{background:#000;position:relative;overflow:hidden;min-height:95svh;display:flex;align-items:center;text-align:center}
 .dream-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 75% 65% at 50% 50%,rgba(255,61,127,.09) 0%,transparent 70%);animation:dreamPulse 8s ease-in-out infinite alternate}
 @keyframes dreamPulse{from{opacity:.5;transform:scale(1)}to{opacity:1;transform:scale(1.06)}}
@@ -190,21 +212,49 @@ nav.stuck{background:rgba(13,10,26,.85);backdrop-filter:blur(24px);-webkit-backd
 @keyframes dotRing{0%,100%{transform:scale(1);opacity:.4}50%{transform:scale(1.6);opacity:0}}
 .dream-sub{font-family:'Pacifico',cursive;font-size:clamp(1rem,3.5vw,1.5rem);color:rgba(255,255,255,.7);margin-bottom:24px}
 .dream-counter{font-family:'Bebas Neue',cursive;font-size:clamp(2rem,6vw,3.5rem);color:var(--gold);text-shadow:0 0 30px rgba(255,215,0,.4);margin-bottom:32px;letter-spacing:2px}
+
+/* ─── FOOTER ─── */
 footer{position:relative;z-index:10;background:var(--dark);border-top:1px solid rgba(255,255,255,.05);padding:44px 24px 80px;text-align:center}
 footer::before{content:'';position:absolute;top:0;left:0;right:0;height:150px;background:radial-gradient(ellipse 50% 100% at 50% 0%,rgba(255,61,127,.05) 0%,transparent 70%)}
-.foot-logo{font-family:'Pacifico',cursive;font-size:2rem;color:var(--pink);text-shadow:0 0 25px var(--pink-glow);margin-bottom:8px}
+.foot-logo-wrap{display:flex;flex-direction:column;align-items:center;gap:10px;margin-bottom:12px}
+.foot-logo-img{width:80px;height:80px;border-radius:50%;object-fit:cover;box-shadow:0 0 20px rgba(255,61,127,.4),0 0 50px rgba(255,61,127,.15)}
+.foot-logo-text{font-family:'Pacifico',cursive;font-size:1.4rem;color:var(--pink);text-shadow:0 0 20px var(--pink-glow)}
 .foot-tt{display:inline-flex;align-items:center;gap:7px;background:linear-gradient(135deg,var(--pink),#9B1DFF);color:#fff;font-weight:800;font-size:.88rem;padding:10px 24px;border-radius:50px;text-decoration:none;box-shadow:0 0 24px var(--pink-glow);transition:all .3s;margin:12px 0}
 .foot-tt:hover{transform:translateY(-3px)}
 .foot-meta{font-size:.74rem;color:rgba(255,255,255,.25);line-height:2}
-@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:28px}.hero-left{align-items:center;text-align:center}.badge-row{justify-content:center}.hero-btns{justify-content:center}.tt-video-wrap{min-height:420px}.girls-grid{grid-template-columns:1fr}.bento{grid-template-columns:1fr}.p-card.large,.p-card.wide{grid-row:auto;grid-column:auto}}
-@media(max-width:600px){nav{padding:13px 16px}.brand-name{font-size:clamp(3.8rem,17vw,5.5rem)}.tt-video-wrap{min-height:340px}.world-wrap{height:220px}}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:28px}
+  .hero-left{align-items:center;text-align:center}
+  .badge-row{justify-content:center}
+  .hero-btns{justify-content:center}
+  .tt-thumb{height:400px}
+  .girls-grid{grid-template-columns:1fr}
+  .bento{grid-template-columns:1fr}
+  .p-card.large,.p-card.wide{grid-row:auto;grid-column:auto}
+}
+@media(max-width:600px){
+  nav{padding:10px 16px}
+  .nav-logo-text{display:none}
+  .brand-name{font-size:clamp(3.8rem,17vw,5.5rem)}
+  .tt-thumb{height:320px}
+  .world-wrap{height:220px}
+}
 </style>
 </head>
 <body>
 <div class="mesh"></div>
 <div id="particles-js"></div>
+
+<!-- NAV -->
 <nav id="nav">
-  <a class="nav-logo" href="#">🎀 Pretty Accessories</a>
+  <a class="nav-logo" href="#">
+    <img class="nav-logo-img"
+         src="https://storage.googleapis.com/wttus/assets/1094068/images/Untitled_design__8_.png"
+         alt="Pretty Accessories logo">
+    <span class="nav-logo-text">Pretty Accessories</span>
+  </a>
   <div class="nav-r">
     <div class="lang-wrap">
       <button class="lb on" id="lb-es" onclick="setLang('es')">🇵🇷 ES</button>
@@ -214,6 +264,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:150px;ba
   </div>
 </nav>
 
+<!-- HERO -->
 <section class="hero section" id="hero">
   <div class="hero-grid">
     <div class="hero-left">
@@ -234,33 +285,18 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:150px;ba
       </div>
     </div>
 
-    <!-- TikTok card: video + one button -->
+    <!-- TikTok card: thumbnail + button ONLY. No iframe. -->
     <div class="tt-card">
-      <div class="tt-video-wrap" id="tt-video-wrap">
-
-        <!-- FALLBACK THUMBNAIL — shows if iframe blocked -->
-        <a class="tt-thumb" id="tt-thumb"
-           href="https://www.tiktok.com/@pretty.accessorie7/video/7608660505602919711"
-           target="_blank">
-          <div class="tt-play">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M8 5v14l11-7z"/>
-            </svg>
-          </div>
-          <div class="tt-thumb-title">Yo y las que hacemos pulseras 😍</div>
-          <div class="tt-thumb-handle">@pretty.accessorie7 · Ver en TikTok</div>
-        </a>
-
-        <!-- IFRAME — autoplay muted, stacked on top of fallback -->
-        <iframe
-          id="tt-iframe"
-          src="https://www.tiktok.com/embed/v2/7608660505602919711?autoplay=1&muted=1"
-          allowfullscreen
-          allow="autoplay; encrypted-media"
-          scrolling="no">
-        </iframe>
-
-      </div>
+      <a class="tt-thumb"
+         href="https://www.tiktok.com/@pretty.accessorie7/video/7608660505602919711"
+         target="_blank">
+        <div class="tt-thumb-bg" id="tt-thumb-bg"></div>
+        <div class="tt-thumb-overlay"></div>
+        <div class="tt-play">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div class="tt-watch-lbl t" data-es="▶ Ver en TikTok" data-en="▶ Watch on TikTok">▶ Ver en TikTok</div>
+      </a>
       <a class="tt-cta-btn t"
          href="https://www.tiktok.com/@pretty.accessorie7"
          target="_blank"
@@ -274,6 +310,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:150px;ba
   <div class="scroll-cue"><span>scroll</span><div class="scroll-arrow"></div></div>
 </section>
 
+<!-- GIRLS -->
 <section class="section girls-sec" id="girls" data-aos="fade-up">
   <div class="s-in">
     <span class="eyebrow t" data-es="Quiénes Somos · Puerto Rico 🇵🇷" data-en="Who We Are · Puerto Rico 🇵🇷">Quiénes Somos · Puerto Rico 🇵🇷</span>
@@ -307,6 +344,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:150px;ba
   </div>
 </section>
 
+<!-- PRODUCTS -->
 <section class="section products-sec" id="products" data-aos="fade-up">
   <div class="s-in">
     <span class="eyebrow t" data-es="Lo Que Vendemos · Hecho a Mano 🇵🇷" data-en="What We Sell · Handmade in PR 🇵🇷">Lo Que Vendemos · Hecho a Mano 🇵🇷</span>
@@ -338,6 +376,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:150px;ba
   </div>
 </section>
 
+<!-- DREAM -->
 <section class="section dream-sec" id="dream">
   <div class="dream-in">
     <span class="eyebrow t" data-es="El Sueño · Un Spike a la Vez" data-en="The Dream · One Spike at a Time">El Sueño · Un Spike a la Vez</span>
@@ -365,8 +404,14 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:150px;ba
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
-  <div class="foot-logo">🎀 Pretty Accessories</div>
+  <div class="foot-logo-wrap">
+    <img class="foot-logo-img"
+         src="https://storage.googleapis.com/wttus/assets/1094068/images/Untitled_design__8_.png"
+         alt="Pretty Accessories logo">
+    <span class="foot-logo-text">Pretty Accessories</span>
+  </div>
   <a class="foot-tt" href="https://www.tiktok.com/@pretty.accessorie7" target="_blank">📱 @pretty.accessorie7</a>
   <div class="foot-meta">
     <p class="t" data-es="Hecho con 💕 en Puerto Rico 🇵🇷" data-en="Made with 💕 in Puerto Rico 🇵🇷">Hecho con 💕 en Puerto Rico 🇵🇷</p>
@@ -394,34 +439,41 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:150px;ba
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <script>
+/* ── LANG ── */
 let lang='es';
 function setLang(l){lang=l;document.documentElement.lang=l;document.getElementById('lb-es').classList.toggle('on',l==='es');document.getElementById('lb-en').classList.toggle('on',l==='en');document.querySelectorAll('[data-'+l+']').forEach(el=>{el.innerHTML=el.getAttribute('data-'+l);});}
+
+/* ── NAV SCROLL ── */
 window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('stuck',window.scrollY>50);});
+
+/* ── 3D PARALLAX ── */
 const t3d=document.getElementById('t3d');
 window.addEventListener('mousemove',e=>{if(window.innerWidth<600)return;const cx=window.innerWidth/2,cy=window.innerHeight/2;t3d.style.transform=`rotateX(${((e.clientY-cy)/cy)*-11}deg) rotateY(${((e.clientX-cx)/cx)*11}deg)`;t3d.style.transition='transform .06s linear';});
 document.addEventListener('mouseleave',()=>{t3d.style.transition='transform .9s cubic-bezier(.16,1,.3,1)';t3d.style.transform='';});
+
+/* ── PARTICLES ── */
 particlesJS('particles-js',{particles:{number:{value:80,density:{enable:true,value_area:900}},color:{value:['#FF3D7F','#00E5CC','#FFD700','#C026D3','#fff']},shape:{type:'star'},opacity:{value:.5,random:true,anim:{enable:true,speed:1,opacity_min:.1,sync:false}},size:{value:3,random:true,anim:{enable:true,speed:2,size_min:.5,sync:false}},line_linked:{enable:false},move:{enable:true,speed:1.1,direction:'top',random:true,straight:false,out_mode:'out'}},interactivity:{detect_on:'canvas',events:{onhover:{enable:true,mode:'bubble'},onclick:{enable:true,mode:'repulse'},resize:true},modes:{bubble:{distance:180,size:5,duration:2,opacity:.8},repulse:{distance:130,duration:.4}}},retina_detect:true});
+
+/* ── TILT & AOS ── */
 VanillaTilt.init(document.querySelectorAll('[data-tilt]'),{max:13,speed:400,glare:true,'max-glare':.18,gyroscope:true,perspective:850});
 AOS.init({duration:780,once:true,offset:55,easing:'ease-out-cubic'});
 
-/* If iframe loads successfully, hide the fallback thumbnail behind it */
-const ttIframe = document.getElementById('tt-iframe');
-const ttThumb  = document.getElementById('tt-thumb');
-if(ttIframe){
-  ttIframe.addEventListener('load', () => {
-    if(ttThumb) ttThumb.style.pointerEvents = 'none';
-  });
-  /* Safety net: if no load event in 7s, keep fallback visible and clickable */
-  setTimeout(() => {
-    try {
-      const doc = ttIframe.contentDocument || ttIframe.contentWindow.document;
-      if (!doc || doc.body.innerHTML === '') {
-        ttIframe.style.display = 'none';
+/* ── TIKTOK OEMBED THUMBNAIL ── */
+(function(){
+  const bg = document.getElementById('tt-thumb-bg');
+  if(!bg) return;
+  const videoUrl = 'https://www.tiktok.com/@pretty.accessorie7/video/7608660505602919711';
+  fetch('https://www.tiktok.com/oembed?url=' + encodeURIComponent(videoUrl))
+    .then(r => r.json())
+    .then(data => {
+      if(data && data.thumbnail_url){
+        bg.style.backgroundImage = 'url(' + data.thumbnail_url + ')';
       }
-    } catch(e) { /* cross-origin — iframe loaded fine, do nothing */ }
-  }, 7000);
-}
+    })
+    .catch(()=>{}); /* silent — fallback gradient already in CSS */
+})();
 
+/* ── WORLD MAP DOTS ── */
 const DOTS=[{x:26.5,y:41.5,done:true},{x:20,y:33},{x:24.5,y:40.5},{x:26,y:56},{x:46,y:26},{x:50,y:24},{x:83,y:25},{x:54,y:52},{x:80,y:68}];
 let shown=0;
 function showDots(){const wrap=document.getElementById('world-wrap');DOTS.forEach((c,i)=>{setTimeout(()=>{const d=document.createElement('div');d.className='map-dot'+(c.done?' done':'');d.style.cssText=`left:${c.x}%;top:${c.y}%;color:${c.done?'#FFD700':'#00E5CC'}`;wrap.appendChild(d);shown++;const el=document.getElementById('count-num');if(el)el.textContent=shown;},i*280);});}
