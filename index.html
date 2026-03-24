@@ -16,4 +16,389 @@ html{scroll-behavior:smooth}
 body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--dark);color:#fff;overflow-x:hidden}
 ::selection{background:var(--pink);color:#fff}
 .mesh{position:fixed;inset:0;z-index:0;pointer-events:none}
-.mesh::before,.mesh::after{content:'';position
+.mesh::before,.mesh::after{content:'';position:absolute;border-radius:50%;filter:blur(80px);animation:meshDrift 20s ease-in-out infinite alternate}
+.mesh::before{width:70%;height:70%;top:-20%;left:-20%;background:radial-gradient(ellipse,rgba(255,61,127,.18) 0%,transparent 70%);animation-duration:18s}
+.mesh::after{width:60%;height:60%;bottom:-20%;right:-20%;background:radial-gradient(ellipse,rgba(0,229,204,.14) 0%,transparent 70%);animation-duration:22s;animation-direction:alternate-reverse}
+@keyframes meshDrift{0%{transform:translate(0,0) scale(1)}50%{transform:translate(5%,5%) scale(1.1)}100%{transform:translate(-5%,3%) scale(.95)}}
+#particles-js{position:fixed;inset:0;z-index:1;pointer-events:none}
+nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;transition:all .4s}
+nav.stuck{background:rgba(13,10,26,.85);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);box-shadow:0 1px 0 rgba(255,255,255,.06);padding:12px 24px}
+.nav-logo{font-family:'Pacifico',cursive;font-size:1.1rem;color:var(--pink);text-decoration:none;text-shadow:0 0 20px var(--pink-glow);letter-spacing:.5px}
+.nav-r{display:flex;align-items:center;gap:10px}
+.lang-wrap{display:flex;align-items:center;background:var(--glass);border:1px solid rgba(255,255,255,.12);border-radius:28px;padding:3px;backdrop-filter:blur(12px)}
+.lb{background:none;border:none;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;font-size:.72rem;font-weight:800;letter-spacing:.6px;color:rgba(255,255,255,.4);padding:5px 12px;border-radius:22px;transition:all .25s;text-transform:uppercase}
+.lb.on{background:var(--pink);color:#fff;box-shadow:0 0 14px var(--pink-glow)}
+.nav-tt{display:flex;align-items:center;gap:6px;background:linear-gradient(135deg,var(--pink),#9B1DFF);color:#fff;font-weight:800;font-size:.76rem;letter-spacing:.3px;padding:8px 15px;border-radius:22px;text-decoration:none;box-shadow:0 4px 16px var(--pink-glow);transition:all .25s;border:none;cursor:pointer}
+.nav-tt:hover{transform:translateY(-2px);box-shadow:0 8px 26px var(--pink-glow)}
+.section{position:relative;z-index:10;padding:90px 24px}
+.s-in{max-width:1100px;margin:0 auto}
+.eyebrow{font-size:.68rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--pink);margin-bottom:10px;display:block}
+.s-head{font-family:'Bebas Neue',cursive;font-size:clamp(2.6rem,7vw,5rem);line-height:.94;letter-spacing:1px;margin-bottom:14px}
+.sdiv{width:50px;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--pink),var(--mint));margin-bottom:36px}
+.btn-hot{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--pink),#9B1DFF);color:#fff;font-weight:800;font-size:.92rem;letter-spacing:.3px;padding:13px 30px;border-radius:50px;text-decoration:none;border:none;cursor:pointer;box-shadow:0 0 28px var(--pink-glow);transition:all .3s;position:relative;overflow:hidden}
+.btn-hot::after{content:'';position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.22) 50%,transparent 65%);background-size:200% 100%;transform:translateX(-100%);transition:transform .6s}
+.btn-hot:hover::after{transform:translateX(100%)}
+.btn-hot:hover{transform:translateY(-3px);box-shadow:0 0 50px var(--pink-glow)}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;background:var(--glass);border:1.5px solid rgba(0,229,204,.35);color:var(--mint);font-weight:800;font-size:.92rem;letter-spacing:.3px;padding:13px 30px;border-radius:50px;text-decoration:none;cursor:pointer;backdrop-filter:blur(12px);box-shadow:0 0 18px var(--mint-glow);transition:all .3s}
+.btn-ghost:hover{background:rgba(0,229,204,.12);transform:translateY(-3px);box-shadow:0 0 36px var(--mint-glow)}
+.hero{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:110px 24px 80px}
+.hero::before{content:'';position:absolute;inset:0;z-index:0;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse at center,black 0%,transparent 72%)}
+.hero-grid{display:grid;grid-template-columns:1fr 420px;gap:48px;align-items:start;width:100%;max-width:1100px;position:relative;z-index:2}
+.hero-left{display:flex;flex-direction:column;align-items:flex-start;position:sticky;top:100px}
+.badge-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.badge{background:var(--glass);border:1px solid rgba(255,255,255,.13);border-radius:28px;padding:5px 14px;font-size:.68rem;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:rgba(255,255,255,.8);backdrop-filter:blur(12px);animation:badgeFloat 5s ease-in-out infinite alternate}
+.badge:nth-child(2){animation-delay:.7s}
+@keyframes badgeFloat{from{transform:translateY(0)}to{transform:translateY(-6px)}}
+#t3d{perspective:1000px;transform-style:preserve-3d;margin-bottom:18px;cursor:default}
+.brand-name{font-family:'Bebas Neue',cursive;font-size:clamp(4rem,11vw,8.5rem);line-height:.88;letter-spacing:3px;transform-style:preserve-3d;display:block}
+.bn-line1{display:block;color:#fff;text-shadow:0 0 40px var(--pink-glow),5px 7px 0 rgba(0,0,0,.5)}
+.bn-line2{display:block;background:linear-gradient(135deg,var(--pink) 0%,#C026D3 50%,var(--mint) 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:nameShimmer 4s linear infinite;filter:drop-shadow(0 0 28px var(--pink-glow))}
+@keyframes nameShimmer{0%{background-position:0% center}100%{background-position:200% center}}
+.hero-tagline{font-size:clamp(.95rem,2.8vw,1.35rem);color:rgba(255,255,255,.72);font-weight:600;letter-spacing:.3px;margin-bottom:32px}
+.hero-btns{display:flex;flex-wrap:wrap;gap:12px}
+
+/* ═══ TT-CARD: CLEAN VIDEO + BUTTON ═══ */
+.tt-card{
+  background:rgba(255,255,255,.05);
+  border:1.5px solid rgba(255,61,127,.25);
+  border-radius:24px;
+  padding:14px 14px 14px;
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  animation:cardGlow 4s ease-in-out infinite alternate;
+}
+@keyframes cardGlow{
+  from{box-shadow:0 0 20px rgba(255,61,127,.08),0 8px 32px rgba(0,0,0,.4)}
+  to{box-shadow:0 0 40px rgba(255,61,127,.2),0 8px 40px rgba(0,0,0,.5)}
+}
+.tt-video-wrap{
+  border-radius:16px;
+  overflow:hidden;
+  background:#000;
+  line-height:0;
+  flex:1;
+}
+.tt-video-wrap iframe{
+  width:100%;
+  height:520px;
+  border:none;
+  border-radius:16px;
+  display:block;
+}
+.tt-cta{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  background:linear-gradient(135deg,var(--pink),#9B1DFF);
+  color:#fff;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-weight:800;
+  font-size:.92rem;
+  letter-spacing:.3px;
+  padding:14px 20px;
+  border-radius:14px;
+  text-decoration:none;
+  box-shadow:0 0 24px rgba(255,61,127,.35);
+  transition:all .3s;
+  position:relative;
+  overflow:hidden;
+  flex-shrink:0;
+}
+.tt-cta::after{
+  content:'';
+  position:absolute;inset:0;
+  background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.2) 50%,transparent 65%);
+  background-size:200% 100%;
+  transform:translateX(-100%);
+  transition:transform .6s;
+}
+.tt-cta:hover::after{transform:translateX(100%)}
+.tt-cta:hover{transform:translateY(-2px);box-shadow:0 0 40px rgba(255,61,127,.55)}
+
+.scroll-cue{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:5px;opacity:.35;animation:scuePulse 2.5s ease-in-out infinite}
+.scroll-cue span{font-size:.58rem;letter-spacing:3px;text-transform:uppercase;font-weight:700}
+.scroll-arrow{width:18px;height:18px;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(45deg)}
+@keyframes scuePulse{0%,100%{opacity:.2;transform:translateX(-50%) translateY(0)}50%{opacity:.55;transform:translateX(-50%) translateY(6px)}}
+.girls-sec{background:var(--dark2)}
+.girls-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 0% 50%,rgba(255,61,127,.07) 0%,transparent 60%)}
+.girls-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:40px}
+.g-card{background:var(--glass);border:1px solid rgba(255,255,255,.08);border-radius:22px;padding:30px 22px;backdrop-filter:blur(18px);position:relative;overflow:hidden;cursor:pointer;transition:box-shadow .3s}
+.g-card::before{content:'';position:absolute;inset:-1px;border-radius:22px;background:linear-gradient(135deg,rgba(255,61,127,0),rgba(255,61,127,.5),rgba(0,229,204,0));opacity:0;transition:opacity .4s;z-index:-1}
+.g-card:hover::before{opacity:1}
+.g-card:hover{box-shadow:0 0 40px rgba(255,61,127,.18)}
+.g-emo{font-size:2.6rem;margin-bottom:12px;display:block}
+.g-name{font-family:'Bebas Neue',cursive;font-size:1.8rem;color:#fff;line-height:1;margin-bottom:4px}
+.g-city{font-size:.68rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--mint);margin-bottom:10px}
+.g-bio{font-size:.85rem;line-height:1.65;color:rgba(255,255,255,.62)}
+.g-glow{position:absolute;bottom:-20px;right:-20px;width:90px;height:90px;border-radius:50%;filter:blur(35px);opacity:.3;background:var(--pink);pointer-events:none}
+.story-box{background:var(--glass);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:32px 30px;backdrop-filter:blur(18px);border-left:4px solid var(--pink)}
+.story-txt{font-size:1rem;line-height:1.85;color:rgba(255,255,255,.78)}
+.story-txt strong{color:var(--pink)}
+.arsenal-badge{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,rgba(255,61,127,.12),rgba(0,229,204,.07));border:1px solid rgba(255,61,127,.28);border-radius:28px;padding:8px 18px;font-size:.8rem;font-weight:700;color:rgba(255,255,255,.88);margin-top:18px;animation:arsenalGlow 3s ease-in-out infinite alternate}
+@keyframes arsenalGlow{from{box-shadow:0 0 10px rgba(255,61,127,.1)}to{box-shadow:0 0 24px rgba(255,61,127,.35)}}
+.products-sec{background:linear-gradient(180deg,var(--dark) 0%,var(--dark3) 100%)}
+.bento{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.p-card{background:var(--glass);border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:34px 26px 26px;backdrop-filter:blur(18px);position:relative;overflow:hidden;cursor:pointer;transition:box-shadow .3s}
+.p-card:hover{box-shadow:0 20px 55px rgba(0,0,0,.5)}
+.p-card.large{grid-row:span 2}
+.p-card.wide{grid-column:span 2}
+.p-glow{position:absolute;top:-40px;right:-40px;width:150px;height:150px;border-radius:50%;filter:blur(50px);opacity:.25;pointer-events:none}
+.p-card.pink .p-glow{background:var(--pink)}.p-card.mint .p-glow{background:var(--mint)}.p-card.gold .p-glow{background:var(--gold)}
+.p-icon{font-size:2.8rem;margin-bottom:14px;display:block}
+.p-card.pink .p-icon{filter:drop-shadow(0 0 16px var(--pink))}.p-card.mint .p-icon{filter:drop-shadow(0 0 16px var(--mint))}.p-card.gold .p-icon{filter:drop-shadow(0 0 16px var(--gold))}
+.p-name{font-family:'Bebas Neue',cursive;font-size:1.9rem;color:#fff;line-height:1;margin-bottom:8px}
+.p-desc{font-size:.86rem;line-height:1.65;color:rgba(255,255,255,.6);margin-bottom:20px}
+.p-btn{display:inline-flex;align-items:center;gap:6px;background:none;border:1.5px solid rgba(255,255,255,.2);color:#fff;font-size:.77rem;font-weight:800;letter-spacing:.5px;padding:8px 18px;border-radius:24px;text-decoration:none;cursor:pointer;transition:all .25s}
+.p-card.pink .p-btn:hover{border-color:var(--pink);color:var(--pink)}.p-card.mint .p-btn:hover{border-color:var(--mint);color:var(--mint)}.p-card.gold .p-btn:hover{border-color:var(--gold);color:var(--gold)}
+.p-card.large::after{content:'';position:absolute;inset:0;border-radius:24px;background:linear-gradient(135deg,rgba(255,61,127,.3),transparent 40%,transparent 60%,rgba(255,61,127,.3));opacity:0;animation:sparkBorder 3s ease-in-out infinite alternate;pointer-events:none}
+@keyframes sparkBorder{from{opacity:0}to{opacity:1}}
+.sparkle-top{position:absolute;top:14px;right:14px;font-size:1.2rem;animation:sparkPop 2.5s ease-in-out infinite}
+@keyframes sparkPop{0%,100%{transform:scale(1) rotate(0)}50%{transform:scale(1.35) rotate(18deg)}}
+.dream-sec{background:#000;position:relative;overflow:hidden;min-height:95svh;display:flex;align-items:center;text-align:center}
+.dream-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 75% 65% at 50% 50%,rgba(255,61,127,.09) 0%,transparent 70%);animation:dreamPulse 8s ease-in-out infinite alternate}
+@keyframes dreamPulse{from{opacity:.5;transform:scale(1)}to{opacity:1;transform:scale(1.06)}}
+.dream-in{position:relative;z-index:2;padding:80px 24px;max-width:900px;margin:0 auto;width:100%}
+.dream-head{font-family:'Bebas Neue',cursive;font-size:clamp(3.5rem,14vw,9rem);line-height:.9;letter-spacing:2px;background:linear-gradient(135deg,#fff 0%,var(--pink) 35%,var(--gold) 70%,var(--mint) 100%);background-size:300% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:dreamShimmer 6s linear infinite;margin-bottom:32px}
+@keyframes dreamShimmer{0%{background-position:0% center}100%{background-position:300% center}}
+.world-wrap{position:relative;width:100%;max-width:680px;margin:0 auto 28px;height:320px}
+.world-svg{width:100%;height:100%;opacity:.18;filter:drop-shadow(0 0 12px rgba(0,229,204,.25))}
+.map-dot{position:absolute;width:12px;height:12px;border-radius:50%;background:var(--mint);box-shadow:0 0 12px var(--mint-glow);opacity:0;animation:dotAppear .6s ease forwards;transform:translate(-50%,-50%)}
+.map-dot.done{background:var(--gold);box-shadow:0 0 12px rgba(255,215,0,.6)}
+@keyframes dotAppear{from{opacity:0;transform:translate(-50%,-50%) scale(0)}to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+.map-dot::after{content:'';position:absolute;inset:-6px;border-radius:50%;border:1.5px solid currentColor;opacity:.4;animation:dotRing 2s ease-in-out infinite}
+@keyframes dotRing{0%,100%{transform:scale(1);opacity:.4}50%{transform:scale(1.6);opacity:0}}
+.dream-sub{font-family:'Pacifico',cursive;font-size:clamp(1rem,3.5vw,1.5rem);color:rgba(255,255,255,.7);margin-bottom:24px}
+.dream-counter{font-family:'Bebas Neue',cursive;font-size:clamp(2rem,6vw,3.5rem);color:var(--gold);text-shadow:0 0 30px rgba(255,215,0,.4);margin-bottom:32px;letter-spacing:2px}
+footer{position:relative;z-index:10;background:var(--dark);border-top:1px solid rgba(255,255,255,.05);padding:44px 24px 80px;text-align:center}
+footer::before{content:'';position:absolute;top:0;left:0;right:0;height:150px;background:radial-gradient(ellipse 50% 100% at 50% 0%,rgba(255,61,127,.05) 0%,transparent 70%)}
+.foot-logo{font-family:'Pacifico',cursive;font-size:2rem;color:var(--pink);text-shadow:0 0 25px var(--pink-glow);margin-bottom:8px}
+.foot-tt{display:inline-flex;align-items:center;gap:7px;background:linear-gradient(135deg,var(--pink),#9B1DFF);color:#fff;font-weight:800;font-size:.88rem;padding:10px 24px;border-radius:50px;text-decoration:none;box-shadow:0 0 24px var(--pink-glow);transition:all .3s;margin:12px 0}
+.foot-tt:hover{transform:translateY(-3px)}
+.foot-meta{font-size:.74rem;color:rgba(255,255,255,.25);line-height:2}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:28px}.hero-left{align-items:center;text-align:center;position:static}.badge-row{justify-content:center}.hero-btns{justify-content:center}.tt-video-wrap iframe{height:380px}.girls-grid{grid-template-columns:1fr}.bento{grid-template-columns:1fr}.p-card.large,.p-card.wide{grid-row:auto;grid-column:auto}}
+@media(max-width:600px){nav{padding:13px 16px}.brand-name{font-size:clamp(3.8rem,17vw,5.5rem)}.tt-video-wrap iframe{height:300px}.world-wrap{height:220px}}
+</style>
+</head>
+<body>
+<div class="mesh"></div>
+<div id="particles-js"></div>
+
+<nav id="nav">
+  <a class="nav-logo" href="#">🎀 Pretty Accessories</a>
+  <div class="nav-r">
+    <div class="lang-wrap">
+      <button class="lb on" id="lb-es" onclick="setLang('es')">🇵🇷 ES</button>
+      <button class="lb" id="lb-en" onclick="setLang('en')">🇺🇸 EN</button>
+    </div>
+    <a class="nav-tt" href="https://www.tiktok.com/@pretty.accessorie7" target="_blank">🎵 TikTok</a>
+  </div>
+</nav>
+
+<section class="hero section" id="hero">
+  <div class="hero-grid">
+    <div class="hero-left">
+      <div class="badge-row">
+        <span class="badge">🏐 Club Arsenal Arecibo</span>
+        <span class="badge">🇵🇷 Hatillo &amp; Camuy PR</span>
+      </div>
+      <div id="t3d">
+        <div class="brand-name">
+          <span class="bn-line1">PRETTY</span>
+          <span class="bn-line2">ACCESSORIES</span>
+        </div>
+      </div>
+      <p class="hero-tagline t" data-es="De la cancha al mundo. 🏐🌍" data-en="From the court to the world. 🏐🌍">De la cancha al mundo. 🏐🌍</p>
+      <div class="hero-btns">
+        <a class="btn-hot t" href="#products" data-es="Ver Productos ✨" data-en="See Products ✨">Ver Productos ✨</a>
+        <a class="btn-ghost t" href="https://www.tiktok.com/@pretty.accessorie7" target="_blank" data-es="Síguenos en TikTok 🎵" data-en="Follow on TikTok 🎵">Síguenos en TikTok 🎵</a>
+      </div>
+    </div>
+
+    <!-- TikTok card: video + one button -->
+    <div class="tt-card">
+      <div class="tt-video-wrap">
+        <iframe
+          src="https://www.tiktok.com/embed/v2/7608660505602919711"
+          allowfullscreen
+          allow="encrypted-media; autoplay"
+          scrolling="no"
+          loading="lazy">
+        </iframe>
+      </div>
+      <a class="tt-cta t"
+         href="https://www.tiktok.com/@pretty.accessorie7"
+         target="_blank"
+         data-es="Síguenos @pretty.accessorie7 🎵"
+         data-en="Follow @pretty.accessorie7 🎵">
+        Síguenos @pretty.accessorie7 🎵
+      </a>
+    </div>
+
+  </div>
+  <div class="scroll-cue"><span>scroll</span><div class="scroll-arrow"></div></div>
+</section>
+
+<section class="section girls-sec" id="girls" data-aos="fade-up">
+  <div class="s-in">
+    <span class="eyebrow t" data-es="Quiénes Somos · Puerto Rico 🇵🇷" data-en="Who We Are · Puerto Rico 🇵🇷">Quiénes Somos · Puerto Rico 🇵🇷</span>
+    <h2 class="s-head"><span class="t" data-es="TRES ATLETAS.<br>UNA MISIÓN." data-en="THREE ATHLETES.<br>ONE MISSION.">TRES ATLETAS.<br>UNA MISIÓN.</span></h2>
+    <div class="sdiv"></div>
+    <div class="girls-grid">
+      <div class="g-card" data-tilt data-aos="fade-up">
+        <div class="g-glow"></div><span class="g-emo">🌟</span>
+        <div class="g-name">NAILAH</div><div class="g-city">📍 Hatillo, PR</div>
+        <p class="g-bio t" data-es="La fuerza tranquila del equipo — poderosa en la cancha y en el negocio." data-en="The quiet powerhouse — unstoppable on the court and in business.">La fuerza tranquila del equipo — poderosa en la cancha y en el negocio.</p>
+      </div>
+      <div class="g-card" data-tilt data-aos="fade-up" data-aos-delay="100">
+        <div class="g-glow"></div><span class="g-emo">💪</span>
+        <div class="g-name">ARIANA</div><div class="g-city">📍 Camuy, PR</div>
+        <p class="g-bio t" data-es="Emprendedora nata — misma energía en el spike y en la venta." data-en="Born entrepreneur — same fire in the spike and in the sale.">Emprendedora nata — misma energía en el spike y en la venta.</p>
+      </div>
+      <div class="g-card" data-tilt data-aos="fade-up" data-aos-delay="200">
+        <div class="g-glow"></div><span class="g-emo">🏐</span>
+        <div class="g-name">YAIZA</div><div class="g-city">📍 Camuy, PR</div>
+        <p class="g-bio t" data-es="El corazón creativo — siempre lista pa' el próximo torneo y el próximo drop." data-en="The creative heart — always ready for the next tournament and the next drop.">El corazón creativo — siempre lista pa' el próximo torneo y el próximo drop.</p>
+      </div>
+    </div>
+    <div class="story-box" data-aos="fade-up">
+      <p class="story-txt t"
+        data-es="Somos del <strong>Club Arsenal de Arecibo</strong>. Entrenamos duro, competimos en serio, y vendemos accesorios pa' un sueño más grande: jugar volleyball en cada rincón del mundo. Cada bracelet que compras nos acerca más. Wepa. 🏐🌍"
+        data-en="We rep <strong>Club Arsenal de Arecibo</strong>. We train hard, compete seriously, and sell accessories for one bigger dream: playing volleyball in every corner of the world. Every bracelet you buy gets us closer. Wepa. 🏐🌍">
+        Somos del <strong>Club Arsenal de Arecibo</strong>. Entrenamos duro, competimos en serio, y vendemos accesorios pa' un sueño más grande: jugar volleyball en cada rincón del mundo. Cada bracelet que compras nos acerca más. Wepa. 🏐🌍
+      </p>
+      <div class="arsenal-badge">🏐 <span class="t" data-es="Representando Club Arsenal · Arecibo, PR" data-en="Repping Club Arsenal · Arecibo, PR">Representando Club Arsenal · Arecibo, PR</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section products-sec" id="products" data-aos="fade-up">
+  <div class="s-in">
+    <span class="eyebrow t" data-es="Lo Que Vendemos · Hecho a Mano 🇵🇷" data-en="What We Sell · Handmade in PR 🇵🇷">Lo Que Vendemos · Hecho a Mano 🇵🇷</span>
+    <h2 class="s-head t" data-es="LO QUE VENDEMOS 💅" data-en="WHAT WE SELL 💅">LO QUE VENDEMOS 💅</h2>
+    <div class="sdiv"></div>
+    <div class="bento">
+      <div class="p-card pink large" data-tilt data-aos="fade-right">
+        <div class="p-glow"></div><span class="sparkle-top">✨</span>
+        <span class="p-icon">💎</span>
+        <div class="p-name t" data-es="Pulseras Personalizadas ✨" data-en="Custom Bracelets ✨">Pulseras Personalizadas ✨</div>
+        <p class="p-desc t" data-es="Tu nombre. Tus colores. Tu estilo. Hechas a mano con amor Boricua." data-en="Your name. Your colors. Your style. Handmade with Boricua love.">Tu nombre. Tus colores. Tu estilo. Hechas a mano con amor Boricua.</p>
+        <a class="p-btn t" href="https://www.tiktok.com/@pretty.accessorie7" target="_blank" data-es="Pídelo en TikTok →" data-en="Order on TikTok →">Pídelo en TikTok →</a>
+      </div>
+      <div class="p-card mint" data-tilt data-aos="fade-left">
+        <div class="p-glow"></div>
+        <span class="p-icon">💅</span>
+        <div class="p-name t" data-es="Glitter Gel 💅" data-en="Glitter Gel 💅">Glitter Gel 💅</div>
+        <p class="p-desc t" data-es="Brillo pa' la cancha y pa' la vida." data-en="Shine for the court and for life.">Brillo pa' la cancha y pa' la vida.</p>
+        <a class="p-btn t" href="https://www.tiktok.com/@pretty.accessorie7" target="_blank" data-es="Lo quiero ya →" data-en="I want it now →">Lo quiero ya →</a>
+      </div>
+      <div class="p-card gold wide" data-tilt data-aos="fade-up">
+        <div class="p-glow"></div>
+        <span class="p-icon">🛍️</span>
+        <div class="p-name t" data-es="Más drops coming 👀" data-en="More drops coming 👀">Más drops coming 👀</div>
+        <p class="p-desc t" data-es="Síguenos en TikTok pa' ser el primero en saber." data-en="Follow us on TikTok to be the first to know.">Síguenos en TikTok pa' ser el primero en saber.</p>
+        <a class="p-btn t" href="https://www.tiktok.com/@pretty.accessorie7" target="_blank">Follow @pretty.accessorie7 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section dream-sec" id="dream">
+  <div class="dream-in">
+    <span class="eyebrow t" data-es="El Sueño · Un Spike a la Vez" data-en="The Dream · One Spike at a Time">El Sueño · Un Spike a la Vez</span>
+    <h2 class="dream-head t" data-es="EL MUNDO ES NUESTRO 🌍" data-en="THE WORLD IS OURS 🌍">EL MUNDO ES NUESTRO 🌍</h2>
+    <div class="world-wrap" id="world-wrap">
+      <svg class="world-svg" viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="rgba(0,229,204,0.6)" stroke-width="1">
+        <path d="M120 80L220 60L280 80L300 120L280 160L240 200L200 230L170 260L140 300L120 280L100 240L90 180L100 130Z"/>
+        <path d="M200 280L250 270L280 290L290 340L280 400L250 450L220 460L200 440L180 400L175 350L185 300Z"/>
+        <path d="M450 60L520 55L550 75L540 100L510 120L480 130L460 115L440 95Z"/>
+        <path d="M460 140L530 130L560 160L570 220L550 300L520 360L490 380L460 360L440 300L430 220L440 170Z"/>
+        <path d="M550 60L700 50L780 70L820 100L800 150L760 180L700 200L640 210L580 190L550 160L540 120Z"/>
+        <path d="M760 300L840 290L880 320L870 370L840 390L800 380L770 360L755 330Z"/>
+        <path d="M820 90L840 85L855 100L845 115L830 110Z"/>
+        <path d="M440 70L455 65L460 80L450 90L438 85Z"/>
+        <path d="M245 195L265 190L270 200L260 208L248 205Z"/>
+      </svg>
+    </div>
+    <p class="dream-sub t" data-es="Cada compra nos lleva un paso más cerca." data-en="Every purchase takes us one step closer.">Cada compra nos lleva un paso más cerca.</p>
+    <div class="dream-counter">🏐 <span id="count-num">0</span> <span class="t" data-es="países en la lista" data-en="countries on the list">países en la lista</span></div>
+    <a class="btn-hot t" href="https://www.tiktok.com/@pretty.accessorie7" target="_blank"
+       data-es="Apoya el sueño — síguenos en TikTok 🎵"
+       data-en="Support the dream — follow us on TikTok 🎵">
+      Apoya el sueño — síguenos en TikTok 🎵
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-logo">🎀 Pretty Accessories</div>
+  <a class="foot-tt" href="https://www.tiktok.com/@pretty.accessorie7" target="_blank">📱 @pretty.accessorie7</a>
+  <div class="foot-meta">
+    <p class="t" data-es="Hecho con 💕 en Puerto Rico 🇵🇷" data-en="Made with 💕 in Puerto Rico 🇵🇷">Hecho con 💕 en Puerto Rico 🇵🇷</p>
+    <p>Club Arsenal Arecibo 🏐 &nbsp;·&nbsp; © 2025 Pretty Accessories</p>
+  </div>
+</footer>
+
+<script>
+  window.PayMeGPTConfig = {
+    widgetId: '88975005',
+    type: 'voice_launcher',
+    primaryColor: '#FF3D7F',
+    position: 'bottom-right',
+    label: '🎀 Habla con Nena',
+    icon: 'mic',
+    startButtonText: '🎵 Hablar',
+    stopButtonText: 'Parar',
+    theme: 'dark',
+    customFooterText: 'Nena 🎀 — Pretty Accessories'
+  };
+</script>
+<script src="https://paymegpt.com/widget.js" data-config="PayMeGPT"></script>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script>
+let lang='es';
+function setLang(l){
+  lang=l;
+  document.documentElement.lang=l;
+  document.getElementById('lb-es').classList.toggle('on',l==='es');
+  document.getElementById('lb-en').classList.toggle('on',l==='en');
+  document.querySelectorAll('[data-'+l+']').forEach(el=>{el.innerHTML=el.getAttribute('data-'+l);});
+}
+window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('stuck',window.scrollY>50);});
+const t3d=document.getElementById('t3d');
+window.addEventListener('mousemove',e=>{
+  if(window.innerWidth<600)return;
+  const cx=window.innerWidth/2,cy=window.innerHeight/2;
+  t3d.style.transform=`rotateX(${((e.clientY-cy)/cy)*-11}deg) rotateY(${((e.clientX-cx)/cx)*11}deg)`;
+  t3d.style.transition='transform .06s linear';
+});
+document.addEventListener('mouseleave',()=>{t3d.style.transition='transform .9s cubic-bezier(.16,1,.3,1)';t3d.style.transform='';});
+particlesJS('particles-js',{particles:{number:{value:80,density:{enable:true,value_area:900}},color:{value:['#FF3D7F','#00E5CC','#FFD700','#C026D3','#fff']},shape:{type:'star'},opacity:{value:.5,random:true,anim:{enable:true,speed:1,opacity_min:.1,sync:false}},size:{value:3,random:true,anim:{enable:true,speed:2,size_min:.5,sync:false}},line_linked:{enable:false},move:{enable:true,speed:1.1,direction:'top',random:true,straight:false,out_mode:'out'}},interactivity:{detect_on:'canvas',events:{onhover:{enable:true,mode:'bubble'},onclick:{enable:true,mode:'repulse'},resize:true},modes:{bubble:{distance:180,size:5,duration:2,opacity:.8},repulse:{distance:130,duration:.4}}},retina_detect:true});
+VanillaTilt.init(document.querySelectorAll('[data-tilt]'),{max:13,speed:400,glare:true,'max-glare':.18,gyroscope:true,perspective:850});
+AOS.init({duration:780,once:true,offset:55,easing:'ease-out-cubic'});
+const DOTS=[{x:26.5,y:41.5,done:true},{x:20,y:33},{x:24.5,y:40.5},{x:26,y:56},{x:46,y:26},{x:50,y:24},{x:83,y:25},{x:54,y:52},{x:80,y:68}];
+let shown=0;
+function showDots(){
+  const wrap=document.getElementById('world-wrap');
+  DOTS.forEach((c,i)=>{
+    setTimeout(()=>{
+      const d=document.createElement('div');
+      d.className='map-dot'+(c.done?' done':'');
+      d.style.cssText=`left:${c.x}%;top:${c.y}%;color:${c.done?'#FFD700':'#00E5CC'}`;
+      wrap.appendChild(d);
+      shown++;
+      const el=document.getElementById('count-num');
+      if(el)el.textContent=shown;
+    },i*280);
+  });
+}
+new IntersectionObserver((e,o)=>{e.forEach(en=>{if(en.isIntersecting){showDots();o.disconnect();}});},{threshold:.15}).observe(document.getElementById('dream'));
+</script>
+</body>
+</html>
