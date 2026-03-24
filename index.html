@@ -21,18 +21,10 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--dark);color:#ff
 .mesh::after{width:60%;height:60%;bottom:-20%;right:-20%;background:radial-gradient(ellipse,rgba(0,229,204,.14) 0%,transparent 70%);animation-duration:22s;animation-direction:alternate-reverse}
 @keyframes meshDrift{0%{transform:translate(0,0) scale(1)}50%{transform:translate(5%,5%) scale(1.1)}100%{transform:translate(-5%,3%) scale(.95)}}
 #particles-js{position:fixed;inset:0;z-index:1;pointer-events:none}
-
-/* ─── NAV ─── */
 nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;transition:all .4s}
 nav.stuck{background:rgba(13,10,26,.85);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);box-shadow:0 1px 0 rgba(255,255,255,.06)}
 .nav-logo{display:flex;align-items:center;gap:9px;text-decoration:none}
-/* Logo circle — shows image if loaded, pink gradient fallback if blocked */
-.nav-logo-img{
-  width:45px;height:45px;border-radius:50%;object-fit:cover;flex-shrink:0;
-  box-shadow:0 0 15px rgba(255,61,127,.4),0 0 30px rgba(255,61,127,.15);
-  transition:box-shadow .3s;
-  background:linear-gradient(135deg,var(--pink),#9B1DFF); /* fallback bg if img fails */
-}
+.nav-logo-img{width:45px;height:45px;border-radius:50%;object-fit:cover;flex-shrink:0;box-shadow:0 0 15px rgba(255,61,127,.4),0 0 30px rgba(255,61,127,.15);transition:box-shadow .3s;background:linear-gradient(135deg,var(--pink),#9B1DFF)}
 .nav-logo:hover .nav-logo-img{box-shadow:0 0 25px rgba(255,61,127,.6),0 0 50px rgba(255,61,127,.25)}
 .nav-logo-text{font-family:'Pacifico',cursive;font-size:1rem;color:var(--pink);text-shadow:0 0 18px var(--pink-glow);letter-spacing:.5px;white-space:nowrap}
 .nav-r{display:flex;align-items:center;gap:10px}
@@ -41,8 +33,6 @@ nav.stuck{background:rgba(13,10,26,.85);backdrop-filter:blur(24px);-webkit-backd
 .lb.on{background:var(--pink);color:#fff;box-shadow:0 0 14px var(--pink-glow)}
 .nav-tt{display:flex;align-items:center;gap:6px;background:linear-gradient(135deg,var(--pink),#9B1DFF);color:#fff;font-weight:800;font-size:.76rem;letter-spacing:.3px;padding:8px 15px;border-radius:22px;text-decoration:none;box-shadow:0 4px 16px var(--pink-glow);transition:all .25s;border:none;cursor:pointer}
 .nav-tt:hover{transform:translateY(-2px);box-shadow:0 8px 26px var(--pink-glow)}
-
-/* ─── SHARED ─── */
 .section{position:relative;z-index:10;padding:90px 24px}
 .s-in{max-width:1100px;margin:0 auto}
 .eyebrow{font-size:.68rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--pink);margin-bottom:10px;display:block}
@@ -54,8 +44,6 @@ nav.stuck{background:rgba(13,10,26,.85);backdrop-filter:blur(24px);-webkit-backd
 .btn-hot:hover{transform:translateY(-3px);box-shadow:0 0 50px var(--pink-glow)}
 .btn-ghost{display:inline-flex;align-items:center;gap:8px;background:var(--glass);border:1.5px solid rgba(0,229,204,.35);color:var(--mint);font-weight:800;font-size:.92rem;letter-spacing:.3px;padding:13px 30px;border-radius:50px;text-decoration:none;cursor:pointer;backdrop-filter:blur(12px);box-shadow:0 0 18px var(--mint-glow);transition:all .3s}
 .btn-ghost:hover{background:rgba(0,229,204,.12);transform:translateY(-3px);box-shadow:0 0 36px var(--mint-glow)}
-
-/* ─── HERO ─── */
 .hero{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:110px 24px 80px}
 .hero::before{content:'';position:absolute;inset:0;z-index:0;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse at center,black 0%,transparent 72%)}
 .hero-grid{display:grid;grid-template-columns:1fr 400px;gap:48px;align-items:center;width:100%;max-width:1100px;position:relative;z-index:2}
@@ -71,8 +59,6 @@ nav.stuck{background:rgba(13,10,26,.85);backdrop-filter:blur(24px);-webkit-backd
 @keyframes nameShimmer{0%{background-position:0% center}100%{background-position:200% center}}
 .hero-tagline{font-size:clamp(.95rem,2.8vw,1.35rem);color:rgba(255,255,255,.72);font-weight:600;letter-spacing:.3px;margin-bottom:32px}
 .hero-btns{display:flex;flex-wrap:wrap;gap:12px}
-
-/* ─── TT CARD ─── */
 .tt-card{background:rgba(10,5,20,.7);border:1.5px solid rgba(255,61,127,.2);border-radius:24px;padding:12px 12px 16px;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);display:flex;flex-direction:column;gap:12px;animation:cardGlow 4s ease-in-out infinite alternate;}
 @keyframes cardGlow{from{box-shadow:0 0 20px rgba(255,61,127,.08),0 16px 48px rgba(0,0,0,.5)}to{box-shadow:0 0 45px rgba(255,61,127,.2),0 16px 56px rgba(0,0,0,.6)}}
 .tt-thumb{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;border-radius:16px;overflow:hidden;position:relative;height:480px;text-decoration:none;cursor:pointer;background:linear-gradient(160deg,#2a0845 0%,#0D0A1A 55%,#1a0533 100%);}
@@ -88,13 +74,10 @@ nav.stuck{background:rgba(13,10,26,.85);backdrop-filter:blur(24px);-webkit-backd
 .tt-cta-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.15) 50%,transparent 70%);transform:translateX(-100%);transition:transform .7s;}
 .tt-cta-btn:hover::before{transform:translateX(100%)}
 .tt-cta-btn:hover{transform:translateY(-2px);box-shadow:0 0 50px rgba(255,61,127,.6),0 8px 28px rgba(0,0,0,.4)}
-
 .scroll-cue{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:5px;opacity:.35;animation:scuePulse 2.5s ease-in-out infinite}
 .scroll-cue span{font-size:.58rem;letter-spacing:3px;text-transform:uppercase;font-weight:700}
 .scroll-arrow{width:18px;height:18px;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(45deg)}
 @keyframes scuePulse{0%,100%{opacity:.2;transform:translateX(-50%) translateY(0)}50%{opacity:.55;transform:translateX(-50%) translateY(6px)}}
-
-/* ─── GIRLS ─── */
 .girls-sec{background:var(--dark2)}
 .girls-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 0% 50%,rgba(255,61,127,.07) 0%,transparent 60%)}
 .girls-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:40px}
@@ -112,8 +95,6 @@ nav.stuck{background:rgba(13,10,26,.85);backdrop-filter:blur(24px);-webkit-backd
 .story-txt strong{color:var(--pink)}
 .arsenal-badge{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,rgba(255,61,127,.12),rgba(0,229,204,.07));border:1px solid rgba(255,61,127,.28);border-radius:28px;padding:8px 18px;font-size:.8rem;font-weight:700;color:rgba(255,255,255,.88);margin-top:18px;animation:arsenalGlow 3s ease-in-out infinite alternate}
 @keyframes arsenalGlow{from{box-shadow:0 0 10px rgba(255,61,127,.1)}to{box-shadow:0 0 24px rgba(255,61,127,.35)}}
-
-/* ─── PRODUCTS ─── */
 .products-sec{background:linear-gradient(180deg,var(--dark) 0%,var(--dark3) 100%)}
 .bento{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .p-card{background:var(--glass);border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:34px 26px 26px;backdrop-filter:blur(18px);position:relative;overflow:hidden;cursor:pointer;transition:box-shadow .3s}
@@ -132,8 +113,6 @@ nav.stuck{background:rgba(13,10,26,.85);backdrop-filter:blur(24px);-webkit-backd
 @keyframes sparkBorder{from{opacity:0}to{opacity:1}}
 .sparkle-top{position:absolute;top:14px;right:14px;font-size:1.2rem;animation:sparkPop 2.5s ease-in-out infinite}
 @keyframes sparkPop{0%,100%{transform:scale(1) rotate(0)}50%{transform:scale(1.35) rotate(18deg)}}
-
-/* ─── DREAM ─── */
 .dream-sec{background:#000;position:relative;overflow:hidden;min-height:95svh;display:flex;align-items:center;text-align:center}
 .dream-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 75% 65% at 50% 50%,rgba(255,61,127,.09) 0%,transparent 70%);animation:dreamPulse 8s ease-in-out infinite alternate}
 @keyframes dreamPulse{from{opacity:.5;transform:scale(1)}to{opacity:1;transform:scale(1.06)}}
@@ -149,38 +128,116 @@ nav.stuck{background:rgba(13,10,26,.85);backdrop-filter:blur(24px);-webkit-backd
 @keyframes dotRing{0%,100%{transform:scale(1);opacity:.4}50%{transform:scale(1.6);opacity:0}}
 .dream-sub{font-family:'Pacifico',cursive;font-size:clamp(1rem,3.5vw,1.5rem);color:rgba(255,255,255,.7);margin-bottom:24px}
 .dream-counter{font-family:'Bebas Neue',cursive;font-size:clamp(2rem,6vw,3.5rem);color:var(--gold);text-shadow:0 0 30px rgba(255,215,0,.4);margin-bottom:32px;letter-spacing:2px}
-
-/* ─── FOOTER ─── */
 footer{position:relative;z-index:10;background:var(--dark);border-top:1px solid rgba(255,255,255,.05);padding:44px 24px 80px;text-align:center}
 footer::before{content:'';position:absolute;top:0;left:0;right:0;height:150px;background:radial-gradient(ellipse 50% 100% at 50% 0%,rgba(255,61,127,.05) 0%,transparent 70%)}
 .foot-logo-wrap{display:flex;flex-direction:column;align-items:center;gap:10px;margin-bottom:12px}
-.foot-logo-img{
-  width:80px;height:80px;border-radius:50%;object-fit:cover;
-  box-shadow:0 0 20px rgba(255,61,127,.4),0 0 50px rgba(255,61,127,.15);
-  background:linear-gradient(135deg,var(--pink),#9B1DFF); /* fallback if img blocked */
-}
+.foot-logo-img{width:80px;height:80px;border-radius:50%;object-fit:cover;box-shadow:0 0 20px rgba(255,61,127,.4),0 0 50px rgba(255,61,127,.15);background:linear-gradient(135deg,var(--pink),#9B1DFF)}
 .foot-logo-text{font-family:'Pacifico',cursive;font-size:1.4rem;color:var(--pink);text-shadow:0 0 20px var(--pink-glow)}
 .foot-tt{display:inline-flex;align-items:center;gap:7px;background:linear-gradient(135deg,var(--pink),#9B1DFF);color:#fff;font-weight:800;font-size:.88rem;padding:10px 24px;border-radius:50px;text-decoration:none;box-shadow:0 0 24px var(--pink-glow);transition:all .3s;margin:12px 0}
 .foot-tt:hover{transform:translateY(-3px)}
 .foot-meta{font-size:.74rem;color:rgba(255,255,255,.25);line-height:2}
 
-/* ─── RESPONSIVE ─── */
+/* ═══ LUNA FAB ═══ */
+#luna-fab{
+  position:fixed;bottom:24px;right:20px;z-index:9999;
+  display:flex;align-items:center;gap:9px;
+  background:linear-gradient(135deg,var(--pink),#9B1DFF);
+  color:#fff;border:none;cursor:pointer;
+  padding:14px 20px;border-radius:50px;
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:.88rem;font-weight:800;letter-spacing:.2px;
+  animation:fabPulse 2.4s ease-out infinite;
+  transition:transform .25s;
+  box-shadow:0 4px 20px rgba(255,61,127,.5);
+}
+@keyframes fabPulse{0%{box-shadow:0 0 0 0 rgba(255,61,127,.8),0 4px 20px rgba(255,61,127,.5)}65%{box-shadow:0 0 0 18px rgba(255,61,127,0),0 4px 20px rgba(255,61,127,.5)}100%{box-shadow:0 0 0 0 rgba(255,61,127,0),0 4px 20px rgba(255,61,127,.5)}}
+#luna-fab:hover{transform:scale(1.05)}
+#luna-fab-icon{font-size:1.1rem;flex-shrink:0}
+#luna-fab-lbl{white-space:nowrap}
+
+/* ═══ LUNA PANEL ═══ */
+#luna-panel{
+  position:fixed;bottom:90px;right:20px;z-index:9998;
+  width:min(380px,calc(100vw - 28px));
+  height:min(560px,70svh);
+  background:rgba(13,10,26,.97);
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:24px;
+  backdrop-filter:blur(32px) saturate(160%);
+  -webkit-backdrop-filter:blur(32px) saturate(160%);
+  box-shadow:0 24px 70px rgba(0,0,0,.85),0 0 0 1px rgba(255,61,127,.12);
+  display:flex;flex-direction:column;overflow:hidden;
+  transform:scale(.9) translateY(16px);transform-origin:bottom right;
+  opacity:0;pointer-events:none;
+  transition:all .35s cubic-bezier(.16,1,.3,1);
+}
+#luna-panel.open{opacity:1;transform:scale(1) translateY(0);pointer-events:all}
+
+/* Panel header */
+.lp-head{
+  padding:14px 15px;flex-shrink:0;
+  background:linear-gradient(135deg,rgba(255,61,127,.13),rgba(155,29,255,.08));
+  border-bottom:1px solid rgba(255,255,255,.07);
+  display:flex;align-items:center;gap:11px;
+}
+.lp-av{
+  width:40px;height:40px;border-radius:50%;flex-shrink:0;
+  background:linear-gradient(135deg,var(--pink),#9B1DFF);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.2rem;box-shadow:0 0 16px var(--pink-glow);
+}
+.lp-info{flex:1}
+.lp-name{font-family:'Fredoka One',cursive;font-size:1.05rem;color:#fff}
+.lp-status{display:flex;align-items:center;gap:5px;font-size:.65rem;color:rgba(255,255,255,.45);font-weight:600;margin-top:2px}
+.lp-dot{width:6px;height:6px;background:var(--mint);border-radius:50%;animation:dotBlink 2s ease-in-out infinite}
+@keyframes dotBlink{0%,100%{opacity:1}50%{opacity:.25}}
+.lp-close{background:rgba(255,255,255,.07);border:none;width:30px;height:30px;border-radius:50%;color:rgba(255,255,255,.55);cursor:pointer;font-size:.95rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s}
+.lp-close:hover{background:rgba(255,61,127,.2);color:#fff}
+
+/* Messages */
+.lp-msgs{flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:9px;scroll-behavior:smooth}
+.lp-msgs::-webkit-scrollbar{width:3px}
+.lp-msgs::-webkit-scrollbar-thumb{background:rgba(255,61,127,.28);border-radius:3px}
+.msg{display:flex;flex-direction:column}
+.msg.user{align-items:flex-end}
+.msg-lbl{font-size:.58rem;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:3px;padding:0 4px}
+.msg-bubble{max-width:85%;padding:9px 13px;border-radius:16px;font-size:.84rem;line-height:1.62;font-weight:500;animation:msgIn .28s cubic-bezier(.16,1,.3,1) both}
+@keyframes msgIn{from{opacity:0;transform:translateY(7px) scale(.96)}to{opacity:1;transform:none}}
+.msg.luna .msg-bubble{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.92);border-bottom-left-radius:4px}
+.msg.user .msg-bubble{background:linear-gradient(135deg,var(--pink),#9B1DFF);color:#fff;border-bottom-right-radius:4px}
+
+/* Typing indicator */
+.typing-bubble{display:flex;gap:5px;padding:11px 14px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08);border-radius:16px;border-bottom-left-radius:4px;width:fit-content;animation:msgIn .28s ease both}
+.typing-dot{width:7px;height:7px;background:var(--pink);border-radius:50%;animation:typeBounce 1.3s ease-in-out infinite}
+.typing-dot:nth-child(2){animation-delay:.18s}
+.typing-dot:nth-child(3){animation-delay:.36s}
+@keyframes typeBounce{0%,60%,100%{transform:translateY(0);opacity:.35}30%{transform:translateY(-7px);opacity:1}}
+
+/* Quick chips */
+.lp-chips{display:flex;gap:6px;overflow-x:auto;padding:7px 12px;border-top:1px solid rgba(255,255,255,.05);flex-shrink:0;scrollbar-width:none}
+.lp-chips::-webkit-scrollbar{display:none}
+.chip{background:rgba(255,255,255,.05);border:1px solid rgba(255,61,127,.25);color:rgba(255,255,255,.72);font-size:.69rem;font-weight:700;padding:5px 11px;border-radius:18px;cursor:pointer;white-space:nowrap;flex-shrink:0;transition:all .2s;font-family:'Plus Jakarta Sans',sans-serif}
+.chip:hover{background:rgba(255,61,127,.14);border-color:var(--pink);color:#fff}
+
+/* Input row */
+.lp-input{display:flex;gap:7px;padding:10px 12px 13px;border-top:1px solid rgba(255,255,255,.05);flex-shrink:0}
+#luna-inp{flex:1;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:9px 14px;color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-size:.84rem;font-weight:500;outline:none;transition:border-color .2s}
+#luna-inp:focus{border-color:rgba(255,61,127,.45)}
+#luna-inp::placeholder{color:rgba(255,255,255,.26)}
+#luna-send{width:38px;height:38px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,var(--pink),#9B1DFF);border:none;cursor:pointer;color:#fff;font-size:.95rem;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 13px var(--pink-glow);transition:all .2s}
+#luna-send:hover{transform:scale(1.1)}
+#luna-send:disabled{opacity:.38;cursor:not-allowed;transform:none}
+
 @media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:28px}.hero-left{align-items:center;text-align:center}.badge-row{justify-content:center}.hero-btns{justify-content:center}.tt-thumb{height:400px}.girls-grid{grid-template-columns:1fr}.bento{grid-template-columns:1fr}.p-card.large,.p-card.wide{grid-row:auto;grid-column:auto}}
-@media(max-width:600px){nav{padding:10px 16px}.nav-logo-text{display:none}.brand-name{font-size:clamp(3.8rem,17vw,5.5rem)}.tt-thumb{height:320px}.world-wrap{height:220px}}
+@media(max-width:600px){nav{padding:10px 16px}.nav-logo-text{display:none}.brand-name{font-size:clamp(3.8rem,17vw,5.5rem)}.tt-thumb{height:320px}.world-wrap{height:220px}#luna-panel{bottom:80px;right:10px;width:calc(100vw - 20px)}}
 </style>
 </head>
 <body>
 <div class="mesh"></div>
 <div id="particles-js"></div>
 
-<!-- NAV -->
 <nav id="nav">
   <a class="nav-logo" href="#">
-    <img class="nav-logo-img"
-         src="https://storage.googleapis.com/wttus/assets/1094068/images/Untitled_design__8_.png"
-         alt="Pretty Accessories"
-         loading="eager"
-         onerror="this.style.display='none'">
+    <img class="nav-logo-img" src="https://storage.googleapis.com/wttus/assets/1094068/images/Untitled_design__8_.png" alt="Pretty Accessories" loading="eager" onerror="this.style.display='none'">
     <span class="nav-logo-text">Pretty Accessories</span>
   </a>
   <div class="nav-r">
@@ -192,7 +249,6 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:150px;ba
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero section" id="hero">
   <div class="hero-grid">
     <div class="hero-left">
@@ -212,33 +268,19 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:150px;ba
         <a class="btn-ghost t" href="https://www.tiktok.com/@pretty.accessorie7" target="_blank" data-es="Síguenos en TikTok 🎵" data-en="Follow on TikTok 🎵">Síguenos en TikTok 🎵</a>
       </div>
     </div>
-
-    <!-- TikTok card: thumbnail + button ONLY -->
     <div class="tt-card">
-      <a class="tt-thumb"
-         href="https://www.tiktok.com/@pretty.accessorie7/video/7608660505602919711"
-         target="_blank">
+      <a class="tt-thumb" href="https://www.tiktok.com/@pretty.accessorie7/video/7608660505602919711" target="_blank">
         <div class="tt-thumb-bg" id="tt-thumb-bg"></div>
         <div class="tt-thumb-overlay"></div>
-        <div class="tt-play">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg>
-        </div>
+        <div class="tt-play"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg></div>
         <div class="tt-watch-lbl t" data-es="▶ Ver en TikTok" data-en="▶ Watch on TikTok">▶ Ver en TikTok</div>
       </a>
-      <a class="tt-cta-btn t"
-         href="https://www.tiktok.com/@pretty.accessorie7"
-         target="_blank"
-         data-es="Síguenos @pretty.accessorie7 🎵"
-         data-en="Follow @pretty.accessorie7 🎵">
-        Síguenos @pretty.accessorie7 🎵
-      </a>
+      <a class="tt-cta-btn t" href="https://www.tiktok.com/@pretty.accessorie7" target="_blank" data-es="Síguenos @pretty.accessorie7 🎵" data-en="Follow @pretty.accessorie7 🎵">Síguenos @pretty.accessorie7 🎵</a>
     </div>
-
   </div>
   <div class="scroll-cue"><span>scroll</span><div class="scroll-arrow"></div></div>
 </section>
 
-<!-- GIRLS -->
 <section class="section girls-sec" id="girls" data-aos="fade-up">
   <div class="s-in">
     <span class="eyebrow t" data-es="Quiénes Somos · Puerto Rico 🇵🇷" data-en="Who We Are · Puerto Rico 🇵🇷">Quiénes Somos · Puerto Rico 🇵🇷</span>
@@ -272,7 +314,6 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:150px;ba
   </div>
 </section>
 
-<!-- PRODUCTS -->
 <section class="section products-sec" id="products" data-aos="fade-up">
   <div class="s-in">
     <span class="eyebrow t" data-es="Lo Que Vendemos · Hecho a Mano 🇵🇷" data-en="What We Sell · Handmade in PR 🇵🇷">Lo Que Vendemos · Hecho a Mano 🇵🇷</span>
@@ -304,7 +345,6 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:150px;ba
   </div>
 </section>
 
-<!-- DREAM -->
 <section class="section dream-sec" id="dream">
   <div class="dream-in">
     <span class="eyebrow t" data-es="El Sueño · Un Spike a la Vez" data-en="The Dream · One Spike at a Time">El Sueño · Un Spike a la Vez</span>
@@ -324,22 +364,13 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:150px;ba
     </div>
     <p class="dream-sub t" data-es="Cada compra nos lleva un paso más cerca." data-en="Every purchase takes us one step closer.">Cada compra nos lleva un paso más cerca.</p>
     <div class="dream-counter">🏐 <span id="count-num">0</span> <span class="t" data-es="países en la lista" data-en="countries on the list">países en la lista</span></div>
-    <a class="btn-hot t" href="https://www.tiktok.com/@pretty.accessorie7" target="_blank"
-       data-es="Apoya el sueño — síguenos en TikTok 🎵"
-       data-en="Support the dream — follow us on TikTok 🎵">
-      Apoya el sueño — síguenos en TikTok 🎵
-    </a>
+    <a class="btn-hot t" href="https://www.tiktok.com/@pretty.accessorie7" target="_blank" data-es="Apoya el sueño — síguenos en TikTok 🎵" data-en="Support the dream — follow us on TikTok 🎵">Apoya el sueño — síguenos en TikTok 🎵</a>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="foot-logo-wrap">
-    <img class="foot-logo-img"
-         src="https://storage.googleapis.com/wttus/assets/1094068/images/Untitled_design__8_.png"
-         alt="Pretty Accessories"
-         loading="eager"
-         onerror="this.style.display='none'">
+    <img class="foot-logo-img" src="https://storage.googleapis.com/wttus/assets/1094068/images/Untitled_design__8_.png" alt="Pretty Accessories" loading="eager" onerror="this.style.display='none'">
     <span class="foot-logo-text">Pretty Accessories</span>
   </div>
   <a class="foot-tt" href="https://www.tiktok.com/@pretty.accessorie7" target="_blank">📱 @pretty.accessorie7</a>
@@ -349,37 +380,72 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:150px;ba
   </div>
 </footer>
 
-<!-- Luna 🎀 — PMGT Voice Widget -->
-<script>
-  window.PayMeGPTConfig = {
-    widgetId: '88975005',
-    type: 'voice_launcher',
-    primaryColor: '#FF3D7F',
-    position: 'bottom-right',
-    label: '💬 Habla con Luna',
-    icon: 'mic',
-    startButtonText: '🎵 Hablar',
-    stopButtonText: 'Parar',
-    theme: 'dark',
-    customFooterText: 'Luna 🎀 — Pretty Accessories'
-  };
-</script>
-<script src="https://paymegpt.com/widget.js" data-config="PayMeGPT"></script>
+<!-- ═══ LUNA FAB ═══ -->
+<button id="luna-fab" onclick="lunaToggle()" aria-label="Chat con Luna">
+  <span id="luna-fab-icon">🎀</span>
+  <span id="luna-fab-lbl">💬 Habla con Luna</span>
+</button>
+
+<!-- ═══ LUNA PANEL ═══ -->
+<div id="luna-panel" role="dialog" aria-label="Chat Luna">
+  <div class="lp-head">
+    <div class="lp-av">🎀</div>
+    <div class="lp-info">
+      <div class="lp-name">Luna</div>
+      <div class="lp-status"><span class="lp-dot"></span><span class="t" data-es="Pretty Accessories · En línea" data-en="Pretty Accessories · Online">Pretty Accessories · En línea</span></div>
+    </div>
+    <button class="lp-close" onclick="lunaToggle()" aria-label="Cerrar">✕</button>
+  </div>
+  <div class="lp-msgs" id="luna-msgs"></div>
+  <div class="lp-chips" id="luna-chips">
+    <button class="chip t" data-es="💎 ¿Cuánto cuestan?" data-en="💎 How much?" onclick="lunaChip(this)">💎 ¿Cuánto cuestan?</button>
+    <button class="chip t" data-es="🛒 ¿Cómo ordeno?" data-en="🛒 How to order?" onclick="lunaChip(this)">🛒 ¿Cómo ordeno?</button>
+    <button class="chip t" data-es="🏐 ¿Quiénes son?" data-en="🏐 Who are they?" onclick="lunaChip(this)">🏐 ¿Quiénes son?</button>
+    <button class="chip t" data-es="💅 ¿Glitter gel?" data-en="💅 Glitter gel?" onclick="lunaChip(this)">💅 ¿Glitter gel?</button>
+  </div>
+  <div class="lp-input">
+    <input id="luna-inp" type="text" placeholder="Escríbeme aquí... 🎀" maxlength="300" onkeydown="if(event.key==='Enter')lunaSend()">
+    <button id="luna-send" onclick="lunaSend()">🚀</button>
+  </div>
+</div>
+
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <script>
+/* ── LANG ── */
 let lang='es';
-function setLang(l){lang=l;document.documentElement.lang=l;document.getElementById('lb-es').classList.toggle('on',l==='es');document.getElementById('lb-en').classList.toggle('on',l==='en');document.querySelectorAll('[data-'+l+']').forEach(el=>{el.innerHTML=el.getAttribute('data-'+l);});}
+const LUNA_FIRST={es:'Hey 🎀 Soy Luna. ¿Qué andas buscando hoy?',en:"Hey 🎀 I'm Luna. What are you looking for today?"};
+const LUNA_ERR={es:'Oops, algo pasó 😅 Intenta de nuevo o búscanos en TikTok @pretty.accessorie7 🎀',en:'Oops, something went wrong 😅 Try again or find us on TikTok @pretty.accessorie7 🎀'};
+const LUNA_PH={es:'Escríbeme aquí... 🎀',en:'Write to me here... 🎀'};
+
+function setLang(l){
+  lang=l;
+  document.documentElement.lang=l;
+  document.getElementById('lb-es').classList.toggle('on',l==='es');
+  document.getElementById('lb-en').classList.toggle('on',l==='en');
+  document.querySelectorAll('[data-'+l+']').forEach(el=>{el.innerHTML=el.getAttribute('data-'+l);});
+  document.getElementById('luna-inp').placeholder=LUNA_PH[l];
+  const lbl=document.getElementById('luna-fab-lbl');
+  if(lbl)lbl.textContent=l==='es'?'💬 Habla con Luna':'💬 Chat with Luna';
+}
+
+/* ── NAV ── */
 window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('stuck',window.scrollY>50);});
+
+/* ── 3D PARALLAX ── */
 const t3d=document.getElementById('t3d');
 window.addEventListener('mousemove',e=>{if(window.innerWidth<600)return;const cx=window.innerWidth/2,cy=window.innerHeight/2;t3d.style.transform=`rotateX(${((e.clientY-cy)/cy)*-11}deg) rotateY(${((e.clientX-cx)/cx)*11}deg)`;t3d.style.transition='transform .06s linear';});
 document.addEventListener('mouseleave',()=>{t3d.style.transition='transform .9s cubic-bezier(.16,1,.3,1)';t3d.style.transform='';});
+
+/* ── PARTICLES ── */
 particlesJS('particles-js',{particles:{number:{value:80,density:{enable:true,value_area:900}},color:{value:['#FF3D7F','#00E5CC','#FFD700','#C026D3','#fff']},shape:{type:'star'},opacity:{value:.5,random:true,anim:{enable:true,speed:1,opacity_min:.1,sync:false}},size:{value:3,random:true,anim:{enable:true,speed:2,size_min:.5,sync:false}},line_linked:{enable:false},move:{enable:true,speed:1.1,direction:'top',random:true,straight:false,out_mode:'out'}},interactivity:{detect_on:'canvas',events:{onhover:{enable:true,mode:'bubble'},onclick:{enable:true,mode:'repulse'},resize:true},modes:{bubble:{distance:180,size:5,duration:2,opacity:.8},repulse:{distance:130,duration:.4}}},retina_detect:true});
+
+/* ── TILT & AOS ── */
 VanillaTilt.init(document.querySelectorAll('[data-tilt]'),{max:13,speed:400,glare:true,'max-glare':.18,gyroscope:true,perspective:850});
 AOS.init({duration:780,once:true,offset:55,easing:'ease-out-cubic'});
 
-/* TikTok oEmbed thumbnail */
+/* ── TIKTOK OEMBED ── */
 (function(){
   const bg=document.getElementById('tt-thumb-bg');
   if(!bg)return;
@@ -388,11 +454,137 @@ AOS.init({duration:780,once:true,offset:55,easing:'ease-out-cubic'});
     .catch(()=>{});
 })();
 
-/* World map dots */
+/* ── WORLD MAP DOTS ── */
 const DOTS=[{x:26.5,y:41.5,done:true},{x:20,y:33},{x:24.5,y:40.5},{x:26,y:56},{x:46,y:26},{x:50,y:24},{x:83,y:25},{x:54,y:52},{x:80,y:68}];
 let shown=0;
 function showDots(){const wrap=document.getElementById('world-wrap');DOTS.forEach((c,i)=>{setTimeout(()=>{const d=document.createElement('div');d.className='map-dot'+(c.done?' done':'');d.style.cssText=`left:${c.x}%;top:${c.y}%;color:${c.done?'#FFD700':'#00E5CC'}`;wrap.appendChild(d);shown++;const el=document.getElementById('count-num');if(el)el.textContent=shown;},i*280);});}
 new IntersectionObserver((e,o)=>{e.forEach(en=>{if(en.isIntersecting){showDots();o.disconnect();}});},{threshold:.15}).observe(document.getElementById('dream'));
+
+/* ══════════════════════════════
+   LUNA CHAT ENGINE
+══════════════════════════════ */
+let lunaOpen=false, lunaHistory=[], lunaBusy=false;
+
+const LUNA_SYSTEM=`You are Luna 🎀 — the vibe behind Pretty Accessories.
+A real brand built by three teenage volleyball athletes from Puerto Rico: Nailah from Hatillo, and sisters Ariana and Yaiza from Camuy. Club Arsenal Arecibo. The real deal.
+
+Your personality:
+You talk like a cool Puerto Rican teen — natural, warm, a little funny, and genuinely hyped about the brand and the products.
+You do NOT start every sentence with slang.
+You talk like a real person first.
+Slang drops naturally once in a while — not on a schedule, not forced, not every message.
+When it comes out it should feel like 'oh that was actually funny' not 'this bot is trying too hard.'
+
+Examples of how you talk:
+- 'Yeah those bracelets are literally so cute, people at tournaments always stop us for them 😭'
+- 'Bro the glitter gel is no joke, it stays on through a whole match fr'
+- 'We started this to fund our dream — volleyball in as many countries as we can. Every order helps. That part is real.'
+- Occasional natural drops: 'brutal no?' or 'to bien?' or 'qué fuerte' — but ONLY when it actually fits, never forced
+
+Language rules:
+- Spanish is your default
+- Switch to English if they write in English
+- Spanglish is natural — mix it when it flows
+- NEVER assume gender — always neutral
+- Never use oye, wepa, mira, dale as openers every single message — only occasionally when it actually makes sense
+
+Products you know inside out:
+- Custom handmade bracelets — personalized, perfect for teams, gifts, tournaments
+- Glitter gel — for the court and everyday life
+- More drops coming — follow TikTok to know first
+
+Your ONE job: Make people love the brand and go to TikTok @pretty.accessorie7 to buy or follow.
+
+GUARDRAILS:
+No profanity. No adult topics. No personal info collection. Off topic = redirect warmly to products. Audience is 8-17 but customers can be anyone.
+Responses: MAX 2-3 sentences. Punchy. Real. End with a soft CTA toward TikTok.`;
+
+function lunaToggle(){
+  lunaOpen=!lunaOpen;
+  const panel=document.getElementById('luna-panel');
+  const icon=document.getElementById('luna-fab-icon');
+  const lbl=document.getElementById('luna-fab-lbl');
+  panel.classList.toggle('open',lunaOpen);
+  icon.textContent=lunaOpen?'✕':'🎀';
+  lbl.style.display=lunaOpen?'none':'';
+  if(lunaOpen && lunaHistory.length===0){
+    setTimeout(()=>{
+      addLunaMsg('luna',LUNA_FIRST[lang]);
+      lunaHistory.push({role:'assistant',content:LUNA_FIRST[lang]});
+    },280);
+  }
+  if(lunaOpen)setTimeout(()=>document.getElementById('luna-inp').focus(),360);
+}
+
+function addLunaMsg(role,text){
+  const box=document.getElementById('luna-msgs');
+  const w=document.createElement('div');
+  w.className='msg '+role;
+  const lbl=document.createElement('div');
+  lbl.className='msg-lbl';
+  lbl.textContent=role==='luna'?'Luna 🎀':(lang==='es'?'Tú':'You');
+  const b=document.createElement('div');
+  b.className='msg-bubble';
+  b.textContent=text;
+  w.appendChild(lbl);w.appendChild(b);
+  box.appendChild(w);
+  box.scrollTop=box.scrollHeight;
+}
+
+function showTyping(){
+  const box=document.getElementById('luna-msgs');
+  const w=document.createElement('div');
+  w.className='msg luna';w.id='luna-typing';
+  w.innerHTML='<div class="msg-lbl">Luna 🎀</div><div class="typing-bubble"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>';
+  box.appendChild(w);box.scrollTop=box.scrollHeight;
+}
+function hideTyping(){const t=document.getElementById('luna-typing');if(t)t.remove();}
+
+function lunaChip(btn){
+  const text=btn.getAttribute('data-'+lang)||btn.textContent;
+  document.getElementById('luna-inp').value=text;
+  document.getElementById('luna-chips').style.display='none';
+  lunaSend();
+}
+
+async function lunaSend(){
+  const inp=document.getElementById('luna-inp');
+  const text=inp.value.trim();
+  if(!text||lunaBusy)return;
+  inp.value='';
+  document.getElementById('luna-chips').style.display='none';
+  addLunaMsg('user',text);
+  lunaHistory.push({role:'user',content:text});
+  lunaBusy=true;
+  document.getElementById('luna-send').disabled=true;
+  showTyping();
+
+  const msgs=lunaHistory.slice(-14).map(m=>({role:m.role==='luna'?'assistant':m.role,content:m.content}));
+
+  try{
+    const res=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        model:'claude-sonnet-4-20250514',
+        max_tokens:1000,
+        system:LUNA_SYSTEM,
+        messages:msgs
+      })
+    });
+    const data=await res.json();
+    hideTyping();
+    const reply=data?.content?.[0]?.text||LUNA_ERR[lang];
+    addLunaMsg('luna',reply);
+    lunaHistory.push({role:'assistant',content:reply});
+  }catch(e){
+    hideTyping();
+    addLunaMsg('luna',LUNA_ERR[lang]);
+  }
+  lunaBusy=false;
+  document.getElementById('luna-send').disabled=false;
+  document.getElementById('luna-inp').focus();
+}
 </script>
 </body>
 </html>
