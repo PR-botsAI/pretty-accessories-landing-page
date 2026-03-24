@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  
+  <meta name="theme-color" content="#0D0A1A" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+
+<!-- SEO Meta Tags -->
+<title>Pretty Accessories 🎀 | Club Arsenal · Puerto Rico</title>
+<meta name="description" content="Bracelets customizados, glitter gel y más — tres atletas de volleyball de Club Arsenal Arecibo, Puerto Rico. TikTok @pretty.accessorie7" />
+<meta property="og:title" content="Pretty Accessories 🎀 | Club Arsenal · Puerto Rico" />
+<meta property="og:description" content="Bracelets customizados, glitter gel y más — tres atletas de volleyball de Club Arsenal Arecibo, Puerto Rico. TikTok @pretty.accessorie7" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Pretty Accessories 🎀 | Club Arsenal · Puerto Rico" />
+<meta name="twitter:description" content="Bracelets customizados, glitter gel y más — tres atletas de volleyball de Club Arsenal Arecibo, Puerto Rico. TikTok @pretty.accessorie7" />
+<!-- End SEO Meta Tags -->
+
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="selection:bg-pink-500/30 selection:text-white">
+  <!-- ============================================================================ -->
+  <!-- TOP BAR: Brand micro-nav with language toggle and TikTok access              -->
+  <!-- Mobile Padding: px-4 ensures text never touches viewport edges             -->
+  <!-- ============================================================================ -->
+  <header class="fixed top-0 left-0 right-0 z-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-4">
+      <div class="glass rounded-full px-4 py-3 flex items-center justify-between gap-3">
+        <div class="flex items-center gap-3 min-w-0">
+          <div class="h-10 w-10 rounded-full bg-gradient-to-br from-pink-500 via-fuchsia-600 to-cyan-400 flex items-center justify-center font-pacifico text-white shadow-lg">P</div>
+          <div class="min-w-0">
+            <p class="font-fredoka text-sm sm:text-base text-white leading-tight truncate">Pretty Accessories</p>
+            <p class="text-[11px] sm:text-xs text-white/60 truncate">@pretty.accessorie7</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <button id="langToggle" class="px-3 py-2 rounded-full bg-white/10 hover:bg-white/15 border border-white/10 text-xs sm:text-sm font-semibold" aria-label="Cambiar idioma">ES / EN</button>
+          <a href="#find-us" class="hidden sm:inline-flex px-4 py-2 rounded-full bg-gradient-to-r from-pink-500 to-fuchsia-600 text-sm font-bold shadow-lg shadow-pink-500/20">Dale</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================================ -->
+  <!-- HERO SECTION: Main landing area with headline, subtext, and CTA buttons     -->
+  <!-- Features: Full viewport gradient, floating pills, typewriter tagline       -->
+  <!-- Mobile Padding: Content container uses px-4 py-6 to prevent clipping        -->
+  <!-- ============================================================================ -->
+  <section data-section="hero" class="hero-section min-h-screen pt-28 pb-14 px-4 sm:px-6 lg:px-8 flex items-center relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,61,127,.25),transparent_30%),radial-gradient(circle_at_80%_20%,rgba(0,229,204,.18),transparent_25%),linear-gradient(180deg,#140a24_0%,#0D0A1A_48%,#090611_100%)]"></div>
+    <div class="absolute inset-0 opacity-20 grid-lines"></div>
+    <div class="relative mx-auto max-w-7xl w-full">
+      <div class="grid lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-7">
+          <div class="flex flex-wrap gap-3 mb-6">
+            <span class="floaty px-4 py-2 rounded-full glass text-xs sm:text-sm font-bold tracking-wide">CLUB ARSENAL ARECIBO 🏐</span>
+            <span class="floaty px-4 py-2 rounded-full glass text-xs sm:text-sm font-bold tracking-wide">HATILLO & CAMUY PR 🇵🇷</span>
+            <span class="floaty px-4 py-2 rounded-full glass text-xs sm:text-sm font-bold tracking-wide">TIKTOK SHOP 📱</span>
+          </div>
+          <h1 class="font-bebas text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-[.92] tracking-[.04em]">
+            <span class="shimmer">PRETTY</span><br>
+            <span class="text-white">ACCESSORIES</span>
+          </h1>
+          <p class="mt-5 max-w-2xl text-base sm:text-lg md:text-xl text-white/82">
+            <span id="tagline" class="type-caret"></span>
+          </p>
+          <p class="mt-4 max-w-2xl text-sm sm:text-base text-white/65">
+            <span class="lang-es">Tres atletas de Puerto Rico con una vibra brutal: brillo, cancha y dream team energy. To' bien serio, to' bien pretty.</span>
+            <span class="lang-en hidden">Three Puerto Rican athletes bringing island shine, court energy, and dream-team style. Seriously pretty, seriously real.</span>
+          </p>
+          <div class="mt-8 flex flex-col sm:flex-row gap-4">
+            <a href="#products" class="cta-primary inline-flex items-center justify-center px-6 py-4 rounded-2xl bg-gradient-to-r from-pink-500 via-fuchsia-600 to-cyan-400 text-white font-extrabold text-base shadow-lg shadow-pink-500/20 glow">
+              <span class="lang-es">VER SHOP</span><span class="lang-en hidden">SHOP NOW</span>
+            </a>
+            <a href="#team" class="inline-flex items-center justify-center px-6 py-4 rounded-2xl border border-white/15 bg-white/5 text-white font-extrabold text-base hover:bg-white/10">
+              <span class="lang-es">CONOCE AL TEAM</span><span class="lang-en hidden">MEET THE TEAM</span>
+            </a>
+          </div>
+        </div>
+        <div class="lg:col-span-5">
+          <div class="relative">
+            <div class="absolute -inset-8 bg-gradient-to-br from-pink-500/20 via-fuchsia-600/10 to-cyan-400/20 blur-3xl"></div>
+            <div class="relative glass rounded-[2rem] p-5 sm:p-6 border border-white/10">
+              <div class="flex items-center justify-between mb-4">
+                <div>
+                  <p class="text-xs uppercase tracking-[.25em] text-white/50">Pretty Access / PR</p>
+                  <p class="font-fredoka text-lg">Bad Bunny mood, premium TikTok shop energy</p>
+                </div>
+                <div class="h-12 w-12 rounded-2xl bg-gradient-to-br from-gold-400 to-pink-500 flex items-center justify-center text-black font-black">PR</div>
+              </div>
+              <div class="aspect-[4/5] rounded-[1.5rem] bg-[linear-gradient(180deg,rgba(255,61,127,.2),rgba(13,10,26,.95)),radial-gradient(circle_at_30%_20%,rgba(0,229,204,.25),transparent_30%),radial-gradient(circle_at_70%_75%,rgba(255,215,0,.18),transparent_25%)] border border-white/10 p-5 flex flex-col justify-end">
+                <p class="text-sm uppercase tracking-[.3em] text-white/60">De la cancha al mundo</p>
+                <p class="font-bebas text-5xl leading-none mt-2">Un bracelet a la vez.</p>
+                <p class="mt-3 text-white/80 text-sm">Wepa, este es el brillo que sube contigo a cada torneo, cada post y cada viaje.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================================ -->
+  <!-- TEAM SECTION: Athlete story cards and brand credibility                      -->
+  <!-- Features: Glassmorphism profiles, club badge, pride-driven narrative        -->
+  <!-- ============================================================================ -->
+  <section data-section="team" id="team" class="section-pad bg-[#1a0a2e]">
+    <div class="mx-auto max-w-7xl">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
+        <div>
+          <p class="text-sm uppercase tracking-[.35em] text-pink-300/80">TEAM VIBE</p>
+          <h2 class="font-bebas text-5xl sm:text-6xl leading-none mt-2">TRES NENAS. UN SUEÑO ENORME.</h2>
+        </div>
+        <div class="inline-flex items-center gap-3 glass rounded-full px-4 py-2 w-fit">
+          <div class="h-10 w-10 rounded-full bg-gradient-to-br from-pink-500 to-fuchsia-700 flex items-center justify-center font-black">A</div>
+          <div>
+            <p class="text-sm font-bold">Club Arsenal Arecibo</p>
+            <p class="text-xs text-white/60">Puerto Rico volleyball family</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-5">
+        <article class="glass rounded-[1.75rem] p-6">
+          <p class="text-gold-300 text-sm font-bold mb-2">01 / NAILAH · HATILLO</p>
+          <h3 class="font-fredoka text-2xl mb-3">Brilla con flow y disciplina</h3>
+          <p class="text-white/75 leading-relaxed">Nailah trae esa energía de cancha que se siente desde el primer saque. Hatillo representa, y cada accesorio tiene su mismo vibe: fuerte, cute y con personalidad.</p>
+        </article>
+        <article class="glass rounded-[1.75rem] p-6">
+          <p class="text-cyan-300 text-sm font-bold mb-2">02 / ARIANA · CAMUY</p>
+          <h3 class="font-fredoka text-2xl mb-3">Precisión, estilo y hambre</h3>
+          <p class="text-white/75 leading-relaxed">Ariana es de esas atletas que no improvisan: todo tiene intención. Desde Camuy pa'l mundo, su dream es competir brutal y verse más brutal todavía.</p>
+        </article>
+        <article class="glass rounded-[1.75rem] p-6">
+          <p class="text-pink-300 text-sm font-bold mb-2">03 / YAIZA · CAMUY</p>
+          <h3 class="font-fredoka text-2xl mb-3">Energía linda, mente de campeona</h3>
+          <p class="text-white/75 leading-relaxed">Yaiza mezcla corazón, trabajo y esa chispa gen Z que convierte cualquier momento en contenido. To' bien con ella: actitud, ritmo y brillo real.</p>
+        </article>
+      </div>
+
+      <div class="mt-8 grid lg:grid-cols-12 gap-5 items-center">
+        <div class="lg:col-span-8 glass rounded-[1.75rem] p-6">
+          <p class="font-fredoka text-xl sm:text-2xl mb-3">Somos de Puerto Rico. Somos atletas. Somos marca.</p>
+          <p class="text-white/75 leading-relaxed">
+            <span class="lang-es">Club Arsenal Arecibo es más que un equipo: es familia, disciplina y ese orgullo boricua que no se quita. Pretty Accessories nace de esa misma mentalidad — trabajar duro, jugar con alma y llevar el sueño a cada país, cada torneo y cada feed. Wepa, esto no es un jueguito: es una visión real.</span>
+            <span class="lang-en hidden">Club Arsenal Arecibo is more than a team: it’s family, discipline, and unmistakable Puerto Rican pride. Pretty Accessories is built with that same mindset — work hard, play with soul, and take the dream to every country, every tournament, every feed. This is real vision.</span>
+          </p>
+        </div>
+        <div class="lg:col-span-4">
+          <div class="glass rounded-[1.75rem] p-6 text-center">
+            <div class="mx-auto h-24 w-24 rounded-full bg-gradient-to-br from-pink-500 via-fuchsia-600 to-cyan-400 flex items-center justify-center text-3xl font-black shadow-lg">A</div>
+            <p class="mt-4 font-bebas text-4xl">ARSENAL</p>
+            <p class="text-white/65 text-sm">Heart first. Game first. Pretty always.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================================ -->
+  <!-- PRODUCTS SECTION: Bento grid showcasing core offers                         -->
+  <!-- Features: Gradient cards, premium TikTok CTA styling, direct purchase feel   -->
+  <!-- ============================================================================ -->
+  <section data-section="products" id="products" class="section-pad relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,61,127,.18),transparent_22%),radial-gradient(circle_at_80%_30%,rgba(0,229,204,.12),transparent_20%),linear-gradient(180deg,#0D0A1A,#120816)]"></div>
+    <div class="relative mx-auto max-w-7xl">
+      <p class="text-sm uppercase tracking-[.35em] text-cyan-300/80">LO QUE VENDEMOS</p>
+      <h2 class="font-bebas text-5xl sm:text-6xl leading-none mt-2 mb-8">ACCESORIOS CON FLOW, BRILLO Y SAZÓN</h2>
+
+      <div class="grid lg:grid-cols-12 gap-5">
+        <article class="lg:col-span-7 rounded-[2rem] p-6 sm:p-8 bg-gradient-to-br from-pink-600 via-fuchsia-700 to-[#25103b] border border-white/10 glow">
+          <p class="text-xs uppercase tracking-[.3em] text-white/70">CUSTOM BRACELETS</p>
+          <h3 class="font-fredoka text-3xl mt-2">Pulseras personalizadas</h3>
+          <p class="mt-3 text-white/80 max-w-xl">Colores premium, charms cute, letras, vibes de TikTok y nombre propio. Ideal para gifts, team packs y orders con tu corillo.</p>
+          <a href="#find-us" class="tiktok-btn inline-flex mt-6 px-5 py-3 rounded-full bg-black/25 border border-white/15 font-bold">Pídelo por TikTok</a>
+        </article>
+
+        <article class="lg:col-span-5 rounded-[2rem] p-6 sm:p-8 bg-gradient-to-br from-cyan-500/90 via-emerald-400 to-[#123e43] border border-white/10">
+          <p class="text-xs uppercase tracking-[.3em] text-white/75">GLITTER GEL</p>
+          <h3 class="font-fredoka text-3xl mt-2">Brillo para mano y match day</h3>
+          <p class="mt-3 text-white/85">Mint energy, shiny finish, and that “acabo de salir del edit” look.</p>
+          <a href="#find-us" class="tiktok-btn inline-flex mt-6 px-5 py-3 rounded-full bg-white text-[#0D0A1A] font-black">Lo quiero ya</a>
+        </article>
+
+        <article class="lg:col-span-12 rounded-[2rem] p-6 sm:p-8 bg-gradient-to-r from-amber-500 via-yellow-400 to-pink-500 text-[#0D0A1A] border border-white/15">
+          <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+            <div>
+              <p class="text-xs uppercase tracking-[.3em] font-bold">MÁS COSITAS</p>
+              <h3 class="font-fredoka text-3xl sm:text-4xl mt-2">Stickers, add-ons, drops especiales y vibes surprise</h3>
+            </div>
+            <a href="#find-us" class="tiktok-btn inline-flex px-5 py-3 rounded-full bg-[#0D0A1A] text-white font-black w-fit">Dale follow y entérate</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================================ -->
+  <!-- VOLLEYBALL HYPE SECTION: Athletic identity and culture                      -->
+  <!-- Features: Court-line background, stat bar, manifesto copy                   -->
+  <!-- ============================================================================ -->
+  <section data-section="hype" class="section-pad bg-[#100818] relative overflow-hidden">
+    <div class="absolute inset-0 opacity-35 grid-lines"></div>
+    <div class="relative mx-auto max-w-7xl">
+      <div class="grid lg:grid-cols-12 gap-6 items-center">
+        <div class="lg:col-span-7">
+          <p class="text-sm uppercase tracking-[.35em] text-pink-300/80">SOMOS ATLETAS PRIMERO</p>
+          <h2 class="font-bebas text-5xl sm:text-6xl leading-none mt-2">EL CORAZÓN DE ARSENAL LATIENDO FUERTE</h2>
+          <p class="mt-4 text-white/75 leading-relaxed max-w-2xl">
+            <span class="lang-es">Esto nace en la cancha: entrenos, sudor, viajes largos, ampollas, risas, “dale otra vez” y esa hambre de crecer. Puerto Rico tiene sabor, intensidad y talento brutal — y Pretty Accessories lo convierte en algo que puedes llevar puesto.</span>
+            <span class="lang-en hidden">This was born on the court: practices, sweat, long trips, blisters, laughter, “run it again,” and the hunger to level up. Puerto Rico brings flavor, intensity, and serious talent — and Pretty Accessories turns that into something you can wear.</span>
+          </p>
+        </div>
+        <div class="lg:col-span-5">
+          <div class="glass rounded-[2rem] p-6">
+            <p class="text-center text-sm uppercase tracking-[.35em] text-white/50">3 ATLETAS | 1 CLUB | ∞ SUEÑOS</p>
+            <div class="grid grid-cols-3 gap-3 mt-5">
+              <div class="rounded-2xl bg-white/5 p-4 text-center"><div class="text-3xl font-bebas text-pink-300">3</div><p class="text-xs text-white/65">Players</p></div>
+              <div class="rounded-2xl bg-white/5 p-4 text-center"><div class="text-3xl font-bebas text-cyan-300">1</div><p class="text-xs text-white/65">Club</p></div>
+              <div class="rounded-2xl bg-white/5 p-4 text-center"><div class="text-3xl font-bebas text-gold-300">∞</div><p class="text-xs text-white/65">Dreams</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================================ -->
+  <!-- DREAM SECTION: Cinematic global ambition with country chips                 -->
+  <!-- Features: Shimmer headline, emotional CTA, world-tour dream language        -->
+  <!-- ============================================================================ -->
+  <section data-section="dream" class="section-pad relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_10%,rgba(0,229,204,.18),transparent_20%),radial-gradient(circle_at_80%_60%,rgba(255,61,127,.18),transparent_20%),linear-gradient(180deg,#0D0A1A,#130a24)]"></div>
+    <div class="relative mx-auto max-w-7xl text-center">
+      <p class="text-sm uppercase tracking-[.35em] text-gold-300/90">THE DREAM</p>
+      <h2 class="font-bebas text-6xl sm:text-7xl lg:text-8xl leading-none mt-2 shimmer">EL MUNDO ES NUESTRO</h2>
+      <p class="mt-5 max-w-3xl mx-auto text-white/80 text-lg">
+        <span class="lang-es">Un spike por país, una foto por ciudad, un recuerdo por cada cancha visitada. Ese es el sueño: llevar el talento boricua a escenarios grandes, con estilo, fe y un flow que se siente en cualquier idioma.</span>
+        <span class="lang-en hidden">One spike per country, one photo per city, one memory per court. That’s the dream: taking Puerto Rican talent to big stages with style, faith, and a flow that reads in any language.</span>
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
+        <span class="px-4 py-2 rounded-full bg-white/8 border border-white/10">Puerto Rico 🇵🇷</span>
+        <span class="px-4 py-2 rounded-full bg-white/8 border border-white/10">USA 🇺🇸</span>
+        <span class="px-4 py-2 rounded-full bg-white/8 border border-white/10">República Dominicana 🇩🇴</span>
+        <span class="px-4 py-2 rounded-full bg-white/8 border border-white/10">México 🇲🇽</span>
+        <span class="px-4 py-2 rounded-full bg-white/8 border border-white/10">Japan 🇯🇵</span>
+      </div>
+      <a href="#contact" class="cta-primary inline-flex mt-10 px-8 py-4 rounded-2xl bg-gradient-to-r from-pink-500 via-fuchsia-600 to-cyan-400 font-black text-white shadow-lg shadow-pink-500/20">QUIERO VER EL DROP</a>
+    </div>
+  </section>
+
+  <!-- ============================================================================ -->
+  <!-- FIND US SECTION: Timeline, locations, and map-style pins                    -->
+  <!-- Features: Local milestones, Puerto Rico geography, social discovery         -->
+  <!-- ============================================================================ -->
+  <section data-section="find-us" id="find-us" class="section-pad bg-[#1a0a2e]">
+    <div class="mx-auto max-w-7xl">
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-10">
+        <div>
+          <p class="text-sm uppercase tracking-[.35em] text-cyan-300/80">FIND US</p>
+          <h2 class="font-bebas text-5xl sm:text-6xl leading-none mt-2">DÓNDE NOS VES BRILLAR</h2>
+        </div>
+        <a href="https://www.tiktok.com/@pretty.accessorie7" target="_blank" rel="noopener noreferrer" class="tiktok-btn inline-flex items-center justify-center px-5 py-3 rounded-full bg-white text-[#0D0A1A] font-black">Abrir TikTok</a>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-6">
+        <div class="lg:col-span-7 glass rounded-[2rem] p-6">
+          <div class="space-y-6 border-l border-white/10 pl-5">
+            <div>
+              <p class="text-xs uppercase tracking-[.3em] text-pink-300">TOURNAMENTS</p>
+              <h3 class="font-fredoka text-2xl mt-1">Torneos por toda la isla</h3>
+              <p class="text-white/70 mt-2">Cada parada deja contenido, comunidad y un poquito de glitter en el camino. Wepa pa'l deporte.</p>
+            </div>
+            <div>
+              <p class="text-xs uppercase tracking-[.3em] text-cyan-300">CLUB ARSENAL ARECIBO</p>
+              <h3 class="font-fredoka text-2xl mt-1">Entrenando con los mejores</h3>
+              <p class="text-white/70 mt-2">La base, la disciplina y la calle del deporte. Aquí se aprende a competir con respeto y mucha hambre.</p>
+            </div>
+            <div>
+              <p class="text-xs uppercase tracking-[.3em] text-gold-300">TIKTOK ONLINE</p>
+              <h3 class="font-fredoka text-2xl mt-1">@pretty.accessorie7</h3>
+              <p class="text-white/70 mt-2">Drops, behind the scenes, mini edits, order updates y toda la vibra gen Z. Dale follow y no te quedes fuera.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 glass rounded-[2rem] p-6">
+          <h3 class="font-fredoka text-2xl mb-4">Mapa PR vibes</h3>
+          <div class="space-y-4">
+            <div class="flex items-center justify-between rounded-2xl bg-white/5 p-4"><span>Hatillo</span><span class="text-pink-300 font-bold">📍 Nailah</span></div>
+            <div class="flex items-center justify-between rounded-2xl bg-white/5 p-4"><span>Camuy</span><span class="text-cyan-300 font-bold">📍 Ariana & Yaiza</span></div>
+            <div class="flex items-center justify-between rounded-2xl bg-white/5 p-4"><span>Arecibo</span><span class="text-gold-300 font-bold">📍 Club Arsenal</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================================ -->
+  <!-- CONTACT SECTION: Social CTA and lead capture style discovery                -->
+  <!-- Features: TikTok-first contact, collab invite, brand-ready closing           -->
+  <!-- ============================================================================ -->
+  <section data-section="contact" id="contact" class="section-pad bg-[#0D0A1A]">
+    <div class="mx-auto max-w-4xl text-center">
+      <p class="text-sm uppercase tracking-[.35em] text-pink-300/80">¿COLLAB, ORDER O SORTEO?</p>
+      <h2 class="font-bebas text-5xl sm:text-6xl leading-none mt-2">DÁLE, ESCRÍBENOS</h2>
+      <p class="mt-4 text-white/75 max-w-2xl mx-auto">Si quieres pedir, colaborar o llevar Pretty Accessories a tu torneo, ya tú sabes: mensaje por TikTok y to' bien.</p>
+      <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://www.tiktok.com/@pretty.accessorie7" target="_blank" rel="noopener noreferrer" class="tiktok-btn inline-flex items-center justify-center px-6 py-4 rounded-2xl bg-gradient-to-r from-pink-500 via-fuchsia-600 to-cyan-400 text-white font-black">TikTok @pretty.accessorie7</a>
+        <a href="#hero" class="inline-flex items-center justify-center px-6 py-4 rounded-2xl border border-white/15 bg-white/5 font-black">Volver arriba</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================================ -->
+  <!-- FOOTER SECTION: Signature, social proof, and legal closure                  -->
+  <!-- Features: Pacifico logo, Puerto Rico love, copyright                        -->
+  <!-- ============================================================================ -->
+  <footer class="section-pad border-t border-white/10">
+    <div class="mx-auto max-w-7xl flex flex-col md:flex-row gap-6 md:items-center md:justify-between">
+      <div>
+        <div class="font-pacifico text-3xl text-white">Pretty Accessories</div>
+        <p class="mt-2 text-white/65">Hecho con 💕 en Puerto Rico · <span class="lang-es">para las que brillan duro</span><span class="lang-en hidden">for the girls who shine hard</span></p>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="https://www.tiktok.com/@pretty.accessorie7" target="_blank" rel="noopener noreferrer" class="tiktok-btn px-5 py-3 rounded-full bg-white text-[#0D0A1A] font-black">TikTok</a>
+        <p class="text-white/45 text-sm">© 2026 Pretty Accessories</p>
+      </div>
+    </div>
+  </footer>
+
+  
+  <script src="script.js"></script>
+</body>
+</html>
