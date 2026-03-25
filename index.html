@@ -80,10 +80,16 @@ nav.stuck{background:rgba(10,10,15,.92);backdrop-filter:blur(28px);box-shadow:0 
 @keyframes dotRing{0%,100%{transform:scale(1);opacity:.35}50%{transform:scale(1.7);opacity:0}}
 @keyframes footGlow{from{box-shadow:0 0 28px rgba(255,61,127,.4)}to{box-shadow:0 0 60px rgba(255,61,127,.7)}}
 
+/* ── FIX 1: Kill all animations on mobile always ── */
 @media(max-width:767px){
   .hero-player,.tt-athlete,.dream-athlete,.p-athlete,.ath-img{animation:none!important}
   .mesh::before,.mesh::after{animation:none!important}
 }
+
+/* ── FIX 1: Kill everything when voice is active ── */
+body.voice-active *{animation-play-state:paused!important}
+body.voice-active canvas{display:none!important}
+body.voice-active [data-tilt]{transform:none!important}
 
 .btn-hot{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,var(--pink),#9B1DFF);color:#fff;font-weight:800;font-size:.9rem;letter-spacing:.3px;padding:14px 28px;border-radius:50px;text-decoration:none;border:none;cursor:pointer;box-shadow:0 0 24px var(--pink-glow);transition:all .3s;position:relative;overflow:hidden;min-height:48px;width:100%;justify-content:center}
 .btn-hot::after{content:'';position:absolute;inset:0;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.2) 50%,transparent 70%);transform:translateX(-100%);transition:transform .65s}
@@ -120,57 +126,31 @@ nav.stuck{background:rgba(10,10,15,.92);backdrop-filter:blur(28px);box-shadow:0 
 }
 @media(min-width:1100px){.hero-left{padding-left:6vw}}
 
-/* ── ATHLETES / TRADING CARDS ── */
+/* ── ATHLETES ── */
 .athletes-sec{background:var(--dark2);overflow:hidden;position:relative}
 .athletes-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(255,61,127,.05) 0%,transparent 65%)}
 .athletes-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;gap:16px;padding:4px 20px 16px;margin:0 -20px;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
 .athletes-grid::-webkit-scrollbar{display:none}
-
-.ath-card{
-  flex:0 0 85vw;min-width:85vw;scroll-snap-align:center;
-  position:relative;border-radius:24px;padding:0 0 24px;overflow:hidden;cursor:pointer;
-  transition:transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s;
-  background:rgba(255,255,255,.03);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.08);
-}
-
-.card-watermark{
-  position:absolute;
-  font-family:'Bebas Neue','Arial Black',Impact,sans-serif;
-  font-size:220px;
-  font-weight:900;
-  line-height:1;
-  pointer-events:none;
-  z-index:0;
-  top:50%;
-  right:-15px;
-  transform:translateY(-50%);
-  user-select:none;
-  overflow:hidden;
-  letter-spacing:-8px;
-}
+.ath-card{flex:0 0 85vw;min-width:85vw;scroll-snap-align:center;position:relative;border-radius:24px;padding:0 0 24px;overflow:hidden;cursor:pointer;transition:transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s;background:rgba(255,255,255,.03);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.08);}
+.card-watermark{position:absolute;font-family:'Bebas Neue','Arial Black',Impact,sans-serif;font-size:220px;font-weight:900;line-height:1;pointer-events:none;z-index:0;top:50%;right:-15px;transform:translateY(-50%);user-select:none;overflow:hidden;letter-spacing:-8px;}
 .ath-card.pink .card-watermark{color:rgba(255,61,127,.08)}
 .ath-card.mint .card-watermark{color:rgba(0,229,204,.08)}
 .ath-card.gold .card-watermark{color:rgba(255,215,0,.08)}
-
 .ath-card::before{content:'';position:absolute;inset:0;border-radius:24px;background:linear-gradient(135deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.05) 50%,rgba(255,255,255,0) 100%);background-size:200% 200%;background-position:0% 0%;opacity:0;transition:opacity .3s,background-position .6s;pointer-events:none;z-index:4}
 .ath-card:hover::before{opacity:1;background-position:100% 100%}
 .ath-card:hover{transform:translateY(-10px);box-shadow:0 36px 80px rgba(0,0,0,.55)}
 .ath-card.pink:hover{box-shadow:0 36px 80px rgba(0,0,0,.55),0 0 60px rgba(255,61,127,.3)}
 .ath-card.mint:hover{box-shadow:0 36px 80px rgba(0,0,0,.55),0 0 60px rgba(0,229,204,.25)}
 .ath-card.gold:hover{box-shadow:0 36px 80px rgba(0,0,0,.55),0 0 60px rgba(255,215,0,.25)}
-
 .ath-card.pink::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--pink),#9B1DFF);z-index:5}
 .ath-card.mint::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--mint),#0099ff);z-index:5}
 .ath-card.gold::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),#FF6B35);z-index:5}
-
 .ath-glow{position:absolute;bottom:-40px;left:50%;transform:translateX(-50%);width:200px;height:200px;border-radius:50%;filter:blur(60px);opacity:.4;pointer-events:none;z-index:1;transition:opacity .3s}
 .ath-card:hover .ath-glow{opacity:.7}
 .ath-card.pink .ath-glow{background:var(--pink)}.ath-card.mint .ath-glow{background:var(--mint)}.ath-card.gold .ath-glow{background:var(--gold)}
-
 .ath-img-wrap{position:relative;min-height:350px;height:380px;display:flex;align-items:flex-start;justify-content:center;overflow:hidden;padding-top:8px;z-index:2;}
 .ath-img{height:100%;width:auto;object-fit:contain !important;object-position:top center !important;max-width:100%;transition:transform .35s cubic-bezier(.16,1,.3,1);}
 .ath-card:hover .ath-img{transform:scale(1.04) translateY(4px)}
-
 .ath-info{padding:14px 20px 0;text-align:center;position:relative;z-index:2}
 .ath-name{font-family:'Bebas Neue','Arial Black',Impact,sans-serif;font-size:clamp(2rem,6vw,2.6rem);line-height:1;color:#fff;transition:all .3s;display:block;text-shadow:0 2px 8px rgba(0,0,0,.5)}
 .ath-card.pink:hover .ath-name{color:var(--pink);text-shadow:0 0 20px var(--pink-glow)}
@@ -178,11 +158,9 @@ nav.stuck{background:rgba(10,10,15,.92);backdrop-filter:blur(28px);box-shadow:0 
 .ath-card.gold:hover .ath-name{color:var(--gold);text-shadow:0 0 20px rgba(255,215,0,.5)}
 .ath-city{font-family:'Unbounded',sans-serif;font-size:.52rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.38);margin:3px 0 8px;display:block}
 .ath-line{font-size:.84rem;line-height:1.55;color:rgba(255,255,255,.55);font-weight:500;font-style:italic}
-
 .carousel-dots{display:flex;justify-content:center;gap:8px;margin-top:16px;margin-bottom:8px}
 .cdot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.2);border:none;cursor:pointer;padding:0;transition:all .25s}
 .cdot.active{background:var(--pink);width:20px;border-radius:4px}
-
 .ath-bottom{display:flex;flex-direction:column;align-items:center;gap:16px;margin-top:4px}
 .arsenal-strip{display:flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,rgba(255,61,127,.1),rgba(0,229,204,.06));border:1px solid rgba(255,61,127,.22);border-radius:50px;padding:12px 20px;animation:arsenalPulse 3.5s ease-in-out infinite alternate;text-align:center}
 .arsenal-strip-txt{font-family:'Unbounded',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.82)}
@@ -191,7 +169,6 @@ nav.stuck{background:rgba(10,10,15,.92);backdrop-filter:blur(28px);box-shadow:0 
 .tt-shop-banner:hover::after{transform:translateX(100%)}
 .tt-shop-banner:hover{transform:translateY(-2px)}
 .tt-shop-banner-txt{font-family:'Bebas Neue','Arial Black',Impact,sans-serif;font-size:clamp(1.1rem,4vw,2rem);letter-spacing:1.5px;color:#fff;text-align:center}
-
 @media(min-width:768px){
   .athletes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;overflow-x:visible;scroll-snap-type:none;margin:0;padding:4px 0 16px;}
   .ath-card{flex:none;min-width:0}
@@ -200,7 +177,7 @@ nav.stuck{background:rgba(10,10,15,.92);backdrop-filter:blur(28px);box-shadow:0 
   .card-watermark{font-size:260px}
 }
 
-/* ── TIKTOK SECTION ── */
+/* ── TIKTOK ── */
 .tt-sec{background:linear-gradient(180deg,var(--dark) 0%,var(--dark2) 100%);overflow:hidden;position:relative}
 .tt-sec-grid{display:flex;flex-direction:column;gap:36px;align-items:center}
 .tt-left{display:flex;justify-content:center;width:100%}
@@ -555,7 +532,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:120px;ba
   </div>
 </footer>
 
-<!-- ══ PMGT VOICE LAUNCHER — updated audio config ══ -->
+<!-- ══ FIX 2: PMGT — mini model, wider silence/padding, no audioBuffering ══ -->
 <script>
   window.PayMeGPTConfig = {
     widgetId: '88975005',
@@ -570,19 +547,17 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:120px;ba
     customFooterText: 'Pretty Accessories 🇵🇷',
     provider: 'openai',
     voice: 'nova',
-    model: 'gpt-4o-realtime-preview',
+    model: 'gpt-4o-mini-realtime-preview',
     language: 'es',
     streaming: true,
     latency: 'balanced',
-    audioBuffering: true,
-    bufferSize: 4096,
-    sampleRate: 24000,
     turnDetection: 'server_vad',
-    silenceDuration: 600,
-    prefixPadding: 300
+    silenceDuration: 800,
+    prefixPadding: 400
   };
 </script>
 <script src="https://paymegpt.com/widget.js" data-config="PayMeGPT"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
@@ -590,6 +565,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:120px;ba
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
 <script>
+/* ── CURSOR ── */
 (function(){
   if(window.innerWidth<1024)return;
   var cur=document.getElementById('cursor'),trail=document.getElementById('cursor-trail');
@@ -604,6 +580,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:120px;ba
   });
 })();
 
+/* ── WHITE BG REMOVAL ── */
 function removeWhiteBackground(img,tol){
   tol=tol||30;
   try{
@@ -622,6 +599,7 @@ window.addEventListener('load',function(){
   });
 });
 
+/* ── LANG ── */
 var lang='es';
 function setLang(l){
   lang=l;
@@ -633,6 +611,32 @@ function setLang(l){
 window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('stuck',window.scrollY>50);},{passive:true});
 var isMob=function(){return window.innerWidth<768;};
 
+/* ── FIX 1: VOICE-ACTIVE CPU REDUCTION ── */
+(function(){
+  // Toggle body.voice-active when PMGT launcher opens/closes
+  // Pauses all CSS animations and hides canvas via CSS
+  var observer=new MutationObserver(function(){
+    // PMGT injects elements with pmgt/paymegpt in class names when open
+    var active=document.querySelector('[class*="pmgt"][class*="open"],[class*="paymegpt"][class*="open"],[class*="pmgt-launcher"][class*="active"],[class*="voice"][class*="active"]');
+    var isOpen=!!active;
+    document.body.classList.toggle('voice-active',isOpen);
+    if(isOpen){
+      // Pause particles engine
+      if(window.pJSDom&&window.pJSDom.length>0){
+        try{window.pJSDom[0].pJS.fn.vendors.destroypJS();}catch(e){}
+      }
+      // Pause GSAP global timeline
+      if(window.gsap)gsap.globalTimeline.pause();
+      // Kill VanillaTilt on all tilt elements
+      document.querySelectorAll('[data-tilt]').forEach(function(el){
+        if(el.vanillaTilt)try{el.vanillaTilt.destroy();}catch(e){}
+      });
+    }
+  });
+  observer.observe(document.body,{childList:true,subtree:true,attributes:true,attributeFilter:['class']});
+})();
+
+/* ── CAROUSEL DOTS ── */
 (function(){
   var grid=document.getElementById('ath-grid');
   var dots=document.querySelectorAll('#ath-dots .cdot');
@@ -650,6 +654,7 @@ var isMob=function(){return window.innerWidth<768;};
   });
 })();
 
+/* ── GSAP ── */
 if(typeof gsap!=='undefined'&&typeof ScrollTrigger!=='undefined'){
   gsap.registerPlugin(ScrollTrigger);
   gsap.from(['.hero-hl-1','.hero-hl-2','.hero-hl-3'],{opacity:0,y:isMob()?30:0,x:isMob()?0:-50,duration:.7,stagger:.12,ease:'power3.out',delay:.15});
@@ -663,6 +668,7 @@ if(typeof gsap!=='undefined'&&typeof ScrollTrigger!=='undefined'){
   }
 }
 
+/* ── PARTICLES — desktop only ── */
 var pCount=isMob()?0:28;
 if(pCount>0){
   particlesJS('particles-js',{
@@ -676,6 +682,7 @@ if(!isMob()&&typeof VanillaTilt!=='undefined'){
 }
 AOS.init({duration:650,once:true,offset:50,easing:'ease-out-cubic',disable:isMob()?'mobile':false});
 
+/* ── TT OEMBED ── */
 (function(){
   var bg=document.getElementById('tt-thumb-bg');if(!bg)return;
   fetch('https://www.tiktok.com/oembed?url='+encodeURIComponent('https://www.tiktok.com/@pretty.accessorie7/video/7608660505602919711'))
@@ -684,6 +691,7 @@ AOS.init({duration:650,once:true,offset:50,easing:'ease-out-cubic',disable:isMob
     .catch(function(){});
 })();
 
+/* ── WORLD MAP DOTS ── */
 var DOTS=[
   {x:50,y:24,done:true},{x:26.5,y:41.5},{x:20,y:33},
   {x:27,y:56},{x:24.5,y:40.5},{x:26,y:63},
