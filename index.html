@@ -133,7 +133,6 @@ nav.stuck{background:rgba(10,10,15,.92);backdrop-filter:blur(28px);box-shadow:0 
   background:rgba(255,255,255,.03);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.08);
 }
 
-/* ── FIX 2: JERSEY WATERMARKS — ghost, z-index:0, correct colors ── */
 .card-watermark{
   position:absolute;
   font-family:'Bebas Neue','Arial Black',Impact,sans-serif;
@@ -153,7 +152,6 @@ nav.stuck{background:rgba(10,10,15,.92);backdrop-filter:blur(28px);box-shadow:0 
 .ath-card.mint .card-watermark{color:rgba(0,229,204,.08)}
 .ath-card.gold .card-watermark{color:rgba(255,215,0,.08)}
 
-/* Holographic shimmer */
 .ath-card::before{content:'';position:absolute;inset:0;border-radius:24px;background:linear-gradient(135deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.05) 50%,rgba(255,255,255,0) 100%);background-size:200% 200%;background-position:0% 0%;opacity:0;transition:opacity .3s,background-position .6s;pointer-events:none;z-index:4}
 .ath-card:hover::before{opacity:1;background-position:100% 100%}
 .ath-card:hover{transform:translateY(-10px);box-shadow:0 36px 80px rgba(0,0,0,.55)}
@@ -169,12 +167,10 @@ nav.stuck{background:rgba(10,10,15,.92);backdrop-filter:blur(28px);box-shadow:0 
 .ath-card:hover .ath-glow{opacity:.7}
 .ath-card.pink .ath-glow{background:var(--pink)}.ath-card.mint .ath-glow{background:var(--mint)}.ath-card.gold .ath-glow{background:var(--gold)}
 
-/* Image area — z-index:1, head never cut */
 .ath-img-wrap{position:relative;min-height:350px;height:380px;display:flex;align-items:flex-start;justify-content:center;overflow:hidden;padding-top:8px;z-index:2;}
 .ath-img{height:100%;width:auto;object-fit:contain !important;object-position:top center !important;max-width:100%;transition:transform .35s cubic-bezier(.16,1,.3,1);}
 .ath-card:hover .ath-img{transform:scale(1.04) translateY(4px)}
 
-/* Card text — z-index:2 */
 .ath-info{padding:14px 20px 0;text-align:center;position:relative;z-index:2}
 .ath-name{font-family:'Bebas Neue','Arial Black',Impact,sans-serif;font-size:clamp(2rem,6vw,2.6rem);line-height:1;color:#fff;transition:all .3s;display:block;text-shadow:0 2px 8px rgba(0,0,0,.5)}
 .ath-card.pink:hover .ath-name{color:var(--pink);text-shadow:0 0 20px var(--pink-glow)}
@@ -201,7 +197,6 @@ nav.stuck{background:rgba(10,10,15,.92);backdrop-filter:blur(28px);box-shadow:0 
   .ath-card{flex:none;min-width:0}
   .carousel-dots{display:none}
   .ath-img-wrap{min-height:370px;height:400px}
-  /* Larger watermark on desktop */
   .card-watermark{font-size:260px}
 }
 
@@ -337,7 +332,6 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:120px;ba
   </div>
 </nav>
 
-<!-- S1 — HERO: Nailah4.png -->
 <section class="hero" id="hero">
   <div class="hero-left">
     <span class="hero-badge">🏐 Club Arsenal Arecibo · Puerto Rico 🇵🇷</span>
@@ -366,16 +360,12 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:120px;ba
 
 <div class="sec-div" role="separator"></div>
 
-<!-- S2 — TRADING CARDS -->
 <section class="section athletes-sec" id="about">
   <div class="s-in">
     <span class="eyebrow t" data-es="Las atletas · Puerto Rico 🇵🇷" data-en="The athletes · Puerto Rico 🇵🇷">Las atletas · Puerto Rico 🇵🇷</span>
     <h2 class="s-head t" data-es="DETRÁS DEL BRACELET" data-en="BEHIND THE BRACELET">DETRÁS DEL BRACELET</h2>
     <div class="sdiv"></div>
-
     <div class="athletes-grid" id="ath-grid">
-
-      <!-- NAILAH — Nailah2.png, #8, pink -->
       <div class="ath-card pink" data-aos="fade-up">
         <div class="card-watermark" aria-hidden="true">#8</div>
         <div class="ath-glow"></div>
@@ -388,8 +378,6 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:120px;ba
           <p class="ath-line t" data-es="Flow, cancha y disciplina." data-en="Flow, court, and discipline.">Flow, cancha y disciplina.</p>
         </div>
       </div>
-
-      <!-- ARIANA — Ariana1.png, #7, mint -->
       <div class="ath-card mint" data-aos="fade-up" data-aos-delay="100">
         <div class="card-watermark" aria-hidden="true">#7</div>
         <div class="ath-glow"></div>
@@ -402,17 +390,11 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:120px;ba
           <p class="ath-line t" data-es="Precisión, estilo y hambre de ganar." data-en="Precision, style and hunger to win.">Precisión, estilo y hambre de ganar.</p>
         </div>
       </div>
-
-      <!-- FIX 1: YAIZA — arian%20yaiza1.png (Ariana & Yaiza with medals), #12, gold -->
       <div class="ath-card gold" data-aos="fade-up" data-aos-delay="200">
         <div class="card-watermark" aria-hidden="true">#12</div>
         <div class="ath-glow"></div>
         <div class="ath-img-wrap">
-          <img class="ath-img player-image"
-               src="./arian%20yaiza1.png"
-               alt="Yaiza #12 — Camuy PR"
-               loading="lazy"
-               onerror="this.style.display='none'">
+          <img class="ath-img player-image" src="./arian%20yaiza1.png" alt="Yaiza #12 — Camuy PR" loading="lazy" onerror="this.style.display='none'">
         </div>
         <div class="ath-info">
           <span class="ath-name">YAIZA</span>
@@ -420,15 +402,12 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:120px;ba
           <p class="ath-line t" data-es="Energía pura, mente de campeona." data-en="Pure energy, champion's mind.">Energía pura, mente de campeona.</p>
         </div>
       </div>
-
     </div>
-
     <div class="carousel-dots" id="ath-dots" aria-label="Seleccionar atleta">
       <button class="cdot active" data-idx="0" aria-label="Nailah"></button>
       <button class="cdot" data-idx="1" aria-label="Ariana"></button>
       <button class="cdot" data-idx="2" aria-label="Yaiza"></button>
     </div>
-
     <div class="ath-bottom" data-aos="fade-up">
       <div style="display:flex;justify-content:center;width:100%">
         <div class="arsenal-strip">
@@ -447,7 +426,6 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:120px;ba
 
 <div class="sec-div" role="separator"></div>
 
-<!-- S3 — TIKTOK: Ariana4.png -->
 <section class="section tt-sec" id="social">
   <div class="s-in">
     <div class="tt-sec-grid">
@@ -480,7 +458,6 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:120px;ba
 
 <div class="sec-div" role="separator"></div>
 
-<!-- S4 — PRODUCTS -->
 <section class="section products-sec" id="products" data-aos="fade-up">
   <div class="s-in">
     <span class="eyebrow t" data-es="Hecho a mano · Puerto Rico 🇵🇷" data-en="Handmade · Puerto Rico 🇵🇷">Hecho a mano · Puerto Rico 🇵🇷</span>
@@ -526,15 +503,10 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:120px;ba
 
 <div class="sec-div" role="separator"></div>
 
-<!-- S5 — DREAM: arian%20yaiza1.png sisters -->
 <section class="dream-sec" id="dream">
   <div class="dream-grid">
     <div class="dream-left" data-aos="fade-right">
-      <img class="dream-athlete player-image"
-           src="./arian%20yaiza1.png"
-           alt="Ariana y Yaiza — el sueño juntas"
-           loading="lazy"
-           onerror="this.style.display='none'">
+      <img class="dream-athlete player-image" src="./arian%20yaiza1.png" alt="Ariana y Yaiza — el sueño juntas" loading="lazy" onerror="this.style.display='none'">
     </div>
     <div class="dream-right" data-aos="fade-left">
       <span class="eyebrow t" data-es="El Sueño · Un spike a la vez" data-en="The Dream · One spike at a time">El Sueño · Un spike a la vez</span>
@@ -583,7 +555,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:120px;ba
   </div>
 </footer>
 
-<!-- PMGT VOICE LAUNCHER — ONLY floating element -->
+<!-- ══ PMGT VOICE LAUNCHER — updated audio config ══ -->
 <script>
   window.PayMeGPTConfig = {
     widgetId: '88975005',
@@ -601,7 +573,13 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:120px;ba
     model: 'gpt-4o-realtime-preview',
     language: 'es',
     streaming: true,
-    latency: 'low'
+    latency: 'balanced',
+    audioBuffering: true,
+    bufferSize: 4096,
+    sampleRate: 24000,
+    turnDetection: 'server_vad',
+    silenceDuration: 600,
+    prefixPadding: 300
   };
 </script>
 <script src="https://paymegpt.com/widget.js" data-config="PayMeGPT"></script>
