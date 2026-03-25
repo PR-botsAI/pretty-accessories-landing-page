@@ -6,15 +6,37 @@
 <title>Pretty Accessories 🎀 | Club Arsenal Arecibo · Puerto Rico</title>
 <meta name="description" content="Pulseras customizadas, glitter gel y más — tres atletas de volleyball de Puerto Rico. @pretty.accessorie7">
 <link rel="icon" type="image/png" href="./getpretty.png">
+
+<!-- FIX 1: Font preconnects first -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Unbounded:wght@400;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+
+<!-- FIX 1: Preload fonts to avoid flash -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Unbounded:wght@400;700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Pacifico&display=swap">
+
+<!-- FIX 1: Non-blocking font load -->
+<link rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Unbounded:wght@400;700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Pacifico&display=swap"
+  media="print" onload="this.media='all'">
+<noscript>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Unbounded:wght@400;700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Pacifico&display=swap">
+</noscript>
+
 <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<!-- FIX 1: Visibility control during font load -->
+<style>
+  .fonts-loading * { visibility: hidden; }
+  .fonts-loaded * { visibility: visible; }
+</style>
+
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{--pink:#FF3D7F;--mint:#00E5CC;--gold:#FFD700;--dark:#0A0A0F;--dark2:#0f0a1a;--dark3:#060610;--glass:rgba(255,255,255,.05);--pink-glow:rgba(255,61,127,.45);--mint-glow:rgba(0,229,204,.35);}
 html{scroll-behavior:smooth}
-body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--dark);color:#fff;overflow-x:hidden}
+/* FIX 1: Fallback fonts */
+body{font-family:'Plus Jakarta Sans','Trebuchet MS',sans-serif;background:var(--dark);color:#fff;overflow-x:hidden}
+h1,h2,h3,.hero-hl,.s-head,.ath-name,.p-name,.dream-head,.tt-hl{font-family:'Bebas Neue','Arial Black',Impact,sans-serif}
 ::selection{background:var(--pink);color:#fff}
 
 /* ── PLAYER IMAGE BASE TREATMENT ── */
@@ -40,7 +62,7 @@ nav.stuck{background:rgba(10,10,15,.88);backdrop-filter:blur(28px);-webkit-backd
 .nav-logo:hover .nav-logo-img{filter:drop-shadow(0 0 18px rgba(255,61,127,.8))}
 .nav-r{display:flex;align-items:center;gap:10px}
 .lang-wrap{display:flex;align-items:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:24px;padding:2px}
-.lb{background:none;border:none;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;font-size:.72rem;font-weight:800;letter-spacing:.8px;color:rgba(255,255,255,.38);padding:5px 13px;border-radius:20px;transition:all .22s;text-transform:uppercase;min-height:32px}
+.lb{background:none;border:none;cursor:pointer;font-family:'Plus Jakarta Sans','Trebuchet MS',sans-serif;font-size:.72rem;font-weight:800;letter-spacing:.8px;color:rgba(255,255,255,.38);padding:5px 13px;border-radius:20px;transition:all .22s;text-transform:uppercase;min-height:32px}
 .lb.on{background:var(--pink);color:#fff;box-shadow:0 0 14px var(--pink-glow)}
 .nav-tt{display:flex;align-items:center;gap:6px;background:linear-gradient(135deg,var(--pink),#9B1DFF);color:#fff;font-weight:800;font-size:.74rem;padding:8px 16px;border-radius:20px;text-decoration:none;box-shadow:0 0 18px var(--pink-glow);transition:all .25s;border:none;cursor:pointer}
 .nav-tt:hover{transform:translateY(-2px);box-shadow:0 0 30px var(--pink-glow)}
@@ -48,7 +70,7 @@ nav.stuck{background:rgba(10,10,15,.88);backdrop-filter:blur(28px);-webkit-backd
 .section{position:relative;z-index:10;padding:100px 28px}
 .s-in{max-width:1120px;margin:0 auto}
 .eyebrow{font-family:'Unbounded',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--pink);margin-bottom:14px;display:block}
-.s-head{font-family:'Bebas Neue',cursive;font-size:clamp(2.8rem,7vw,5.5rem);line-height:.92;letter-spacing:1px;margin-bottom:16px}
+.s-head{font-family:'Bebas Neue','Arial Black',Impact,sans-serif;font-size:clamp(2.8rem,7vw,5.5rem);line-height:.92;letter-spacing:1px;margin-bottom:16px}
 .sdiv{width:48px;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--pink),var(--mint));margin-bottom:36px}
 
 /* ── BUTTONS ── */
@@ -64,26 +86,15 @@ nav.stuck{background:rgba(10,10,15,.88);backdrop-filter:blur(28px);-webkit-backd
 .hero-grid{display:grid;grid-template-columns:1fr 520px;gap:0;align-items:center;width:100%;max-width:1120px;margin:0 auto;position:relative;z-index:4}
 .hero-left{display:flex;flex-direction:column;align-items:flex-start}
 .hero-label{font-family:'Unbounded',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:20px;display:block}
-.hero-hl{font-family:'Bebas Neue',cursive;display:block;margin-bottom:0;line-height:.88}
+.hero-hl{font-family:'Bebas Neue','Arial Black',Impact,sans-serif;display:block;margin-bottom:0;line-height:.88}
 .hero-hl-1{font-size:clamp(5.5rem,16vw,13rem);color:#fff;display:block;text-shadow:0 0 60px rgba(255,61,127,.2),6px 8px 0 rgba(0,0,0,.6)}
 .hero-hl-2{font-size:clamp(5.5rem,16vw,13rem);display:block;background:linear-gradient(135deg,var(--pink) 0%,#C026D3 50%,#FF6B35 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:hlShimmer 4s linear infinite}
 @keyframes hlShimmer{0%{background-position:0% center}100%{background-position:200% center}}
 .hero-hl-3{font-size:clamp(5.5rem,16vw,13rem);display:block;-webkit-text-fill-color:transparent;-webkit-text-stroke:2px var(--mint);text-shadow:0 0 40px rgba(0,229,204,.4),0 0 80px rgba(0,229,204,.15);filter:drop-shadow(0 0 12px rgba(0,229,204,.5))}
 .hero-sub{font-size:clamp(.95rem,2.2vw,1.2rem);color:rgba(255,255,255,.6);font-weight:600;letter-spacing:.3px;margin:22px 0 28px;line-height:1.65;max-width:440px}
-/* Hero dual CTA row */
 .hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:0}
-/* Hero image — Nailah, large, 90vh */
 .hero-img-wrap{position:relative;z-index:5;display:flex;align-items:flex-end;justify-content:center;height:100%;min-height:600px}
-.hero-athlete{
-  position:absolute;bottom:-40px;right:-30px;
-  height:90vh;max-height:860px;width:auto;
-  object-fit:contain;object-position:bottom;
-  mix-blend-mode:screen;
-  filter:drop-shadow(0 0 50px rgba(255,61,127,.7)) contrast(1.05);
-  animation:float 5s ease-in-out infinite;
-  transform-origin:bottom center;
-}
-/* Scroll cue */
+.hero-athlete{position:absolute;bottom:-40px;right:-30px;height:90vh;max-height:860px;width:auto;object-fit:contain;object-position:bottom;mix-blend-mode:screen;filter:drop-shadow(0 0 50px rgba(255,61,127,.7)) contrast(1.05);animation:float 5s ease-in-out infinite;transform-origin:bottom center}
 .scroll-cue{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:5;display:flex;flex-direction:column;align-items:center;gap:5px;opacity:.28;animation:scueBob 2.6s ease-in-out infinite}
 .scroll-cue-txt{font-family:'Unbounded',sans-serif;font-size:.52rem;letter-spacing:3px;text-transform:uppercase;font-weight:700}
 .scroll-arrow{width:18px;height:18px;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(45deg)}
@@ -101,29 +112,26 @@ nav.stuck{background:rgba(10,10,15,.88);backdrop-filter:blur(28px);-webkit-backd
 .ath-glow{position:absolute;bottom:-40px;left:50%;transform:translateX(-50%);width:200px;height:200px;border-radius:50%;filter:blur(60px);opacity:.35;pointer-events:none;transition:opacity .3s}
 .ath-card:hover .ath-glow{opacity:.65}
 .ath-card.pink .ath-glow{background:var(--pink)}.ath-card.mint .ath-glow{background:var(--mint)}.ath-card.gold .ath-glow{background:var(--gold)}
-/* Bigger image area — 75% of card */
 .ath-img-wrap{position:relative;min-height:320px;height:360px;display:flex;align-items:flex-end;justify-content:center;overflow:visible;padding-top:16px}
 .ath-img{height:100%;width:auto;object-fit:contain;object-position:bottom center;transition:transform .3s cubic-bezier(.16,1,.3,1)}
 .ath-card:hover .ath-img{transform:scale(1.04) translateY(-6px)}
 .ath-info{padding:18px 24px 0;text-align:center}
-.ath-name{font-family:'Bebas Neue',cursive;font-size:2.4rem;line-height:1;color:#fff;transition:all .3s;display:block}
+.ath-name{font-family:'Bebas Neue','Arial Black',Impact,sans-serif;font-size:2.4rem;line-height:1;color:#fff;transition:all .3s;display:block}
 .ath-card.pink:hover .ath-name{color:var(--pink);text-shadow:0 0 20px var(--pink-glow)}
 .ath-card.mint:hover .ath-name{color:var(--mint);text-shadow:0 0 20px var(--mint-glow)}
 .ath-card.gold:hover .ath-name{color:var(--gold);text-shadow:0 0 20px rgba(255,215,0,.5)}
 .ath-city{font-family:'Unbounded',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.4);margin:4px 0 10px;display:block}
 .ath-line{font-size:.88rem;line-height:1.6;color:rgba(255,255,255,.58);font-weight:500;font-style:italic}
-/* Arsenal badge row */
 .ath-bottom{display:flex;flex-direction:column;align-items:center;gap:20px}
 .arsenal-strip{display:flex;align-items:center;justify-content:center;gap:12px;background:linear-gradient(135deg,rgba(255,61,127,.1),rgba(0,229,204,.06));border:1px solid rgba(255,61,127,.22);border-radius:50px;padding:14px 28px;animation:arsenalPulse 3.5s ease-in-out infinite alternate}
 @keyframes arsenalPulse{from{box-shadow:0 0 10px rgba(255,61,127,.1)}to{box-shadow:0 0 28px rgba(255,61,127,.32)}}
 .arsenal-strip-txt{font-family:'Unbounded',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.82)}
-/* TikTok shop banner after athletes */
 .tt-shop-banner{display:flex;align-items:center;justify-content:center;width:100%;background:linear-gradient(135deg,var(--pink),#9B1DFF 60%,#C026D3);border-radius:20px;padding:20px 32px;text-decoration:none;box-shadow:0 0 50px rgba(255,61,127,.4),0 0 100px rgba(155,29,255,.2);transition:all .3s;position:relative;overflow:hidden;animation:bannerGlow 3s ease-in-out infinite alternate}
 .tt-shop-banner::after{content:'';position:absolute;inset:0;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.14) 50%,transparent 70%);transform:translateX(-100%);transition:transform .8s}
 .tt-shop-banner:hover::after{transform:translateX(100%)}
 .tt-shop-banner:hover{transform:translateY(-3px);box-shadow:0 0 80px rgba(255,61,127,.55)}
 @keyframes bannerGlow{from{box-shadow:0 0 40px rgba(255,61,127,.35)}to{box-shadow:0 0 70px rgba(255,61,127,.6),0 0 120px rgba(155,29,255,.3)}}
-.tt-shop-banner-txt{font-family:'Bebas Neue',cursive;font-size:clamp(1.4rem,4vw,2.2rem);letter-spacing:2px;color:#fff;text-align:center}
+.tt-shop-banner-txt{font-family:'Bebas Neue','Arial Black',Impact,sans-serif;font-size:clamp(1.4rem,4vw,2.2rem);letter-spacing:2px;color:#fff;text-align:center}
 
 /* ── TT SOCIAL SECTION ── */
 .tt-sec{background:linear-gradient(180deg,var(--dark) 0%,var(--dark2) 100%);overflow:hidden}
@@ -131,7 +139,7 @@ nav.stuck{background:rgba(10,10,15,.88);backdrop-filter:blur(28px);-webkit-backd
 .tt-left{position:relative}
 .tt-athlete{width:100%;max-width:380px;object-fit:contain;filter:drop-shadow(20px 0 50px rgba(255,61,127,.35)) drop-shadow(0 10px 30px rgba(0,0,0,.5));animation:float 5.5s ease-in-out infinite;animation-delay:.5s;mix-blend-mode:screen}
 .tt-right{display:flex;flex-direction:column;gap:20px}
-.tt-hl{font-family:'Bebas Neue',cursive;font-size:clamp(2rem,5vw,3.5rem);line-height:1.05;letter-spacing:.5px}
+.tt-hl{font-family:'Bebas Neue','Arial Black',Impact,sans-serif;font-size:clamp(2rem,5vw,3.5rem);line-height:1.05;letter-spacing:.5px}
 .tt-hl span{color:var(--pink)}
 .tt-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:22px;overflow:hidden;animation:cardGlow 5s ease-in-out infinite alternate}
 @keyframes cardGlow{from{box-shadow:0 0 20px rgba(255,61,127,.06)}to{box-shadow:0 0 44px rgba(255,61,127,.18)}}
@@ -157,13 +165,11 @@ nav.stuck{background:rgba(10,10,15,.88);backdrop-filter:blur(28px);-webkit-backd
 .p-card.gold::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,215,0,.08) 0%,transparent 50%);border-radius:26px;pointer-events:none}
 .p-glow{position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;filter:blur(55px);opacity:.22;pointer-events:none}
 .p-card.pink .p-glow{background:var(--pink)}.p-card.mint .p-glow{background:var(--mint)}.p-card.gold .p-glow{background:var(--gold)}
-/* Bigger floating athlete in product card */
 .p-athlete{position:absolute;right:-5px;top:-15px;height:250px;min-width:120px;width:auto;object-fit:contain;opacity:.88;pointer-events:none;animation:float 4s ease-in-out infinite;mix-blend-mode:screen}
 .p-icon{font-size:2.6rem;margin-bottom:14px;display:block}
 .p-card.pink .p-icon{filter:drop-shadow(0 0 16px var(--pink))}.p-card.mint .p-icon{filter:drop-shadow(0 0 16px var(--mint))}.p-card.gold .p-icon{filter:drop-shadow(0 0 16px var(--gold))}
-.p-name{font-family:'Bebas Neue',cursive;font-size:2rem;color:#fff;line-height:1;margin-bottom:10px}
+.p-name{font-family:'Bebas Neue','Arial Black',Impact,sans-serif;font-size:2rem;color:#fff;line-height:1;margin-bottom:10px}
 .p-desc{font-size:.86rem;line-height:1.7;color:rgba(255,255,255,.56);margin-bottom:20px;max-width:280px}
-/* Bigger product buttons — full card width, pulsing glow on hover */
 .p-btn{display:flex;align-items:center;justify-content:center;gap:6px;background:none;border:1.5px solid rgba(255,255,255,.22);color:#fff;font-size:.82rem;font-weight:800;letter-spacing:.5px;padding:14px 18px;border-radius:24px;text-decoration:none;cursor:pointer;transition:all .25s;min-height:48px;width:100%;position:relative}
 .p-card.pink .p-btn:hover{border-color:var(--pink);color:var(--pink);background:rgba(255,61,127,.08);box-shadow:0 0 20px rgba(255,61,127,.4)}
 .p-card.mint .p-btn:hover{border-color:var(--mint);color:var(--mint);background:rgba(0,229,204,.08);box-shadow:0 0 20px rgba(0,229,204,.35)}
@@ -183,7 +189,7 @@ nav.stuck{background:rgba(10,10,15,.88);backdrop-filter:blur(28px);-webkit-backd
 .dream-left{position:relative;display:flex;align-items:flex-end;justify-content:center;height:560px}
 .dream-athlete{height:100%;min-height:500px;width:auto;object-fit:contain;object-position:bottom;mix-blend-mode:screen;filter:drop-shadow(-10px 0 50px rgba(255,215,0,.4)) drop-shadow(0 10px 40px rgba(0,0,0,.6));animation:float 6s ease-in-out infinite;animation-delay:1s}
 .dream-right{text-align:center}
-.dream-head{font-family:'Bebas Neue',cursive;font-size:clamp(3.5rem,10vw,7.5rem);line-height:.9;letter-spacing:2px;background:linear-gradient(135deg,#fff 0%,var(--pink) 30%,var(--gold) 65%,var(--mint) 100%);background-size:300% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:dreamShimmer 6s linear infinite;margin-bottom:30px}
+.dream-head{font-family:'Bebas Neue','Arial Black',Impact,sans-serif;font-size:clamp(3.5rem,10vw,7.5rem);line-height:.9;letter-spacing:2px;background:linear-gradient(135deg,#fff 0%,var(--pink) 30%,var(--gold) 65%,var(--mint) 100%);background-size:300% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:dreamShimmer 6s linear infinite;margin-bottom:30px}
 @keyframes dreamShimmer{0%{background-position:0% center}100%{background-position:300% center}}
 .world-wrap{position:relative;width:100%;max-width:600px;margin:0 auto 22px;height:280px}
 .world-svg{width:100%;height:100%;opacity:.16;filter:drop-shadow(0 0 10px rgba(0,229,204,.2))}
@@ -192,10 +198,9 @@ nav.stuck{background:rgba(10,10,15,.88);backdrop-filter:blur(28px);-webkit-backd
 @keyframes dotIn{from{opacity:0;transform:translate(-50%,-50%) scale(0)}to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
 .map-dot::after{content:'';position:absolute;inset:-5px;border-radius:50%;border:1.5px solid currentColor;opacity:.35;animation:dotRing 2.2s ease-in-out infinite}
 @keyframes dotRing{0%,100%{transform:scale(1);opacity:.35}50%{transform:scale(1.7);opacity:0}}
-.dream-counter{font-family:'Bebas Neue',cursive;font-size:clamp(2rem,5vw,3.5rem);color:var(--gold);text-shadow:0 0 30px rgba(255,215,0,.45);margin:0 0 16px;letter-spacing:2px}
+.dream-counter{font-family:'Bebas Neue','Arial Black',Impact,sans-serif;font-size:clamp(2rem,5vw,3.5rem);color:var(--gold);text-shadow:0 0 30px rgba(255,215,0,.45);margin:0 0 16px;letter-spacing:2px}
 .dream-line{font-size:clamp(.92rem,2.5vw,1.1rem);color:rgba(255,255,255,.6);margin-bottom:28px;line-height:1.75;font-weight:500;max-width:480px;margin-left:auto;margin-right:auto}
 .dream-line em{color:rgba(255,255,255,.85);font-style:normal;font-weight:700}
-/* Dream dual CTA */
 .dream-ctas{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
 
 /* ── FOOTER ── */
@@ -203,7 +208,6 @@ footer{position:relative;z-index:10;background:var(--dark);border-top:1px solid 
 footer::before{content:'';position:absolute;top:0;left:0;right:0;height:140px;background:radial-gradient(ellipse 50% 100% at 50% 0%,rgba(255,61,127,.04) 0%,transparent 70%)}
 .foot-wrap{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:12px}
 .foot-logo{height:72px;width:auto;filter:drop-shadow(0 0 16px rgba(255,61,127,.4))}
-/* Big footer TikTok button */
 .foot-tt-big{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,var(--pink),#9B1DFF);color:#fff;font-weight:800;font-size:1.1rem;letter-spacing:.5px;padding:16px 40px;border-radius:50px;text-decoration:none;box-shadow:0 0 36px var(--pink-glow);transition:all .3s;min-height:56px;width:100%;max-width:400px;animation:footGlow 3s ease-in-out infinite alternate}
 @keyframes footGlow{from{box-shadow:0 0 28px rgba(255,61,127,.4)}to{box-shadow:0 0 60px rgba(255,61,127,.7)}}
 .foot-tt-big:hover{transform:translateY(-3px);box-shadow:0 0 80px var(--pink-glow)}
@@ -212,7 +216,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:140px;ba
 .foot-meta{font-size:.72rem;color:rgba(255,255,255,.2);line-height:2.2}
 
 /* ── LUNA FAB & PANEL ── */
-#luna-fab{position:fixed;bottom:26px;left:22px;z-index:9998;display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--pink),#9B1DFF);color:#fff;border:none;cursor:pointer;padding:13px 20px;border-radius:50px;font-family:'Plus Jakarta Sans',sans-serif;font-size:.86rem;font-weight:800;animation:fabPulse 2.5s ease-out infinite;transition:transform .25s;box-shadow:0 4px 20px rgba(255,61,127,.5)}
+#luna-fab{position:fixed;bottom:26px;left:22px;z-index:9998;display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--pink),#9B1DFF);color:#fff;border:none;cursor:pointer;padding:13px 20px;border-radius:50px;font-family:'Plus Jakarta Sans','Trebuchet MS',sans-serif;font-size:.86rem;font-weight:800;animation:fabPulse 2.5s ease-out infinite;transition:transform .25s;box-shadow:0 4px 20px rgba(255,61,127,.5)}
 @keyframes fabPulse{0%{box-shadow:0 0 0 0 rgba(255,61,127,.75),0 4px 20px rgba(255,61,127,.5)}65%{box-shadow:0 0 0 18px rgba(255,61,127,0),0 4px 20px rgba(255,61,127,.5)}100%{box-shadow:0 0 0 0 rgba(255,61,127,0),0 4px 20px rgba(255,61,127,.5)}}
 #luna-fab:hover{transform:scale(1.05)}
 #luna-fab-icon{font-size:1.05rem;flex-shrink:0}
@@ -240,10 +244,10 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:140px;ba
 @keyframes typeBounce{0%,60%,100%{transform:translateY(0);opacity:.32}30%{transform:translateY(-6px);opacity:1}}
 .lp-chips{display:flex;gap:5px;overflow-x:auto;padding:6px 11px;border-top:1px solid rgba(255,255,255,.05);flex-shrink:0;scrollbar-width:none}
 .lp-chips::-webkit-scrollbar{display:none}
-.chip{background:rgba(255,255,255,.05);border:1px solid rgba(255,61,127,.22);color:rgba(255,255,255,.7);font-size:.67rem;font-weight:700;padding:6px 11px;border-radius:17px;cursor:pointer;white-space:nowrap;flex-shrink:0;transition:all .2s;font-family:'Plus Jakarta Sans',sans-serif;min-height:32px}
+.chip{background:rgba(255,255,255,.05);border:1px solid rgba(255,61,127,.22);color:rgba(255,255,255,.7);font-size:.67rem;font-weight:700;padding:6px 11px;border-radius:17px;cursor:pointer;white-space:nowrap;flex-shrink:0;transition:all .2s;font-family:'Plus Jakarta Sans','Trebuchet MS',sans-serif;min-height:32px}
 .chip:hover{background:rgba(255,61,127,.13);border-color:var(--pink);color:#fff}
 .lp-input{display:flex;gap:6px;padding:9px 11px 12px;border-top:1px solid rgba(255,255,255,.05);flex-shrink:0}
-#luna-inp{flex:1;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:17px;padding:8px 13px;color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-size:.83rem;font-weight:500;outline:none;transition:border-color .2s}
+#luna-inp{flex:1;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:17px;padding:8px 13px;color:#fff;font-family:'Plus Jakarta Sans','Trebuchet MS',sans-serif;font-size:.83rem;font-weight:500;outline:none;transition:border-color .2s}
 #luna-inp:focus{border-color:rgba(255,61,127,.42)}
 #luna-inp::placeholder{color:rgba(255,255,255,.24)}
 #luna-send{width:36px;height:36px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,var(--pink),#9B1DFF);border:none;cursor:pointer;color:#fff;font-size:.9rem;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 12px var(--pink-glow);transition:all .2s}
@@ -253,60 +257,26 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:140px;ba
 /* ── MOB BAR ── */
 #mob-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;height:58px;background:rgba(10,5,20,.95);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border-top:2px solid var(--pink);box-shadow:0 -4px 32px rgba(255,61,127,.16)}
 .mob-bar-inner{display:flex;height:100%}
-.mob-btn{flex:1;display:flex;align-items:center;justify-content:center;gap:7px;border:none;background:none;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;font-size:.82rem;font-weight:800;color:#fff;letter-spacing:.2px;transition:background .2s;min-height:58px;text-decoration:none}
+.mob-btn{flex:1;display:flex;align-items:center;justify-content:center;gap:7px;border:none;background:none;cursor:pointer;font-family:'Plus Jakarta Sans','Trebuchet MS',sans-serif;font-size:.82rem;font-weight:800;color:#fff;letter-spacing:.2px;transition:background .2s;min-height:58px;text-decoration:none}
 .mob-btn:active{background:rgba(255,61,127,.12)}
 .mob-sep{width:1px;background:rgba(255,255,255,.1);flex-shrink:0;margin:10px 0}
 
 /* ── RESPONSIVE ── */
-@media(max-width:960px){
-  .hero-grid{grid-template-columns:1fr;gap:0}
-  .hero-img-wrap{min-height:350px;position:relative}
-  .hero-athlete{position:relative;bottom:auto;right:auto;height:min(420px,65vw);max-height:none;margin:0 auto;display:block;animation:float 5s ease-in-out infinite}
-  .hero-left{align-items:center;text-align:center}
-  .hero-ctas{justify-content:center}
-  .hero-sub{max-width:100%}
-  .athletes-grid{grid-template-columns:1fr}
-  .ath-img-wrap{min-height:280px;height:300px}
-  .tt-sec-grid{grid-template-columns:1fr}
-  .tt-left{display:flex;justify-content:center}
-  .tt-athlete{max-width:280px}
-  .p-bento{grid-template-columns:1fr}
-  .p-card.large,.p-card.wide{grid-row:auto;grid-column:auto}
-  .dream-grid{grid-template-columns:1fr}
-  .dream-left{height:320px}
-  .dream-athlete{min-height:300px}
-  .dream-right{text-align:center}
-  .dream-ctas{justify-content:center}
-  .world-wrap{height:200px}
-  .tt-shop-banner-txt{font-size:clamp(1.1rem,3.5vw,1.6rem)}
-}
-@media(max-width:768px){
-  #mob-bar{display:block}
-  body{padding-bottom:58px}
-  #luna-fab,#luna-panel{display:none}
-  nav{padding:10px 16px}
-  .section{padding:70px 16px}
-  .hero{padding:88px 16px 60px}
-  .hero-hl-1,.hero-hl-2,.hero-hl-3{font-size:clamp(4.5rem,20vw,7rem)}
-  .hero-athlete{height:min(320px,65vw)}
-  .ath-img-wrap{min-height:240px;height:260px}
-  .tt-thumb{height:260px}
-  .dream-grid{padding:60px 16px}
-  .dream-left{height:260px}
-  footer{padding:36px 16px 60px}
-  .p-athlete{height:180px}
-  .tt-shop-banner{padding:16px 20px;border-radius:16px}
-  .foot-tt-big{max-width:100%}
-}
-@media(max-width:420px){
-  .hero-hl-1,.hero-hl-2,.hero-hl-3{font-size:clamp(3.8rem,22vw,5.5rem)}
-  .mob-btn{font-size:.76rem;gap:5px}
-  .hero-ctas .btn-hot,.hero-ctas .btn-mint{padding:13px 20px;font-size:.84rem}
-}
+@media(max-width:960px){.hero-grid{grid-template-columns:1fr;gap:0}.hero-img-wrap{min-height:350px;position:relative}.hero-athlete{position:relative;bottom:auto;right:auto;height:min(420px,65vw);max-height:none;margin:0 auto;display:block;animation:float 5s ease-in-out infinite}.hero-left{align-items:center;text-align:center}.hero-ctas{justify-content:center}.hero-sub{max-width:100%}.athletes-grid{grid-template-columns:1fr}.ath-img-wrap{min-height:280px;height:300px}.tt-sec-grid{grid-template-columns:1fr}.tt-left{display:flex;justify-content:center}.tt-athlete{max-width:280px}.p-bento{grid-template-columns:1fr}.p-card.large,.p-card.wide{grid-row:auto;grid-column:auto}.dream-grid{grid-template-columns:1fr}.dream-left{height:320px}.dream-athlete{min-height:300px}.dream-right{text-align:center}.dream-ctas{justify-content:center}.world-wrap{height:200px}.tt-shop-banner-txt{font-size:clamp(1.1rem,3.5vw,1.6rem)}}
+@media(max-width:768px){#mob-bar{display:block}body{padding-bottom:58px}#luna-fab,#luna-panel{display:none}nav{padding:10px 16px}.section{padding:70px 16px}.hero{padding:88px 16px 60px}.hero-hl-1,.hero-hl-2,.hero-hl-3{font-size:clamp(4.5rem,20vw,7rem)}.hero-athlete{height:min(320px,65vw)}.ath-img-wrap{min-height:240px;height:260px}.tt-thumb{height:260px}.dream-grid{padding:60px 16px}.dream-left{height:260px}footer{padding:36px 16px 60px}.p-athlete{height:180px}.tt-shop-banner{padding:16px 20px;border-radius:16px}.foot-tt-big{max-width:100%}}
+@media(max-width:420px){.hero-hl-1,.hero-hl-2,.hero-hl-3{font-size:clamp(3.8rem,22vw,5.5rem)}.mob-btn{font-size:.76rem;gap:5px}.hero-ctas .btn-hot,.hero-ctas .btn-mint{padding:13px 20px;font-size:.84rem}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
+<!-- FIX 1: Font flash prevention — runs immediately -->
+<script>
+  document.documentElement.classList.add('fonts-loading');
+  document.fonts.ready.then(function() {
+    document.documentElement.classList.remove('fonts-loading');
+    document.documentElement.classList.add('fonts-loaded');
+  });
+</script>
 
 <svg class="noise" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
   <filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="4" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter>
@@ -330,7 +300,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:140px;ba
   </div>
 </nav>
 
-<!-- S1 — HERO -->
+<!-- S1 — HERO: Nailah1.png leads -->
 <section class="hero" id="hero">
   <div class="hero-grid">
     <div class="hero-left">
@@ -341,7 +311,6 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:140px;ba
         <span class="hero-hl-3">UN MUNDO</span>
       </div>
       <p class="hero-sub t" data-es="De la cancha al mundo. Un bracelet a la vez." data-en="From the court to the world. One bracelet at a time.">De la cancha al mundo. Un bracelet a la vez.</p>
-      <!-- DUAL CTA — FIX 3 point 1 -->
       <div class="hero-ctas">
         <a class="btn-hot t" href="https://www.tiktok.com/@pretty.accessorie7" target="_blank"
            data-es="🎵 Síguenos en TikTok" data-en="🎵 Follow on TikTok">🎵 Síguenos en TikTok</a>
@@ -349,11 +318,10 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:140px;ba
            data-es="🛍️ Ver Productos" data-en="🛍️ See Products">🛍️ Ver Productos</a>
       </div>
     </div>
-    <!-- Hero: Nailah3.png — big, 90vh, bottom-right overflow -->
+    <!-- FIX 2: Hero → Nailah1.png (Nailah only, 1 image) -->
     <div class="hero-img-wrap" aria-hidden="true">
       <img class="hero-athlete player-image"
-           id="hero-athlete-img"
-           src="./Nailah3.png"
+           src="./Nailah1.png"
            alt="Nailah — Club Arsenal"
            loading="eager"
            onerror="this.style.display='none'">
@@ -365,18 +333,18 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:140px;ba
   </div>
 </section>
 
-<!-- S2 — ATHLETES -->
+<!-- S2 — ATHLETES: Nailah2 | Ariana1 | arian-yaiza1 (1 each, equal) -->
 <section class="section athletes-sec" id="about">
   <div class="s-in">
     <span class="eyebrow t" data-es="Las atletas · Puerto Rico 🇵🇷" data-en="The athletes · Puerto Rico 🇵🇷">Las atletas · Puerto Rico 🇵🇷</span>
     <h2 class="s-head t" data-es="DETRÁS DEL BRACELET" data-en="BEHIND THE BRACELET">DETRÁS DEL BRACELET</h2>
     <div class="sdiv"></div>
     <div class="athletes-grid">
-      <!-- Nailah — use Nailah5.png -->
+      <!-- Nailah — Nailah2.png -->
       <div class="ath-card pink" data-aos="fade-up">
         <div class="ath-glow"></div>
         <div class="ath-img-wrap">
-          <img class="ath-img player-image" src="./Nailah5.png" alt="Nailah" loading="lazy" onerror="this.src='./Nailah2.png'">
+          <img class="ath-img player-image" src="./Nailah2.png" alt="Nailah" loading="lazy" onerror="this.style.display='none'">
         </div>
         <div class="ath-info">
           <span class="ath-name">NAILAH</span>
@@ -384,7 +352,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:140px;ba
           <p class="ath-line t" data-es="Flow, cancha y disciplina." data-en="Flow, court, and discipline.">Flow, cancha y disciplina.</p>
         </div>
       </div>
-      <!-- Ariana -->
+      <!-- Ariana — Ariana1.png -->
       <div class="ath-card mint" data-aos="fade-up" data-aos-delay="100">
         <div class="ath-glow"></div>
         <div class="ath-img-wrap">
@@ -396,7 +364,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:140px;ba
           <p class="ath-line t" data-es="Precisión, estilo y hambre de ganar." data-en="Precision, style and hunger to win.">Precisión, estilo y hambre de ganar.</p>
         </div>
       </div>
-      <!-- Yaiza -->
+      <!-- Yaiza — arian-yaiza1.png -->
       <div class="ath-card gold" data-aos="fade-up" data-aos-delay="200">
         <div class="ath-glow"></div>
         <div class="ath-img-wrap">
@@ -409,8 +377,6 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:140px;ba
         </div>
       </div>
     </div>
-
-    <!-- Arsenal badge + TikTok shop banner — FIX 3 point 2 -->
     <div class="ath-bottom" data-aos="fade-up">
       <div style="display:flex;justify-content:center">
         <div class="arsenal-strip">
@@ -427,7 +393,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:140px;ba
   </div>
 </section>
 
-<!-- S3 — TIKTOK SOCIAL PROOF -->
+<!-- S3 — TIKTOK: Ariana3.png (Ariana, 1 image) -->
 <section class="section tt-sec" id="social">
   <div class="s-in">
     <div class="tt-sec-grid">
@@ -455,18 +421,18 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:140px;ba
   </div>
 </section>
 
-<!-- S4 — PRODUCTS -->
+<!-- S4 — PRODUCTS: Ariana3(bracelets) | Nailah3(glitter) | Ariana4(drops) — 1 girl per card -->
 <section class="section products-sec" id="products" data-aos="fade-up">
   <div class="s-in">
     <span class="eyebrow t" data-es="Hecho a mano · Puerto Rico 🇵🇷" data-en="Handmade · Puerto Rico 🇵🇷">Hecho a mano · Puerto Rico 🇵🇷</span>
     <h2 class="s-head t" data-es="LO QUE HACEMOS 💅" data-en="WHAT WE MAKE 💅">LO QUE HACEMOS 💅</h2>
     <div class="sdiv"></div>
     <div class="p-bento">
-      <!-- Card 1: Bracelets large — Ariana2 floating -->
+      <!-- Card 1: Bracelets — Ariana3.png floating (Ariana) -->
       <div class="p-card pink large" data-tilt data-aos="fade-right">
         <div class="p-glow"></div>
         <span class="sparkle-top">✨</span>
-        <img class="p-athlete player-image" src="./Ariana2.png" alt="" aria-hidden="true" loading="lazy" onerror="this.style.display='none'">
+        <img class="p-athlete player-image" src="./Ariana3.png" alt="" aria-hidden="true" loading="lazy" onerror="this.style.display='none'">
         <span class="p-icon">💎</span>
         <div class="p-name t" data-es="El accesorio que<br>te representa" data-en="The accessory that<br>represents you">El accesorio que<br>te representa</div>
         <p class="p-desc t"
@@ -477,20 +443,21 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:140px;ba
         <a class="p-btn t" href="https://www.tiktok.com/@pretty.accessorie7" target="_blank"
            data-es="🛍️ Pídelo en TikTok →" data-en="🛍️ Order on TikTok →">🛍️ Pídelo en TikTok →</a>
       </div>
-      <!-- Card 2: Glitter Gel -->
+      <!-- Card 2: Glitter Gel — Nailah3.png floating (Nailah) -->
       <div class="p-card mint" data-tilt data-aos="fade-left">
         <div class="p-glow"></div>
         <div class="shimmer"></div>
+        <img class="p-athlete player-image" src="./Nailah3.png" alt="" aria-hidden="true" loading="lazy" onerror="this.style.display='none'">
         <span class="p-icon">💅</span>
         <div class="p-name t" data-es="Brillo pa'<br>cada momento" data-en="Shine for<br>every moment">Brillo pa'<br>cada momento</div>
         <p class="p-desc t" data-es="El glitter que sube contigo a cada torneo, cada post, cada momento. De la cancha al mundo." data-en="The glitter that rises with you to every tournament, every post, every moment. From the court to the world.">El glitter que sube contigo a cada torneo, cada post, cada momento. De la cancha al mundo.</p>
         <a class="p-btn t" href="https://www.tiktok.com/@pretty.accessorie7" target="_blank"
            data-es="🎵 Lo quiero ya →" data-en="🎵 I want it now →">🎵 Lo quiero ya →</a>
       </div>
-      <!-- Card 3: More drops wide — Nailah4 floating -->
+      <!-- Card 3: More drops — Ariana4.png floating (Ariana) -->
       <div class="p-card gold wide" data-tilt data-aos="fade-up">
         <div class="p-glow"></div>
-        <img class="p-athlete player-image" src="./Nailah4.png" alt="" aria-hidden="true" loading="lazy" onerror="this.style.display='none'">
+        <img class="p-athlete player-image" src="./Ariana4.png" alt="" aria-hidden="true" loading="lazy" onerror="this.style.display='none'">
         <span class="p-icon">🛍️</span>
         <div class="p-name t" data-es="Más drops coming 👀" data-en="More drops coming 👀">Más drops coming 👀</div>
         <p class="p-desc t" data-es="Cosas nuevas todo el tiempo. Limitado. Handmade. Cuando se acaba, se acaba. Síguenos pa' ser el primero en saber." data-en="New things all the time. Limited. Handmade. When it's gone, it's gone. Follow us to be the first to know.">Cosas nuevas todo el tiempo. Limitado. Handmade. Cuando se acaba, se acaba. Síguenos pa' ser el primero en saber.</p>
@@ -501,15 +468,15 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:140px;ba
   </div>
 </section>
 
-<!-- S5 — DREAM -->
+<!-- S5 — DREAM: arian-yaiza1.png — sisters together, emotional close -->
 <section class="dream-sec" id="dream">
   <div class="dream-grid">
-    <!-- Nailah4 or Nailah5 for dream left — using Nailah5 here, gold glow, min 500px -->
+    <!-- FIX 2: Dream → arian-yaiza1.png (sisters, family, equal representation) -->
     <div class="dream-left" data-aos="fade-right">
       <img class="dream-athlete player-image"
-           src="./Nailah5.png"
-           alt="Nailah — el sueño" loading="lazy"
-           onerror="this.src='./Nailah1.png'">
+           src="./arian%20yaiza1.png"
+           alt="Ariana y Yaiza — el sueño juntas" loading="lazy"
+           onerror="this.style.display='none'">
     </div>
     <div class="dream-right" data-aos="fade-left">
       <span class="eyebrow t" data-es="El Sueño · Un spike a la vez" data-en="The Dream · One spike at a time">El Sueño · Un spike a la vez</span>
@@ -533,7 +500,6 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:140px;ba
          data-en="Every purchase gets us one step closer. <em>That's not marketing. That's the truth.</em>">
         Cada compra nos lleva un paso más cerca. <em>Eso no es marketing. Es la verdad.</em>
       </p>
-      <!-- DUAL CTAs — FIX 3 point 4 -->
       <div class="dream-ctas">
         <a class="btn-hot t" href="https://www.tiktok.com/@pretty.accessorie7" target="_blank"
            data-es="🌍 Apoya el sueño" data-en="🌍 Support the dream">🌍 Apoya el sueño</a>
@@ -548,10 +514,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:140px;ba
 <footer>
   <div class="foot-wrap">
     <img class="foot-logo" src="./getpretty.png" alt="Pretty Accessories" loading="lazy" onerror="this.style.display='none'">
-    <!-- Big TikTok button — FIX 3 point 5 -->
-    <a class="foot-tt-big" href="https://www.tiktok.com/@pretty.accessorie7" target="_blank">
-      🎵 @pretty.accessorie7
-    </a>
+    <a class="foot-tt-big" href="https://www.tiktok.com/@pretty.accessorie7" target="_blank">🎵 @pretty.accessorie7</a>
     <a class="foot-tt" href="https://www.tiktok.com/@pretty.accessorie7" target="_blank">📱 Síguenos en TikTok</a>
     <div class="foot-meta">
       <p class="t" data-es="Hecho con 💕 en Puerto Rico 🇵🇷" data-en="Made with 💕 in Puerto Rico 🇵🇷">Hecho con 💕 en Puerto Rico 🇵🇷</p>
@@ -597,7 +560,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:140px;ba
   </div>
 </div>
 
-<!-- PMGT VOICE LAUNCHER — FIX 4: OpenAI nova, realtime, low latency -->
+<!-- PMGT VOICE LAUNCHER — unchanged -->
 <script>
   window.PayMeGPTConfig = {
     widgetId: '88975005',
@@ -627,40 +590,29 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:140px;ba
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
 <script>
-/* ── CANVAS: REMOVE WHITE BACKGROUNDS ── */
 function removeWhiteBackground(img, tolerance) {
   tolerance = tolerance || 30;
   try {
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
-    canvas.width = img.naturalWidth;
-    canvas.height = img.naturalHeight;
+    canvas.width = img.naturalWidth; canvas.height = img.naturalHeight;
     ctx.drawImage(img, 0, 0);
     const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
     const data = imageData.data;
     for (let i = 0; i < data.length; i += 4) {
-      const r = data[i], g = data[i + 1], b = data[i + 2];
-      if (r > (255 - tolerance) && g > (255 - tolerance) && b > (255 - tolerance)) {
-        data[i + 3] = 0;
-      }
+      if (data[i] > (255-tolerance) && data[i+1] > (255-tolerance) && data[i+2] > (255-tolerance)) data[i+3] = 0;
     }
     ctx.putImageData(imageData, 0, 0);
     img.src = canvas.toDataURL('image/png');
-  } catch (e) {
-    console.warn('removeWhiteBackground failed:', e.message);
-  }
+  } catch(e) { console.warn('removeWhiteBackground:', e.message); }
 }
-window.addEventListener('load', function () {
-  document.querySelectorAll('.player-image').forEach(function (img) {
-    if (img.complete && img.naturalWidth > 0) {
-      removeWhiteBackground(img, 30);
-    } else {
-      img.addEventListener('load', function () { removeWhiteBackground(img, 30); });
-    }
+window.addEventListener('load', function() {
+  document.querySelectorAll('.player-image').forEach(function(img) {
+    if (img.complete && img.naturalWidth > 0) removeWhiteBackground(img, 30);
+    else img.addEventListener('load', function() { removeWhiteBackground(img, 30); });
   });
 });
 
-/* ── LANG ── */
 let lang = 'es';
 const LUNA_FIRST = { es: 'Hey 🎀 Soy Luna. ¿Qué andas buscando hoy?', en: "Hey 🎀 I'm Luna. What are you looking for today?" };
 const LUNA_ERR = { es: 'Oops, algo pasó 😅 Búscanos en TikTok @pretty.accessorie7 🎀', en: 'Oops, something went wrong 😅 Find us on TikTok @pretty.accessorie7 🎀' };
@@ -669,156 +621,131 @@ const LUNA_PH = { es: 'Escríbeme aquí... 🎀', en: 'Write to me here... 🎀'
 function setLang(l) {
   lang = l;
   document.documentElement.lang = l;
-  document.getElementById('lb-es').classList.toggle('on', l === 'es');
-  document.getElementById('lb-en').classList.toggle('on', l === 'en');
-  document.querySelectorAll('[data-' + l + ']').forEach(function (el) { el.innerHTML = el.getAttribute('data-' + l); });
+  document.getElementById('lb-es').classList.toggle('on', l==='es');
+  document.getElementById('lb-en').classList.toggle('on', l==='en');
+  document.querySelectorAll('[data-'+l+']').forEach(function(el) { el.innerHTML = el.getAttribute('data-'+l); });
   const inp = document.getElementById('luna-inp'); if (inp) inp.placeholder = LUNA_PH[l];
-  const fl = document.getElementById('luna-fab-lbl'); if (fl) fl.textContent = l === 'es' ? '💬 Habla con Luna' : '💬 Chat with Luna';
+  const fl = document.getElementById('luna-fab-lbl'); if (fl) fl.textContent = l==='es' ? '💬 Habla con Luna' : '💬 Chat with Luna';
 }
 
-window.addEventListener('scroll', function () { document.getElementById('nav').classList.toggle('stuck', window.scrollY > 60); });
+window.addEventListener('scroll', function() { document.getElementById('nav').classList.toggle('stuck', window.scrollY > 60); });
+const isMobile = function() { return window.innerWidth < 769; };
 
-const isMobile = function () { return window.innerWidth < 769; };
-
-/* ── GSAP ── */
 if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
-  gsap.from(['.hero-hl-1', '.hero-hl-2', '.hero-hl-3'], { y: 60, opacity: 0, duration: .8, stagger: .12, ease: 'power3.out', delay: .2 });
-  gsap.from('.hero-label', { y: -20, opacity: 0, duration: .6, delay: .1 });
-  gsap.from('.hero-sub', { y: 30, opacity: 0, duration: .7, delay: .7 });
-  gsap.from('.hero-ctas', { y: 20, opacity: 0, duration: .6, delay: .9 });
+  gsap.from(['.hero-hl-1','.hero-hl-2','.hero-hl-3'], { y:60, opacity:0, duration:.8, stagger:.12, ease:'power3.out', delay:.2 });
+  gsap.from('.hero-label', { y:-20, opacity:0, duration:.6, delay:.1 });
+  gsap.from('.hero-sub', { y:30, opacity:0, duration:.7, delay:.7 });
+  gsap.from('.hero-ctas', { y:20, opacity:0, duration:.6, delay:.9 });
   if (!isMobile()) {
-    gsap.to('.hero-athlete', { yPercent: 18, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1.5 } });
-    gsap.from('.dream-athlete', { y: 60, opacity: 0, duration: .9, scrollTrigger: { trigger: '.dream-sec', start: 'top 80%', once: true } });
-    gsap.to('.dream-athlete', { yPercent: -10, ease: 'none', scrollTrigger: { trigger: '.dream-sec', start: 'top bottom', end: 'bottom top', scrub: 2 } });
-    gsap.to('.tt-athlete', { yPercent: -8, ease: 'none', scrollTrigger: { trigger: '.tt-sec', start: 'top bottom', end: 'bottom top', scrub: 1.8 } });
+    gsap.to('.hero-athlete', { yPercent:18, ease:'none', scrollTrigger:{ trigger:'.hero', start:'top top', end:'bottom top', scrub:1.5 } });
+    gsap.from('.dream-athlete', { y:60, opacity:0, duration:.9, scrollTrigger:{ trigger:'.dream-sec', start:'top 80%', once:true } });
+    gsap.to('.dream-athlete', { yPercent:-10, ease:'none', scrollTrigger:{ trigger:'.dream-sec', start:'top bottom', end:'bottom top', scrub:2 } });
+    gsap.to('.tt-athlete', { yPercent:-8, ease:'none', scrollTrigger:{ trigger:'.tt-sec', start:'top bottom', end:'bottom top', scrub:1.8 } });
   }
-  document.querySelectorAll('.s-head, .dream-head, .tt-hl').forEach(function (el) {
-    gsap.from(el, { y: 40, opacity: 0, duration: .75, ease: 'power2.out', scrollTrigger: { trigger: el, start: 'top 88%', once: true } });
+  document.querySelectorAll('.s-head,.dream-head,.tt-hl').forEach(function(el) {
+    gsap.from(el, { y:40, opacity:0, duration:.75, ease:'power2.out', scrollTrigger:{ trigger:el, start:'top 88%', once:true } });
   });
 }
 
-/* ── PARTICLES ── */
 const pCount = isMobile() ? 15 : 30;
 particlesJS('particles-js', {
-  particles: {
-    number: { value: pCount, density: { enable: true, value_area: 900 } },
-    color: { value: ['#FF3D7F', '#00E5CC', '#FFD700', '#C026D3', '#ffffff'] },
-    shape: { type: 'star' },
-    opacity: { value: .45, random: true, anim: { enable: true, speed: .8, opacity_min: .08, sync: false } },
-    size: { value: 2.5, random: true, anim: { enable: !isMobile(), speed: 1.5, size_min: .4, sync: false } },
-    line_linked: { enable: false },
-    move: { enable: true, speed: isMobile() ? .6 : 1, direction: 'top', random: true, straight: false, out_mode: 'out' }
-  },
-  interactivity: {
-    detect_on: 'canvas',
-    events: { onhover: { enable: !isMobile(), mode: 'bubble' }, onclick: { enable: !isMobile(), mode: 'repulse' }, resize: true },
-    modes: { bubble: { distance: 160, size: 5, duration: 2, opacity: .8 }, repulse: { distance: 120, duration: .4 } }
-  },
+  particles:{ number:{ value:pCount, density:{ enable:true, value_area:900 } }, color:{ value:['#FF3D7F','#00E5CC','#FFD700','#C026D3','#ffffff'] }, shape:{ type:'star' }, opacity:{ value:.45, random:true, anim:{ enable:true, speed:.8, opacity_min:.08, sync:false } }, size:{ value:2.5, random:true, anim:{ enable:!isMobile(), speed:1.5, size_min:.4, sync:false } }, line_linked:{ enable:false }, move:{ enable:true, speed:isMobile()?.6:1, direction:'top', random:true, straight:false, out_mode:'out' } },
+  interactivity:{ detect_on:'canvas', events:{ onhover:{ enable:!isMobile(), mode:'bubble' }, onclick:{ enable:!isMobile(), mode:'repulse' }, resize:true }, modes:{ bubble:{ distance:160, size:5, duration:2, opacity:.8 }, repulse:{ distance:120, duration:.4 } } },
   retina_detect: !isMobile()
 });
-
 if (!isMobile() && typeof VanillaTilt !== 'undefined') {
-  VanillaTilt.init(document.querySelectorAll('[data-tilt]'), { max: 11, speed: 400, glare: true, 'max-glare': .14, gyroscope: false, perspective: 900 });
+  VanillaTilt.init(document.querySelectorAll('[data-tilt]'), { max:11, speed:400, glare:true, 'max-glare':.14, gyroscope:false, perspective:900 });
 }
-AOS.init({ duration: 700, once: true, offset: 55, easing: 'ease-out-cubic' });
+AOS.init({ duration:700, once:true, offset:55, easing:'ease-out-cubic' });
 
-/* ── TT OEMBED ── */
-(function () {
-  const bg = document.getElementById('tt-thumb-bg');
-  if (!bg) return;
-  fetch('https://www.tiktok.com/oembed?url=' + encodeURIComponent('https://www.tiktok.com/@pretty.accessorie7/video/7608660505602919711'))
-    .then(function (r) { return r.json(); })
-    .then(function (d) { if (d && d.thumbnail_url) bg.style.backgroundImage = 'url(' + d.thumbnail_url + ')'; })
-    .catch(function () {});
+(function() {
+  const bg = document.getElementById('tt-thumb-bg'); if (!bg) return;
+  fetch('https://www.tiktok.com/oembed?url='+encodeURIComponent('https://www.tiktok.com/@pretty.accessorie7/video/7608660505602919711'))
+    .then(function(r) { return r.json(); })
+    .then(function(d) { if (d&&d.thumbnail_url) bg.style.backgroundImage='url('+d.thumbnail_url+')'; })
+    .catch(function(){});
 })();
 
-/* ── WORLD MAP DOTS ── */
 const DOTS = [
-  { x: 50, y: 24, done: true }, { x: 26.5, y: 41.5 }, { x: 20, y: 33 },
-  { x: 27, y: 56 }, { x: 24.5, y: 40.5 }, { x: 26, y: 63 },
-  { x: 46, y: 25 }, { x: 50, y: 22 }, { x: 54, y: 23 },
-  { x: 83, y: 25 }, { x: 83, y: 60 }
+  {x:50,y:24,done:true},{x:26.5,y:41.5},{x:20,y:33},
+  {x:27,y:56},{x:24.5,y:40.5},{x:26,y:63},
+  {x:46,y:25},{x:50,y:22},{x:54,y:23},
+  {x:83,y:25},{x:83,y:60}
 ];
 let shown = 0;
 function showDots() {
-  const wrap = document.getElementById('world-wrap');
-  if (!wrap) return;
-  DOTS.forEach(function (c, i) {
-    setTimeout(function () {
+  const wrap = document.getElementById('world-wrap'); if (!wrap) return;
+  DOTS.forEach(function(c,i) {
+    setTimeout(function() {
       const d = document.createElement('div');
-      d.className = 'map-dot' + (c.done ? ' done' : '');
-      d.style.cssText = 'left:' + c.x + '%;top:' + c.y + '%;color:' + (c.done ? '#FFD700' : '#00E5CC');
+      d.className = 'map-dot'+(c.done?' done':'');
+      d.style.cssText = 'left:'+c.x+'%;top:'+c.y+'%;color:'+(c.done?'#FFD700':'#00E5CC');
       wrap.appendChild(d); shown++;
       const el = document.getElementById('count-num'); if (el) el.textContent = shown;
-    }, i * 280);
+    }, i*280);
   });
 }
-new IntersectionObserver(function (entries, obs) {
-  entries.forEach(function (e) { if (e.isIntersecting) { showDots(); obs.disconnect(); } });
-}, { threshold: 0.15 }).observe(document.getElementById('dream'));
+new IntersectionObserver(function(entries,obs) {
+  entries.forEach(function(e) { if (e.isIntersecting) { showDots(); obs.disconnect(); } });
+}, { threshold:0.15 }).observe(document.getElementById('dream'));
 
-/* ── OPEN VOICE ── */
 function openVoice() {
-  const sels = ['.pmgt-launcher-btn', '[data-widget="88975005"] button', 'button[aria-label*="Luna"]', '[class*="pmgt"] button', '[id*="pmgt"] button'];
-  for (let i = 0; i < sels.length; i++) { const b = document.querySelector(sels[i]); if (b) { b.click(); return; } }
-  window.open('https://paymegpt.com/agents/88975005', '_blank', 'noopener');
+  const sels = ['.pmgt-launcher-btn','[data-widget="88975005"] button','button[aria-label*="Luna"]','[class*="pmgt"] button','[id*="pmgt"] button'];
+  for (let i=0;i<sels.length;i++) { const b=document.querySelector(sels[i]); if (b) { b.click(); return; } }
+  window.open('https://paymegpt.com/agents/88975005','_blank','noopener');
 }
 
-/* ── LUNA CHAT ENGINE ── */
-let lunaOpen = false, lunaHistory = [], lunaBusy = false;
-const LUNA_SYSTEM = 'You are Luna 🎀 — the vibe behind Pretty Accessories. A real brand built by three teenage volleyball athletes from Puerto Rico: Nailah from Hatillo, and sisters Ariana and Yaiza from Camuy. Club Arsenal Arecibo. The real deal.\n\nPersonality: Cool Puerto Rican teen — natural, warm, a little funny, genuinely hyped. Slang drops once in a while naturally, never forced. Real person first.\n\nExamples: \'Yeah those bracelets are literally so cute, people at tournaments always stop us for them 😭\' / \'Bro the glitter gel stays on through a whole match fr\' / Occasional: \'brutal no?\' or \'qué fuerte\' — ONLY when it fits.\n\nLanguage: Spanish default. Switch to English if they write English. Spanglish natural. NEVER assume gender. Never use oye/wepa/mira/dale as openers every message.\n\nProducts: Custom handmade bracelets, Glitter gel, More TikTok drops. ONE job: @pretty.accessorie7. MAX 2-3 sentences. Punchy. Soft TikTok CTA. GUARDRAILS: No profanity. No adult topics. No personal info.';
+let lunaOpen=false, lunaHistory=[], lunaBusy=false;
+const LUNA_SYSTEM='You are Luna 🎀 — the vibe behind Pretty Accessories. A real brand built by three teenage volleyball athletes from Puerto Rico: Nailah from Hatillo, and sisters Ariana and Yaiza from Camuy. Club Arsenal Arecibo. The real deal.\n\nPersonality: Cool Puerto Rican teen — natural, warm, a little funny, genuinely hyped. Slang drops once in a while naturally, never forced. Real person first.\n\nExamples: \'Yeah those bracelets are literally so cute, people at tournaments always stop us for them 😭\' / \'Bro the glitter gel stays on through a whole match fr\' / Occasional: \'brutal no?\' or \'qué fuerte\' — ONLY when it fits.\n\nLanguage: Spanish default. Switch to English if they write English. Spanglish natural. NEVER assume gender. Never use oye/wepa/mira/dale as openers every message.\n\nProducts: Custom handmade bracelets, Glitter gel, More TikTok drops. ONE job: @pretty.accessorie7. MAX 2-3 sentences. Punchy. Soft TikTok CTA. GUARDRAILS: No profanity. No adult topics. No personal info.';
 
 function lunaToggle() {
-  lunaOpen = !lunaOpen;
-  const panel = document.getElementById('luna-panel'), icon = document.getElementById('luna-fab-icon'), lbl = document.getElementById('luna-fab-lbl');
+  lunaOpen=!lunaOpen;
+  const panel=document.getElementById('luna-panel'),icon=document.getElementById('luna-fab-icon'),lbl=document.getElementById('luna-fab-lbl');
   if (!panel) return;
-  panel.classList.toggle('open', lunaOpen);
-  if (icon) icon.textContent = lunaOpen ? '✕' : '🎀';
-  if (lbl) lbl.style.display = lunaOpen ? 'none' : '';
-  if (lunaOpen && lunaHistory.length === 0) {
-    setTimeout(function () { addLunaMsg('luna', LUNA_FIRST[lang]); lunaHistory.push({ role: 'assistant', content: LUNA_FIRST[lang] }); }, 280);
-  }
-  if (lunaOpen) setTimeout(function () { const i = document.getElementById('luna-inp'); if (i) i.focus(); }, 360);
+  panel.classList.toggle('open',lunaOpen);
+  if (icon) icon.textContent=lunaOpen?'✕':'🎀';
+  if (lbl) lbl.style.display=lunaOpen?'none':'';
+  if (lunaOpen&&lunaHistory.length===0) setTimeout(function(){addLunaMsg('luna',LUNA_FIRST[lang]);lunaHistory.push({role:'assistant',content:LUNA_FIRST[lang]});},280);
+  if (lunaOpen) setTimeout(function(){const i=document.getElementById('luna-inp');if(i)i.focus();},360);
 }
-function addLunaMsg(role, text) {
-  const box = document.getElementById('luna-msgs'); if (!box) return;
-  const w = document.createElement('div'); w.className = 'msg ' + role;
-  const lb = document.createElement('div'); lb.className = 'msg-lbl'; lb.textContent = role === 'luna' ? 'Luna 🎀' : (lang === 'es' ? 'Tú' : 'You');
-  const b = document.createElement('div'); b.className = 'msg-bubble'; b.textContent = text;
-  w.appendChild(lb); w.appendChild(b); box.appendChild(w); box.scrollTop = box.scrollHeight;
+function addLunaMsg(role,text) {
+  const box=document.getElementById('luna-msgs');if(!box)return;
+  const w=document.createElement('div');w.className='msg '+role;
+  const lb=document.createElement('div');lb.className='msg-lbl';lb.textContent=role==='luna'?'Luna 🎀':(lang==='es'?'Tú':'You');
+  const b=document.createElement('div');b.className='msg-bubble';b.textContent=text;
+  w.appendChild(lb);w.appendChild(b);box.appendChild(w);box.scrollTop=box.scrollHeight;
 }
 function showTyping() {
-  const box = document.getElementById('luna-msgs'); if (!box) return;
-  const w = document.createElement('div'); w.className = 'msg luna'; w.id = 'luna-typing';
-  w.innerHTML = '<div class="msg-lbl">Luna 🎀</div><div class="typing-bubble"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>';
-  box.appendChild(w); box.scrollTop = box.scrollHeight;
+  const box=document.getElementById('luna-msgs');if(!box)return;
+  const w=document.createElement('div');w.className='msg luna';w.id='luna-typing';
+  w.innerHTML='<div class="msg-lbl">Luna 🎀</div><div class="typing-bubble"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>';
+  box.appendChild(w);box.scrollTop=box.scrollHeight;
 }
-function hideTyping() { const t = document.getElementById('luna-typing'); if (t) t.remove(); }
-function lunaChip(btn) {
-  const text = btn.getAttribute('data-' + lang) || btn.textContent;
-  const inp = document.getElementById('luna-inp'); if (inp) inp.value = text;
-  document.getElementById('luna-chips').style.display = 'none';
-  lunaSend();
+function hideTyping(){const t=document.getElementById('luna-typing');if(t)t.remove();}
+function lunaChip(btn){
+  const text=btn.getAttribute('data-'+lang)||btn.textContent;
+  const inp=document.getElementById('luna-inp');if(inp)inp.value=text;
+  document.getElementById('luna-chips').style.display='none';lunaSend();
 }
-async function lunaSend() {
-  const inp = document.getElementById('luna-inp');
-  const text = inp ? inp.value.trim() : ''; if (!text || lunaBusy) return;
-  inp.value = ''; document.getElementById('luna-chips').style.display = 'none';
-  addLunaMsg('user', text); lunaHistory.push({ role: 'user', content: text });
-  lunaBusy = true; const sb = document.getElementById('luna-send'); if (sb) sb.disabled = true;
+async function lunaSend(){
+  const inp=document.getElementById('luna-inp');
+  const text=inp?inp.value.trim():'';if(!text||lunaBusy)return;
+  inp.value='';document.getElementById('luna-chips').style.display='none';
+  addLunaMsg('user',text);lunaHistory.push({role:'user',content:text});
+  lunaBusy=true;const sb=document.getElementById('luna-send');if(sb)sb.disabled=true;
   showTyping();
-  const msgs = lunaHistory.slice(-14).map(function (m) { return { role: m.role === 'luna' ? 'assistant' : m.role, content: m.content }; });
+  const msgs=lunaHistory.slice(-14).map(function(m){return{role:m.role==='luna'?'assistant':m.role,content:m.content};});
   try {
-    const res = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ model: 'claude-sonnet-4-20250514', max_tokens: 1000, system: LUNA_SYSTEM, messages: msgs })
+    const res=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system:LUNA_SYSTEM,messages:msgs})
     });
-    const data = await res.json(); hideTyping();
-    const reply = (data && data.content && data.content[0] && data.content[0].text) || LUNA_ERR[lang];
-    addLunaMsg('luna', reply); lunaHistory.push({ role: 'assistant', content: reply });
-  } catch (e) { hideTyping(); addLunaMsg('luna', LUNA_ERR[lang]); }
-  lunaBusy = false; if (sb) sb.disabled = false; if (inp) inp.focus();
+    const data=await res.json();hideTyping();
+    const reply=(data&&data.content&&data.content[0]&&data.content[0].text)||LUNA_ERR[lang];
+    addLunaMsg('luna',reply);lunaHistory.push({role:'assistant',content:reply});
+  } catch(e){hideTyping();addLunaMsg('luna',LUNA_ERR[lang]);}
+  lunaBusy=false;if(sb)sb.disabled=false;if(inp)inp.focus();
 }
 </script>
 </body>
