@@ -14,9 +14,6 @@
 <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 <style>.fonts-loading *{visibility:hidden}.fonts-loaded *{visibility:visible}</style>
 <style>
-/* ══════════════════════════
-   RESET & ROOT
-══════════════════════════ */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
   --pink:#FF3D7F;--mint:#00E5CC;--gold:#FFD700;
@@ -24,19 +21,10 @@
   --pink-glow:rgba(255,61,127,.45);--mint-glow:rgba(0,229,204,.35);
 }
 html{scroll-behavior:smooth;overflow-x:hidden}
-body{
-  font-family:'Plus Jakarta Sans','Trebuchet MS',sans-serif;
-  background:var(--dark);color:#fff;
-  overflow-x:hidden;
-  /* mobile: always show normal cursor */
-  cursor:auto;
-}
+body{font-family:'Plus Jakarta Sans','Trebuchet MS',sans-serif;background:var(--dark);color:#fff;overflow-x:hidden;cursor:auto;}
 h1,h2,h3,.bebas{font-family:'Bebas Neue','Arial Black',Impact,sans-serif}
 ::selection{background:var(--pink);color:#fff}
 
-/* ══════════════════════════
-   CUSTOM CURSOR — desktop only
-══════════════════════════ */
 #cursor,#cursor-trail{display:none}
 @media(min-width:1024px){
   body{cursor:none}
@@ -45,9 +33,6 @@ h1,h2,h3,.bebas{font-family:'Bebas Neue','Arial Black',Impact,sans-serif}
   a,button,[data-tilt]{cursor:none}
 }
 
-/* ══════════════════════════
-   NOISE + BG
-══════════════════════════ */
 .noise{position:fixed;inset:0;z-index:3;pointer-events:none;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px}
 .mesh{position:fixed;inset:0;z-index:0;pointer-events:none}
 .mesh::before,.mesh::after{content:'';position:absolute;border-radius:50%;filter:blur(100px);animation:meshDrift 22s ease-in-out infinite alternate}
@@ -56,14 +41,8 @@ h1,h2,h3,.bebas{font-family:'Bebas Neue','Arial Black',Impact,sans-serif}
 @keyframes meshDrift{0%{transform:translate(0,0) scale(1)}50%{transform:translate(4%,6%) scale(1.08)}100%{transform:translate(-4%,2%) scale(.94)}}
 #particles-js{position:fixed;inset:0;z-index:1;pointer-events:none}
 
-/* ══════════════════════════
-   SECTION DIVIDER
-══════════════════════════ */
 .sec-div{height:1px;background:linear-gradient(90deg,transparent 0%,rgba(255,61,127,.4) 20%,rgba(0,229,204,.4) 50%,rgba(255,61,127,.4) 80%,transparent 100%);position:relative;z-index:10}
 
-/* ══════════════════════════
-   NAV
-══════════════════════════ */
 nav{position:fixed;top:0;left:0;right:0;z-index:600;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;transition:all .4s}
 nav.stuck{background:rgba(10,10,15,.92);backdrop-filter:blur(28px);box-shadow:0 1px 0 rgba(255,255,255,.05)}
 .nav-logo{display:flex;align-items:center;text-decoration:none;min-height:44px;min-width:44px}
@@ -75,30 +54,14 @@ nav.stuck{background:rgba(10,10,15,.92);backdrop-filter:blur(28px);box-shadow:0 
 .nav-tt{display:flex;align-items:center;gap:6px;background:linear-gradient(135deg,var(--pink),#9B1DFF);color:#fff;font-weight:800;font-size:.72rem;padding:8px 14px;border-radius:20px;text-decoration:none;box-shadow:0 0 16px var(--pink-glow);transition:all .25s;border:none;cursor:pointer;min-height:36px}
 .nav-tt:hover{transform:translateY(-2px)}
 
-/* ══════════════════════════
-   SHARED SECTION STYLES
-══════════════════════════ */
 .section{position:relative;z-index:10;padding:80px 20px}
 .s-in{max-width:1120px;margin:0 auto}
 .eyebrow{font-family:'Unbounded',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--pink);margin-bottom:12px;display:block}
 .s-head{font-family:'Bebas Neue','Arial Black',Impact,sans-serif;font-size:clamp(2.4rem,8vw,5.5rem);line-height:.92;letter-spacing:1px;margin-bottom:14px;text-shadow:0 0 40px rgba(255,61,127,.25)}
 .sdiv{width:40px;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--pink),var(--mint));margin-bottom:28px}
 
-/* ══════════════════════════
-   PLAYER IMAGE BASE — NEVER CUT HEADS
-══════════════════════════ */
-.player-image{
-  mix-blend-mode:screen;
-  background:transparent;
-  object-fit:contain !important;
-  object-position:top center !important;
-  width:100%;
-  max-height:100%;
-}
+.player-image{mix-blend-mode:screen;background:transparent;object-fit:contain !important;object-position:top center !important;width:100%;max-height:100%;}
 
-/* ══════════════════════════
-   ANIMATIONS — desktop only
-══════════════════════════ */
 @keyframes heroFloat{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-16px) scale(1.015)}}
 @keyframes glowPulse{0%,100%{opacity:.7;transform:scale(1)}50%{opacity:1;transform:scale(1.05)}}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
@@ -115,97 +78,37 @@ nav.stuck{background:rgba(10,10,15,.92);backdrop-filter:blur(28px);box-shadow:0 
 @keyframes dreamPulse{from{opacity:.5;transform:scale(1)}to{opacity:1;transform:scale(1.04)}}
 @keyframes dotIn{from{opacity:0;transform:translate(-50%,-50%) scale(0)}to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
 @keyframes dotRing{0%,100%{transform:scale(1);opacity:.35}50%{transform:scale(1.7);opacity:0}}
-@keyframes meshDrift2{0%{transform:translate(0,0)}50%{transform:translate(3%,5%)}100%{transform:translate(-3%,2%)}}
-@keyframes routeDash{to{stroke-dashoffset:-48}}
-@keyframes cityPulse{0%,100%{opacity:.35}50%{opacity:.85}}
-@keyframes planeOrbit{from{transform:rotate(0deg) translateX(130px) rotate(0deg)}to{transform:rotate(360deg) translateX(130px) rotate(-360deg)}}
 @keyframes footGlow{from{box-shadow:0 0 28px rgba(255,61,127,.4)}to{box-shadow:0 0 60px rgba(255,61,127,.7)}}
 
-/* Mobile: disable all float animations */
 @media(max-width:767px){
   .hero-player,.tt-athlete,.dream-athlete,.p-athlete,.ath-img{animation:none!important}
   .mesh::before,.mesh::after{animation:none!important}
 }
 
-/* ══════════════════════════
-   BUTTONS
-══════════════════════════ */
 .btn-hot{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,var(--pink),#9B1DFF);color:#fff;font-weight:800;font-size:.9rem;letter-spacing:.3px;padding:14px 28px;border-radius:50px;text-decoration:none;border:none;cursor:pointer;box-shadow:0 0 24px var(--pink-glow);transition:all .3s;position:relative;overflow:hidden;min-height:48px;width:100%;justify-content:center}
 .btn-hot::after{content:'';position:absolute;inset:0;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.2) 50%,transparent 70%);transform:translateX(-100%);transition:transform .65s}
 .btn-hot:hover::after{transform:translateX(100%)}
 .btn-hot:hover{transform:translateY(-3px);box-shadow:0 0 50px var(--pink-glow)}
 .btn-mint{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,#00C4AE,#00E5CC);color:#0A0A0F;font-weight:800;font-size:.9rem;letter-spacing:.3px;padding:14px 28px;border-radius:50px;text-decoration:none;border:none;cursor:pointer;box-shadow:0 0 22px var(--mint-glow);transition:all .3s;min-height:48px;width:100%;justify-content:center}
 .btn-mint:hover{transform:translateY(-3px);box-shadow:0 0 44px var(--mint-glow)}
-/* Desktop: auto-width buttons */
 @media(min-width:768px){.btn-hot,.btn-mint{width:auto}}
 
-/* ══════════════════════════
-   HERO — MOBILE FIRST
-══════════════════════════ */
-.hero{
-  position:relative;
-  min-height:100svh;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  overflow:hidden;
-  padding-top:70px;
-}
-/* Mobile: text on top, image below */
-.hero-left{
-  position:relative;z-index:5;
-  display:flex;flex-direction:column;
-  align-items:center;text-align:center;
-  padding:24px 20px 20px;
-  width:100%;
-}
-.hero-badge{
-  display:inline-flex;align-items:center;gap:6px;
-  background:rgba(255,61,127,.12);border:1px solid rgba(255,61,127,.3);
-  border-radius:50px;padding:7px 14px;
-  font-family:'Unbounded',sans-serif;font-size:.54rem;font-weight:700;
-  letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.75);
-  margin-bottom:20px;box-shadow:0 0 18px rgba(255,61,127,.12);
-  max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-}
+/* ── HERO ── */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;align-items:center;overflow:hidden;padding-top:70px;}
+.hero-left{position:relative;z-index:5;display:flex;flex-direction:column;align-items:center;text-align:center;padding:24px 20px 20px;width:100%;}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,61,127,.12);border:1px solid rgba(255,61,127,.3);border-radius:50px;padding:7px 14px;font-family:'Unbounded',sans-serif;font-size:.54rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:20px;box-shadow:0 0 18px rgba(255,61,127,.12);max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .hero-hl{font-family:'Bebas Neue','Arial Black',Impact,sans-serif;line-height:.88;margin-bottom:0;width:100%}
 .hero-hl-1{font-size:clamp(3.8rem,14vw,13rem);color:#fff;display:block;text-shadow:0 0 50px rgba(255,61,127,.2),4px 6px 0 rgba(0,0,0,.6)}
 .hero-hl-2{font-size:clamp(3.8rem,14vw,13rem);display:block;background:linear-gradient(135deg,var(--pink) 0%,#C026D3 50%,#FF6B35 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:hlShimmer 4s linear infinite}
 .hero-hl-3{font-size:clamp(3.2rem,12vw,11rem);display:block;-webkit-text-fill-color:transparent;-webkit-text-stroke:2px var(--mint);filter:drop-shadow(0 0 12px rgba(0,229,204,.5))}
 .hero-sub{font-size:clamp(.88rem,3.5vw,1.1rem);color:rgba(255,255,255,.6);font-weight:600;margin:16px 0 22px;line-height:1.65;max-width:500px}
 .hero-ctas{display:flex;flex-direction:column;gap:10px;width:100%;max-width:340px}
-
-/* Hero image — below text on mobile */
-.hero-stage{
-  position:relative;z-index:4;
-  width:100%;
-  display:flex;align-items:flex-end;justify-content:center;
-  flex:1;min-height:280px;
-  overflow:hidden;
-}
-.hero-glow{
-  position:absolute;bottom:0;left:50%;transform:translateX(-50%);
-  width:80%;height:85%;
-  background:radial-gradient(ellipse at center bottom,rgba(255,61,127,.32) 0%,rgba(201,2,211,.12) 40%,transparent 70%);
-  z-index:1;filter:blur(35px);
-  animation:glowPulse 4s ease-in-out infinite;
-}
-.hero-player{
-  /* Mobile: fit within container, no crop */
-  position:relative;z-index:2;
-  width:auto;height:auto;
-  max-width:85vw;max-height:65vw;
-  object-fit:contain;
-  object-position:center center !important;
-  mix-blend-mode:screen;
-  filter:drop-shadow(0 0 40px rgba(255,61,127,.7)) drop-shadow(0 0 80px rgba(255,61,127,.3)) contrast(1.08) brightness(1.05);
-  display:block;margin:0 auto;
-}
+.hero-stage{position:relative;z-index:4;width:100%;display:flex;align-items:flex-end;justify-content:center;flex:1;min-height:280px;overflow:hidden;}
+.hero-glow{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:80%;height:85%;background:radial-gradient(ellipse at center bottom,rgba(255,61,127,.32) 0%,rgba(201,2,211,.12) 40%,transparent 70%);z-index:1;filter:blur(35px);animation:glowPulse 4s ease-in-out infinite;}
+.hero-player{position:relative;z-index:2;width:auto;height:auto;max-width:85vw;max-height:65vw;object-fit:contain;object-position:center center !important;mix-blend-mode:screen;filter:drop-shadow(0 0 40px rgba(255,61,127,.7)) drop-shadow(0 0 80px rgba(255,61,127,.3)) contrast(1.08) brightness(1.05);display:block;margin:0 auto;}
 .scroll-cue{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);z-index:6;display:flex;flex-direction:column;align-items:center;gap:5px;opacity:.28;animation:scueBob 2.6s ease-in-out infinite}
 .scroll-cue-txt{font-family:'Unbounded',sans-serif;font-size:.48rem;letter-spacing:2.5px;text-transform:uppercase;font-weight:700;color:var(--mint)}
 .scroll-arrow{width:16px;height:16px;border-right:2px solid var(--mint);border-bottom:2px solid var(--mint);transform:rotate(45deg)}
-
-/* Desktop hero override: side by side */
 @media(min-width:768px){
   .hero{flex-direction:row;align-items:center;padding-top:0;min-height:100svh}
   .hero-left{align-items:flex-start;text-align:left;padding:100px 0 80px 5vw;max-width:min(560px,48vw);flex:none}
@@ -215,57 +118,42 @@ nav.stuck{background:rgba(10,10,15,.92);backdrop-filter:blur(28px);box-shadow:0 
   .hero-player{position:absolute;bottom:-20px;right:-20px;height:92vh;max-height:92vh;width:auto;max-width:none;animation:heroFloat 6s ease-in-out infinite}
   .hero-glow{width:60%;left:auto;right:5%;transform:none;height:90%}
 }
-@media(min-width:1100px){
-  .hero-left{padding-left:6vw}
-}
+@media(min-width:1100px){.hero-left{padding-left:6vw}}
 
-/* ══════════════════════════
-   ATHLETES — TRADING CARDS
-   Mobile: scroll-snap carousel
-   Desktop: 3-col grid
-══════════════════════════ */
+/* ── ATHLETES / TRADING CARDS ── */
 .athletes-sec{background:var(--dark2);overflow:hidden;position:relative}
 .athletes-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(255,61,127,.05) 0%,transparent 65%)}
-
-/* Mobile: horizontal scroll snap */
-.athletes-grid{
-  display:flex;
-  overflow-x:auto;
-  scroll-snap-type:x mandatory;
-  scroll-behavior:smooth;
-  gap:16px;
-  padding:4px 20px 16px;
-  margin:0 -20px;
-  -webkit-overflow-scrolling:touch;
-  scrollbar-width:none;
-}
+.athletes-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;gap:16px;padding:4px 20px 16px;margin:0 -20px;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
 .athletes-grid::-webkit-scrollbar{display:none}
 
 .ath-card{
-  flex:0 0 85vw;min-width:85vw;
-  scroll-snap-align:center;
-  position:relative;border-radius:24px;padding:0 0 24px;
-  overflow:hidden;cursor:pointer;
+  flex:0 0 85vw;min-width:85vw;scroll-snap-align:center;
+  position:relative;border-radius:24px;padding:0 0 24px;overflow:hidden;cursor:pointer;
   transition:transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s;
-  background:rgba(255,255,255,.03);backdrop-filter:blur(12px);
-  border:1px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.03);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.08);
 }
 
-/* Jersey number watermark — correct per card */
-.ath-jersey{
-  position:absolute;top:-10px;right:-5px;
+/* ── FIX 2: JERSEY WATERMARKS — ghost, z-index:0, correct colors ── */
+.card-watermark{
+  position:absolute;
   font-family:'Bebas Neue','Arial Black',Impact,sans-serif;
-  font-size:min(160px,30vw);line-height:1;
-  font-weight:900;letter-spacing:-4px;
-  pointer-events:none;z-index:0;
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  user-select:none;opacity:1;
+  font-size:220px;
+  font-weight:900;
+  line-height:1;
+  pointer-events:none;
+  z-index:0;
+  top:50%;
+  right:-15px;
+  transform:translateY(-50%);
+  user-select:none;
+  overflow:hidden;
+  letter-spacing:-8px;
 }
-.ath-card.pink .ath-jersey{background:linear-gradient(180deg,rgba(255,61,127,0.10) 0%,transparent 100%)}
-.ath-card.mint .ath-jersey{background:linear-gradient(180deg,rgba(0,229,204,0.10) 0%,transparent 100%)}
-.ath-card.gold .ath-jersey{background:linear-gradient(180deg,rgba(255,215,0,0.10) 0%,transparent 100%)}
+.ath-card.pink .card-watermark{color:rgba(255,61,127,.08)}
+.ath-card.mint .card-watermark{color:rgba(0,229,204,.08)}
+.ath-card.gold .card-watermark{color:rgba(255,215,0,.08)}
 
-/* Holographic shimmer on hover */
+/* Holographic shimmer */
 .ath-card::before{content:'';position:absolute;inset:0;border-radius:24px;background:linear-gradient(135deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.05) 50%,rgba(255,255,255,0) 100%);background-size:200% 200%;background-position:0% 0%;opacity:0;transition:opacity .3s,background-position .6s;pointer-events:none;z-index:4}
 .ath-card:hover::before{opacity:1;background-position:100% 100%}
 .ath-card:hover{transform:translateY(-10px);box-shadow:0 36px 80px rgba(0,0,0,.55)}
@@ -273,7 +161,6 @@ nav.stuck{background:rgba(10,10,15,.92);backdrop-filter:blur(28px);box-shadow:0 
 .ath-card.mint:hover{box-shadow:0 36px 80px rgba(0,0,0,.55),0 0 60px rgba(0,229,204,.25)}
 .ath-card.gold:hover{box-shadow:0 36px 80px rgba(0,0,0,.55),0 0 60px rgba(255,215,0,.25)}
 
-/* Color bar top */
 .ath-card.pink::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--pink),#9B1DFF);z-index:5}
 .ath-card.mint::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--mint),#0099ff);z-index:5}
 .ath-card.gold::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),#FF6B35);z-index:5}
@@ -282,23 +169,12 @@ nav.stuck{background:rgba(10,10,15,.92);backdrop-filter:blur(28px);box-shadow:0 
 .ath-card:hover .ath-glow{opacity:.7}
 .ath-card.pink .ath-glow{background:var(--pink)}.ath-card.mint .ath-glow{background:var(--mint)}.ath-card.gold .ath-glow{background:var(--gold)}
 
-/* Image — FULL BODY, top-anchored, head never cut */
-.ath-img-wrap{
-  position:relative;
-  min-height:350px;height:380px;
-  display:flex;align-items:flex-start;justify-content:center;
-  overflow:hidden;
-  padding-top:8px;z-index:2;
-}
-.ath-img{
-  height:100%;width:auto;
-  object-fit:contain !important;
-  object-position:top center !important;
-  max-width:100%;
-  transition:transform .35s cubic-bezier(.16,1,.3,1);
-}
+/* Image area — z-index:1, head never cut */
+.ath-img-wrap{position:relative;min-height:350px;height:380px;display:flex;align-items:flex-start;justify-content:center;overflow:hidden;padding-top:8px;z-index:2;}
+.ath-img{height:100%;width:auto;object-fit:contain !important;object-position:top center !important;max-width:100%;transition:transform .35s cubic-bezier(.16,1,.3,1);}
 .ath-card:hover .ath-img{transform:scale(1.04) translateY(4px)}
 
+/* Card text — z-index:2 */
 .ath-info{padding:14px 20px 0;text-align:center;position:relative;z-index:2}
 .ath-name{font-family:'Bebas Neue','Arial Black',Impact,sans-serif;font-size:clamp(2rem,6vw,2.6rem);line-height:1;color:#fff;transition:all .3s;display:block;text-shadow:0 2px 8px rgba(0,0,0,.5)}
 .ath-card.pink:hover .ath-name{color:var(--pink);text-shadow:0 0 20px var(--pink-glow)}
@@ -307,12 +183,10 @@ nav.stuck{background:rgba(10,10,15,.92);backdrop-filter:blur(28px);box-shadow:0 
 .ath-city{font-family:'Unbounded',sans-serif;font-size:.52rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.38);margin:3px 0 8px;display:block}
 .ath-line{font-size:.84rem;line-height:1.55;color:rgba(255,255,255,.55);font-weight:500;font-style:italic}
 
-/* Carousel dots */
 .carousel-dots{display:flex;justify-content:center;gap:8px;margin-top:16px;margin-bottom:8px}
 .cdot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.2);border:none;cursor:pointer;padding:0;transition:all .25s}
 .cdot.active{background:var(--pink);width:20px;border-radius:4px}
 
-/* Bottom strip + banner */
 .ath-bottom{display:flex;flex-direction:column;align-items:center;gap:16px;margin-top:4px}
 .arsenal-strip{display:flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,rgba(255,61,127,.1),rgba(0,229,204,.06));border:1px solid rgba(255,61,127,.22);border-radius:50px;padding:12px 20px;animation:arsenalPulse 3.5s ease-in-out infinite alternate;text-align:center}
 .arsenal-strip-txt{font-family:'Unbounded',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.82)}
@@ -322,34 +196,20 @@ nav.stuck{background:rgba(10,10,15,.92);backdrop-filter:blur(28px);box-shadow:0 
 .tt-shop-banner:hover{transform:translateY(-2px)}
 .tt-shop-banner-txt{font-family:'Bebas Neue','Arial Black',Impact,sans-serif;font-size:clamp(1.1rem,4vw,2rem);letter-spacing:1.5px;color:#fff;text-align:center}
 
-/* Desktop: 3-col grid (no carousel) */
 @media(min-width:768px){
-  .athletes-grid{
-    display:grid;grid-template-columns:repeat(3,1fr);
-    gap:22px;overflow-x:visible;
-    scroll-snap-type:none;
-    margin:0;padding:4px 0 16px;
-  }
+  .athletes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;overflow-x:visible;scroll-snap-type:none;margin:0;padding:4px 0 16px;}
   .ath-card{flex:none;min-width:0}
   .carousel-dots{display:none}
   .ath-img-wrap{min-height:370px;height:400px}
+  /* Larger watermark on desktop */
+  .card-watermark{font-size:260px}
 }
 
-/* ══════════════════════════
-   TIKTOK SECTION
-══════════════════════════ */
+/* ── TIKTOK SECTION ── */
 .tt-sec{background:linear-gradient(180deg,var(--dark) 0%,var(--dark2) 100%);overflow:hidden;position:relative}
 .tt-sec-grid{display:flex;flex-direction:column;gap:36px;align-items:center}
-
 .tt-left{display:flex;justify-content:center;width:100%}
-.tt-athlete{
-  height:auto;width:auto;
-  max-height:60vw;max-width:70vw;
-  object-fit:contain !important;
-  object-position:top center !important;
-  mix-blend-mode:screen;
-  filter:drop-shadow(0 0 30px rgba(255,61,127,.55)) drop-shadow(0 8px 24px rgba(0,0,0,.5));
-}
+.tt-athlete{height:auto;width:auto;max-height:60vw;max-width:70vw;object-fit:contain !important;object-position:top center !important;mix-blend-mode:screen;filter:drop-shadow(0 0 30px rgba(255,61,127,.55)) drop-shadow(0 8px 24px rgba(0,0,0,.5));}
 .tt-right{display:flex;flex-direction:column;gap:16px;width:100%}
 .tt-hl{font-family:'Bebas Neue','Arial Black',Impact,sans-serif;font-size:clamp(2rem,7vw,4rem);line-height:1;letter-spacing:.5px;text-shadow:0 0 30px rgba(255,61,127,.2)}
 .tt-hl span{color:var(--pink);display:block}
@@ -370,37 +230,17 @@ nav.stuck{background:rgba(10,10,15,.92);backdrop-filter:blur(28px);box-shadow:0 
   .tt-right{flex:1}
 }
 
-/* ══════════════════════════
-   PRODUCTS — mobile single col
-══════════════════════════ */
+/* ── PRODUCTS ── */
 .products-sec{background:linear-gradient(180deg,var(--dark2) 0%,var(--dark3) 100%);position:relative}
 .p-bento{display:flex;flex-direction:column;gap:14px}
-
-.p-card{
-  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);
-  border-radius:22px;padding:22px 20px 20px;
-  position:relative;overflow:hidden;cursor:pointer;
-  transition:box-shadow .3s,transform .3s;
-  /* Mobile: row layout — image right, text left */
-  display:flex;flex-direction:column;
-}
+.p-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:22px;padding:22px 20px 20px;position:relative;overflow:hidden;cursor:pointer;transition:box-shadow .3s,transform .3s;display:flex;flex-direction:column;}
 .p-card:hover{box-shadow:0 18px 50px rgba(0,0,0,.5)}
 .p-card.pink::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,61,127,.12) 0%,transparent 50%);pointer-events:none}
 .p-card.mint::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,229,204,.1) 0%,transparent 50%);pointer-events:none}
 .p-card.gold::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,215,0,.08) 0%,transparent 50%);pointer-events:none}
 .p-glow{position:absolute;top:-30px;right:-30px;width:130px;height:130px;border-radius:50%;filter:blur(50px);opacity:.22;pointer-events:none}
 .p-card.pink .p-glow{background:var(--pink)}.p-card.mint .p-glow{background:var(--mint)}.p-card.gold .p-glow{background:var(--gold)}
-
-/* Player image: top-right corner */
-.p-athlete{
-  position:absolute;right:-4px;top:-10px;
-  width:120px;height:auto;
-  max-height:180px;
-  object-fit:contain !important;
-  object-position:top center !important;
-  opacity:.85;pointer-events:none;
-  mix-blend-mode:screen;
-}
+.p-athlete{position:absolute;right:-4px;top:-10px;width:120px;height:auto;max-height:180px;object-fit:contain !important;object-position:top center !important;opacity:.85;pointer-events:none;mix-blend-mode:screen;}
 .p-icon{font-size:2.2rem;margin-bottom:10px;display:block}
 .p-card.pink .p-icon{filter:drop-shadow(0 0 14px var(--pink))}.p-card.mint .p-icon{filter:drop-shadow(0 0 14px var(--mint))}.p-card.gold .p-icon{filter:drop-shadow(0 0 14px var(--gold))}
 .p-name{font-family:'Bebas Neue','Arial Black',Impact,sans-serif;font-size:clamp(1.6rem,5vw,2rem);color:#fff;line-height:1;margin-bottom:8px;text-shadow:0 0 20px rgba(255,61,127,.15);padding-right:110px}
@@ -412,8 +252,6 @@ nav.stuck{background:rgba(10,10,15,.92);backdrop-filter:blur(28px);box-shadow:0 
 .p-card.large::after{content:'';position:absolute;inset:0;border-radius:22px;background:linear-gradient(135deg,rgba(255,61,127,.28),transparent 35%,transparent 65%,rgba(255,61,127,.28));opacity:0;animation:sparkBorder 3.5s ease-in-out infinite alternate;pointer-events:none}
 .sparkle-top{position:absolute;top:12px;right:110px;font-size:1.1rem;animation:sparkPop 2.8s ease-in-out infinite}
 .p-card.mint .shimmer{position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,rgba(0,229,204,.06) 50%,transparent 65%);transform:translateX(-100%);animation:shimmerSlide 4s ease-in-out infinite 1s}
-
-/* Desktop: bento grid */
 @media(min-width:768px){
   .p-bento{display:grid;grid-template-columns:1fr 1fr;gap:14px}
   .p-card.large{grid-row:span 2}.p-card.wide{grid-column:span 2}
@@ -423,25 +261,12 @@ nav.stuck{background:rgba(10,10,15,.92);backdrop-filter:blur(28px);box-shadow:0 
   .sparkle-top{right:130px}
 }
 
-/* ══════════════════════════
-   DREAM — sisters photo
-══════════════════════════ */
+/* ── DREAM ── */
 .dream-sec{background:#000;position:relative;overflow:hidden;min-height:90svh;display:flex;align-items:center}
 .dream-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 65% at 55% 50%,rgba(255,61,127,.07) 0%,transparent 70%);animation:dreamPulse 9s ease-in-out infinite alternate}
 .dream-grid{display:flex;flex-direction:column;gap:24px;align-items:center;width:100%;max-width:1120px;margin:0 auto;position:relative;z-index:2;padding:60px 20px}
-.dream-left{
-  position:relative;display:flex;align-items:flex-end;justify-content:center;
-  width:100%;max-width:400px;
-  height:min(60vw,380px);
-}
-.dream-athlete{
-  height:100%;width:auto;
-  max-width:100%;
-  object-fit:contain !important;
-  object-position:top center !important;
-  mix-blend-mode:screen;
-  filter:drop-shadow(-8px 0 40px rgba(255,215,0,.35)) drop-shadow(0 8px 32px rgba(0,0,0,.6));
-}
+.dream-left{position:relative;display:flex;align-items:flex-end;justify-content:center;width:100%;max-width:400px;height:min(60vw,380px);}
+.dream-athlete{height:100%;width:auto;max-width:100%;object-fit:contain !important;object-position:top center !important;mix-blend-mode:screen;filter:drop-shadow(-8px 0 40px rgba(255,215,0,.35)) drop-shadow(0 8px 32px rgba(0,0,0,.6));}
 .dream-right{text-align:center;width:100%}
 .dream-head{font-family:'Bebas Neue','Arial Black',Impact,sans-serif;font-size:clamp(2.8rem,9vw,7.5rem);line-height:.9;letter-spacing:2px;background:linear-gradient(135deg,#fff 0%,var(--pink) 30%,var(--gold) 65%,var(--mint) 100%);background-size:300% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:dreamShimmer 6s linear infinite;margin-bottom:22px}
 .world-wrap{position:relative;width:100%;max-width:520px;margin:0 auto 16px;height:min(200px,45vw)}
@@ -461,9 +286,7 @@ nav.stuck{background:rgba(10,10,15,.92);backdrop-filter:blur(28px);box-shadow:0 
   .dream-ctas{flex-direction:row;justify-content:center;max-width:none}
 }
 
-/* ══════════════════════════
-   FOOTER
-══════════════════════════ */
+/* ── FOOTER ── */
 footer{position:relative;z-index:10;background:var(--dark);border-top:1px solid rgba(255,255,255,.05);padding:40px 20px 60px;text-align:center}
 footer::before{content:'';position:absolute;top:0;left:0;right:0;height:120px;background:radial-gradient(ellipse 50% 100% at 50% 0%,rgba(255,61,127,.04) 0%,transparent 70%)}
 .foot-wrap{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:12px}
@@ -474,17 +297,10 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:120px;ba
 .foot-tt:hover{color:#fff;border-color:rgba(255,255,255,.35)}
 .foot-meta{font-size:.7rem;color:rgba(255,255,255,.2);line-height:2.2}
 
-/* ══════════════════════════
-   GLOBAL RESPONSIVE CLEAN-UP
-══════════════════════════ */
 @media(max-width:767px){
-  /* Kill padding on both sides uniformly */
   .section{padding:60px 20px}
-  /* Stack TikTok section */
   .tt-sec-grid{flex-direction:column}
-  /* No horizontal overflow anywhere */
   img{max-width:100%;height:auto}
-  /* Ensure footer doesn't get covered */
   body{padding-bottom:0}
 }
 @media(prefers-reduced-motion:reduce){
@@ -502,15 +318,12 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:120px;ba
   });
 </script>
 
-<!-- CUSTOM CURSOR — desktop only, injected by JS -->
 <div id="cursor"></div>
 <div id="cursor-trail"></div>
-
 <div class="noise"></div>
 <div class="mesh"></div>
 <div id="particles-js"></div>
 
-<!-- ══════════ NAV ══════════ -->
 <nav id="nav">
   <a class="nav-logo" href="#" aria-label="Pretty Accessories">
     <img class="nav-logo-img" src="./getpretty.png" alt="Pretty Accessories" loading="eager" onerror="this.style.display='none'">
@@ -524,7 +337,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:120px;ba
   </div>
 </nav>
 
-<!-- ══════════ S1 — HERO: Nailah4.png ══════════ -->
+<!-- S1 — HERO: Nailah4.png -->
 <section class="hero" id="hero">
   <div class="hero-left">
     <span class="hero-badge">🏐 Club Arsenal Arecibo · Puerto Rico 🇵🇷</span>
@@ -541,17 +354,10 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:120px;ba
          data-es="🛍️ Ver Productos" data-en="🛍️ See Products">🛍️ Ver Productos</a>
     </div>
   </div>
-
-  <!-- Nailah4.png — action hero -->
   <div class="hero-stage" aria-hidden="true">
     <div class="hero-glow"></div>
-    <img class="hero-player player-image"
-         src="./Nailah4.png"
-         alt="Nailah — Club Arsenal"
-         loading="eager"
-         onerror="this.style.display='none'">
+    <img class="hero-player player-image" src="./Nailah4.png" alt="Nailah — Club Arsenal" loading="eager" onerror="this.style.display='none'">
   </div>
-
   <div class="scroll-cue" aria-hidden="true">
     <span class="scroll-cue-txt t" data-es="Scroll pa' ver el vibe ↓" data-en="Scroll to see the vibe ↓">Scroll pa' ver el vibe ↓</span>
     <div class="scroll-arrow"></div>
@@ -560,7 +366,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:120px;ba
 
 <div class="sec-div" role="separator"></div>
 
-<!-- ══════════ S2 — TRADING CARDS ══════════ -->
+<!-- S2 — TRADING CARDS -->
 <section class="section athletes-sec" id="about">
   <div class="s-in">
     <span class="eyebrow t" data-es="Las atletas · Puerto Rico 🇵🇷" data-en="The athletes · Puerto Rico 🇵🇷">Las atletas · Puerto Rico 🇵🇷</span>
@@ -571,7 +377,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:120px;ba
 
       <!-- NAILAH — Nailah2.png, #8, pink -->
       <div class="ath-card pink" data-aos="fade-up">
-        <div class="ath-jersey">#8</div>
+        <div class="card-watermark" aria-hidden="true">#8</div>
         <div class="ath-glow"></div>
         <div class="ath-img-wrap">
           <img class="ath-img player-image" src="./Nailah2.png" alt="Nailah #8 — Hatillo PR" loading="lazy" onerror="this.style.display='none'">
@@ -585,7 +391,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:120px;ba
 
       <!-- ARIANA — Ariana1.png, #7, mint -->
       <div class="ath-card mint" data-aos="fade-up" data-aos-delay="100">
-        <div class="ath-jersey">#7</div>
+        <div class="card-watermark" aria-hidden="true">#7</div>
         <div class="ath-glow"></div>
         <div class="ath-img-wrap">
           <img class="ath-img player-image" src="./Ariana1.png" alt="Ariana #7 — Camuy PR" loading="lazy" onerror="this.style.display='none'">
@@ -597,12 +403,16 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:120px;ba
         </div>
       </div>
 
-      <!-- YAIZA — Nailah5.png (temp), #12, gold -->
+      <!-- FIX 1: YAIZA — arian%20yaiza1.png (Ariana & Yaiza with medals), #12, gold -->
       <div class="ath-card gold" data-aos="fade-up" data-aos-delay="200">
-        <div class="ath-jersey">#12</div>
+        <div class="card-watermark" aria-hidden="true">#12</div>
         <div class="ath-glow"></div>
         <div class="ath-img-wrap">
-          <img class="ath-img player-image" src="./Nailah5.png" alt="Yaiza #12 — Camuy PR" loading="lazy" onerror="this.style.display='none'">
+          <img class="ath-img player-image"
+               src="./arian%20yaiza1.png"
+               alt="Yaiza #12 — Camuy PR"
+               loading="lazy"
+               onerror="this.style.display='none'">
         </div>
         <div class="ath-info">
           <span class="ath-name">YAIZA</span>
@@ -613,7 +423,6 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:120px;ba
 
     </div>
 
-    <!-- Dot indicators for mobile carousel -->
     <div class="carousel-dots" id="ath-dots" aria-label="Seleccionar atleta">
       <button class="cdot active" data-idx="0" aria-label="Nailah"></button>
       <button class="cdot" data-idx="1" aria-label="Ariana"></button>
@@ -638,18 +447,13 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:120px;ba
 
 <div class="sec-div" role="separator"></div>
 
-<!-- ══════════ S3 — TIKTOK: Ariana4.png spike ══════════ -->
+<!-- S3 — TIKTOK: Ariana4.png -->
 <section class="section tt-sec" id="social">
   <div class="s-in">
     <div class="tt-sec-grid">
-
       <div class="tt-left" data-aos="fade-right">
-        <img class="tt-athlete player-image"
-             src="./Ariana4.png"
-             alt="Ariana — spike shot" loading="lazy"
-             onerror="this.style.display='none'">
+        <img class="tt-athlete player-image" src="./Ariana4.png" alt="Ariana — spike shot" loading="lazy" onerror="this.style.display='none'">
       </div>
-
       <div class="tt-right" data-aos="fade-left">
         <span class="eyebrow t" data-es="TikTok · @pretty.accessorie7" data-en="TikTok · @pretty.accessorie7">TikTok · @pretty.accessorie7</span>
         <h2 class="tt-hl t"
@@ -670,22 +474,19 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:120px;ba
           </a>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
 <div class="sec-div" role="separator"></div>
 
-<!-- ══════════ S4 — PRODUCTS ══════════ -->
+<!-- S4 — PRODUCTS -->
 <section class="section products-sec" id="products" data-aos="fade-up">
   <div class="s-in">
     <span class="eyebrow t" data-es="Hecho a mano · Puerto Rico 🇵🇷" data-en="Handmade · Puerto Rico 🇵🇷">Hecho a mano · Puerto Rico 🇵🇷</span>
     <h2 class="s-head t" data-es="LO QUE HACEMOS 💅" data-en="WHAT WE MAKE 💅">LO QUE HACEMOS 💅</h2>
     <div class="sdiv"></div>
     <div class="p-bento">
-
-      <!-- Bracelets: Nailah3.png -->
       <div class="p-card pink large" data-tilt data-aos="fade-right">
         <div class="p-glow"></div>
         <span class="sparkle-top" aria-hidden="true">✨</span>
@@ -700,8 +501,6 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:120px;ba
         <a class="p-btn t" href="https://www.tiktok.com/@pretty.accessorie7" target="_blank" rel="noopener"
            data-es="🛍️ Pídelo en TikTok →" data-en="🛍️ Order on TikTok →">🛍️ Pídelo en TikTok →</a>
       </div>
-
-      <!-- Glitter Gel: Ariana3.png -->
       <div class="p-card mint" data-tilt data-aos="fade-left">
         <div class="p-glow"></div>
         <div class="shimmer" aria-hidden="true"></div>
@@ -712,8 +511,6 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:120px;ba
         <a class="p-btn t" href="https://www.tiktok.com/@pretty.accessorie7" target="_blank" rel="noopener"
            data-es="🎵 Lo quiero ya →" data-en="🎵 I want it now →">🎵 Lo quiero ya →</a>
       </div>
-
-      <!-- Más drops: Aariana2.png -->
       <div class="p-card gold wide" data-tilt data-aos="fade-up">
         <div class="p-glow"></div>
         <img class="p-athlete player-image" src="./Aariana2.png" alt="" aria-hidden="true" loading="lazy" onerror="this.style.display='none'">
@@ -723,18 +520,15 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:120px;ba
         <a class="p-btn t" href="https://www.tiktok.com/@pretty.accessorie7" target="_blank" rel="noopener"
            data-es="⚡ Follow @pretty.accessorie7 →" data-en="⚡ Follow @pretty.accessorie7 →">⚡ Follow @pretty.accessorie7 →</a>
       </div>
-
     </div>
   </div>
 </section>
 
 <div class="sec-div" role="separator"></div>
 
-<!-- ══════════ S5 — DREAM: arian_yaiza1.png ══════════ -->
+<!-- S5 — DREAM: arian%20yaiza1.png sisters -->
 <section class="dream-sec" id="dream">
   <div class="dream-grid">
-
-    <!-- Sisters photo — arian_yaiza1.png -->
     <div class="dream-left" data-aos="fade-right">
       <img class="dream-athlete player-image"
            src="./arian%20yaiza1.png"
@@ -742,7 +536,6 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:120px;ba
            loading="lazy"
            onerror="this.style.display='none'">
     </div>
-
     <div class="dream-right" data-aos="fade-left">
       <span class="eyebrow t" data-es="El Sueño · Un spike a la vez" data-en="The Dream · One spike at a time">El Sueño · Un spike a la vez</span>
       <h2 class="dream-head t" data-es="EL MUNDO ES NUESTRO 🌍" data-en="THE WORLD IS OURS 🌍">EL MUNDO ES NUESTRO 🌍</h2>
@@ -772,13 +565,11 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:120px;ba
            data-es="🎵 Síguenos ahora" data-en="🎵 Follow us now">🎵 Síguenos ahora</a>
       </div>
     </div>
-
   </div>
 </section>
 
 <div class="sec-div" role="separator"></div>
 
-<!-- ══════════ FOOTER ══════════ -->
 <footer>
   <div class="foot-wrap">
     <img class="foot-logo" src="./getpretty.png" alt="Pretty Accessories" loading="lazy" onerror="this.style.display='none'">
@@ -792,12 +583,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:120px;ba
   </div>
 </footer>
 
-<!-- ══════════ PMGT VOICE LAUNCHER ONLY ══════════ -->
-<!--
-  Luna system prompt (update in PayMeGPT dashboard → Agent 88975005):
-  ¡Hola! Soy Luna de Pretty Accessories. ¿En qué te puedo ayudar hoy? 🎀
-  [Full system prompt configured in PMGT dashboard per FIX 6]
--->
+<!-- PMGT VOICE LAUNCHER — ONLY floating element -->
 <script>
   window.PayMeGPTConfig = {
     widgetId: '88975005',
@@ -819,8 +605,6 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:120px;ba
   };
 </script>
 <script src="https://paymegpt.com/widget.js" data-config="PayMeGPT"></script>
-
-<!-- LIBS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
@@ -828,9 +612,8 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:120px;ba
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
 <script>
-/* ══ CUSTOM CURSOR — desktop ══ */
 (function(){
-  if(window.innerWidth < 1024) return;
+  if(window.innerWidth<1024)return;
   var cur=document.getElementById('cursor'),trail=document.getElementById('cursor-trail');
   if(!cur||!trail)return;
   var mx=0,my=0,tx=0,ty=0;
@@ -843,7 +626,6 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:120px;ba
   });
 })();
 
-/* ══ CANVAS: REMOVE WHITE BACKGROUNDS ══ */
 function removeWhiteBackground(img,tol){
   tol=tol||30;
   try{
@@ -862,7 +644,6 @@ window.addEventListener('load',function(){
   });
 });
 
-/* ══ LANG ══ */
 var lang='es';
 function setLang(l){
   lang=l;
@@ -871,13 +652,9 @@ function setLang(l){
   document.getElementById('lb-en').classList.toggle('on',l==='en');
   document.querySelectorAll('[data-'+l+']').forEach(function(el){el.innerHTML=el.getAttribute('data-'+l);});
 }
-
-/* ══ NAV SCROLL ══ */
-window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('stuck',window.scrollY>50);},{ passive:true });
-
+window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('stuck',window.scrollY>50);},{passive:true});
 var isMob=function(){return window.innerWidth<768;};
 
-/* ══ MOBILE CAROUSEL DOTS ══ */
 (function(){
   var grid=document.getElementById('ath-grid');
   var dots=document.querySelectorAll('#ath-dots .cdot');
@@ -895,7 +672,6 @@ var isMob=function(){return window.innerWidth<768;};
   });
 })();
 
-/* ══ GSAP ANIMATIONS ══ */
 if(typeof gsap!=='undefined'&&typeof ScrollTrigger!=='undefined'){
   gsap.registerPlugin(ScrollTrigger);
   gsap.from(['.hero-hl-1','.hero-hl-2','.hero-hl-3'],{opacity:0,y:isMob()?30:0,x:isMob()?0:-50,duration:.7,stagger:.12,ease:'power3.out',delay:.15});
@@ -909,8 +685,7 @@ if(typeof gsap!=='undefined'&&typeof ScrollTrigger!=='undefined'){
   }
 }
 
-/* ══ PARTICLES ══ */
-var pCount=isMob()?0:28; /* disable on mobile for performance */
+var pCount=isMob()?0:28;
 if(pCount>0){
   particlesJS('particles-js',{
     particles:{number:{value:pCount,density:{enable:true,value_area:900}},color:{value:['#FF3D7F','#00E5CC','#FFD700','#C026D3','#ffffff']},shape:{type:'star'},opacity:{value:.42,random:true,anim:{enable:true,speed:.7,opacity_min:.06,sync:false}},size:{value:2.2,random:true,anim:{enable:true,speed:1.3,size_min:.3,sync:false}},line_linked:{enable:false},move:{enable:true,speed:.9,direction:'top',random:true,straight:false,out_mode:'out'}},
@@ -918,14 +693,11 @@ if(pCount>0){
     retina_detect:true
   });
 }
-
-/* ══ VANILLA TILT — desktop only ══ */
 if(!isMob()&&typeof VanillaTilt!=='undefined'){
   VanillaTilt.init(document.querySelectorAll('[data-tilt]'),{max:10,speed:380,glare:true,'max-glare':.12,gyroscope:false,perspective:900});
 }
 AOS.init({duration:650,once:true,offset:50,easing:'ease-out-cubic',disable:isMob()?'mobile':false});
 
-/* ══ TT OEMBED ══ */
 (function(){
   var bg=document.getElementById('tt-thumb-bg');if(!bg)return;
   fetch('https://www.tiktok.com/oembed?url='+encodeURIComponent('https://www.tiktok.com/@pretty.accessorie7/video/7608660505602919711'))
@@ -934,7 +706,6 @@ AOS.init({duration:650,once:true,offset:50,easing:'ease-out-cubic',disable:isMob
     .catch(function(){});
 })();
 
-/* ══ WORLD MAP DOTS ══ */
 var DOTS=[
   {x:50,y:24,done:true},{x:26.5,y:41.5},{x:20,y:33},
   {x:27,y:56},{x:24.5,y:40.5},{x:26,y:63},
