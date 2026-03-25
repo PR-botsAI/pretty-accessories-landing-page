@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Pretty Accessories 🎀 | Club Arsenal Arecibo · Puerto Rico</title>
 <meta name="description" content="Pulseras customizadas, glitter gel y más — tres atletas de volleyball de Puerto Rico. @pretty.accessorie7">
-<link rel="icon" type="image/png" href="https://storage.googleapis.com/wttus/assets/1094068/images/getpretty.png">
+<link rel="icon" type="image/png" href="./getpretty.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Unbounded:wght@400;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
@@ -16,6 +16,14 @@
 html{scroll-behavior:smooth}
 body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--dark);color:#fff;overflow-x:hidden}
 ::selection{background:var(--pink);color:#fff}
+
+/* ── PLAYER IMAGE TREATMENT ── */
+.player-image{
+  mix-blend-mode:screen;
+  filter:drop-shadow(0 0 30px rgba(255,61,127,.5));
+  background:transparent;
+}
+
 .noise{position:fixed;inset:0;z-index:3;pointer-events:none;opacity:.04}
 .mesh{position:fixed;inset:0;z-index:0;pointer-events:none}
 .mesh::before,.mesh::after{content:'';position:absolute;border-radius:50%;filter:blur(100px);animation:meshDrift 22s ease-in-out infinite alternate}
@@ -55,7 +63,7 @@ nav.stuck{background:rgba(10,10,15,.88);backdrop-filter:blur(28px);-webkit-backd
 .hero-hl-3{font-size:clamp(5.5rem,16vw,13rem);display:block;-webkit-text-fill-color:transparent;-webkit-text-stroke:2px var(--mint);text-shadow:0 0 40px rgba(0,229,204,.4),0 0 80px rgba(0,229,204,.15);filter:drop-shadow(0 0 12px rgba(0,229,204,.5))}
 .hero-sub{font-size:clamp(.95rem,2.2vw,1.2rem);color:rgba(255,255,255,.6);font-weight:600;letter-spacing:.3px;margin:22px 0 32px;line-height:1.65;max-width:440px}
 .hero-img-wrap{position:relative;z-index:5;display:flex;align-items:flex-end;justify-content:center;height:100%;min-height:560px}
-.hero-athlete{position:absolute;bottom:-30px;right:-20px;height:min(690px,90svh);width:auto;object-fit:contain;object-position:bottom;filter:drop-shadow(-20px 0 60px rgba(255,61,127,.45)) drop-shadow(0 0 40px rgba(255,61,127,.2));animation:athleteFloat 5s ease-in-out infinite alternate;transform-origin:bottom center}
+.hero-athlete{position:absolute;bottom:-30px;right:-20px;height:min(690px,90svh);width:auto;object-fit:contain;object-position:bottom;animation:athleteFloat 5s ease-in-out infinite alternate;transform-origin:bottom center}
 @keyframes athleteFloat{from{transform:translateY(0) scale(1)}to{transform:translateY(-18px) scale(1.01)}}
 .scroll-cue{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:5;display:flex;flex-direction:column;align-items:center;gap:5px;opacity:.28;animation:scueBob 2.6s ease-in-out infinite}
 .scroll-cue-txt{font-family:'Unbounded',sans-serif;font-size:.52rem;letter-spacing:3px;text-transform:uppercase;font-weight:700}
@@ -73,7 +81,7 @@ nav.stuck{background:rgba(10,10,15,.88);backdrop-filter:blur(28px);-webkit-backd
 .ath-card:hover .ath-glow{opacity:.65}
 .ath-card.pink .ath-glow{background:var(--pink)}.ath-card.mint .ath-glow{background:var(--mint)}.ath-card.gold .ath-glow{background:var(--gold)}
 .ath-img-wrap{position:relative;height:340px;display:flex;align-items:flex-end;justify-content:center;overflow:visible;padding-top:20px}
-.ath-img{height:100%;width:auto;object-fit:contain;object-position:bottom;filter:drop-shadow(0 -4px 30px rgba(0,0,0,.3));transition:transform .3s cubic-bezier(.16,1,.3,1)}
+.ath-img{height:100%;width:auto;object-fit:contain;object-position:bottom;transition:transform .3s cubic-bezier(.16,1,.3,1)}
 .ath-card:hover .ath-img{transform:scale(1.04) translateY(-6px)}
 .ath-info{padding:20px 24px 0;text-align:center}
 .ath-name{font-family:'Bebas Neue',cursive;font-size:2.4rem;line-height:1;color:#fff;transition:all .3s;display:block}
@@ -88,7 +96,7 @@ nav.stuck{background:rgba(10,10,15,.88);backdrop-filter:blur(28px);-webkit-backd
 .tt-sec{background:linear-gradient(180deg,var(--dark) 0%,var(--dark2) 100%);overflow:hidden}
 .tt-sec-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
 .tt-left{position:relative}
-.tt-athlete{width:100%;max-width:380px;object-fit:contain;filter:drop-shadow(20px 0 50px rgba(255,61,127,.35)) drop-shadow(0 10px 30px rgba(0,0,0,.5));animation:athleteFloat 5.5s ease-in-out infinite alternate;animation-delay:.5s}
+.tt-athlete{width:100%;max-width:380px;object-fit:contain;animation:athleteFloat 5.5s ease-in-out infinite alternate;animation-delay:.5s}
 .tt-right{display:flex;flex-direction:column;gap:20px}
 .tt-hl{font-family:'Bebas Neue',cursive;font-size:clamp(2rem,5vw,3.5rem);line-height:1.05;letter-spacing:.5px}
 .tt-hl span{color:var(--pink)}
@@ -114,7 +122,7 @@ nav.stuck{background:rgba(10,10,15,.88);backdrop-filter:blur(28px);-webkit-backd
 .p-card.gold::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,215,0,.08) 0%,transparent 50%);border-radius:26px;pointer-events:none}
 .p-glow{position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;filter:blur(55px);opacity:.22;pointer-events:none}
 .p-card.pink .p-glow{background:var(--pink)}.p-card.mint .p-glow{background:var(--mint)}.p-card.gold .p-glow{background:var(--gold)}
-.p-athlete{position:absolute;right:-10px;top:-20px;height:220px;width:auto;object-fit:contain;opacity:.85;filter:drop-shadow(-8px 0 20px rgba(255,61,127,.25));pointer-events:none;animation:athleteFloat 4s ease-in-out infinite alternate}
+.p-athlete{position:absolute;right:-10px;top:-20px;height:220px;width:auto;object-fit:contain;opacity:.85;pointer-events:none;animation:athleteFloat 4s ease-in-out infinite alternate}
 .p-icon{font-size:2.6rem;margin-bottom:14px;display:block}
 .p-card.pink .p-icon{filter:drop-shadow(0 0 16px var(--pink))}.p-card.mint .p-icon{filter:drop-shadow(0 0 16px var(--mint))}.p-card.gold .p-icon{filter:drop-shadow(0 0 16px var(--gold))}
 .p-name{font-family:'Bebas Neue',cursive;font-size:2rem;color:#fff;line-height:1;margin-bottom:10px}
@@ -134,7 +142,7 @@ nav.stuck{background:rgba(10,10,15,.88);backdrop-filter:blur(28px);-webkit-backd
 @keyframes dreamPulse{from{opacity:.5;transform:scale(1)}to{opacity:1;transform:scale(1.04)}}
 .dream-grid{display:grid;grid-template-columns:400px 1fr;gap:40px;align-items:center;width:100%;max-width:1120px;margin:0 auto;position:relative;z-index:2;padding:80px 28px}
 .dream-left{position:relative;display:flex;align-items:flex-end;justify-content:center;height:540px}
-.dream-athlete{height:100%;width:auto;object-fit:contain;object-position:bottom;filter:drop-shadow(-10px 0 50px rgba(255,215,0,.3)) drop-shadow(0 10px 40px rgba(0,0,0,.6));animation:athleteFloat 6s ease-in-out infinite alternate;animation-delay:1s}
+.dream-athlete{height:100%;width:auto;object-fit:contain;object-position:bottom;animation:athleteFloat 6s ease-in-out infinite alternate;animation-delay:1s}
 .dream-right{text-align:center}
 .dream-head{font-family:'Bebas Neue',cursive;font-size:clamp(3.5rem,10vw,7.5rem);line-height:.9;letter-spacing:2px;background:linear-gradient(135deg,#fff 0%,var(--pink) 30%,var(--gold) 65%,var(--mint) 100%);background-size:300% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:dreamShimmer 6s linear infinite;margin-bottom:30px}
 @keyframes dreamShimmer{0%{background-position:0% center}100%{background-position:300% center}}
@@ -216,7 +224,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:140px;ba
 
 <nav id="nav">
   <a class="nav-logo" href="#">
-    <img class="nav-logo-img" src="https://storage.googleapis.com/wttus/assets/1094068/images/getpretty.png" alt="Pretty Accessories" loading="eager" onerror="this.style.display='none'">
+    <img class="nav-logo-img" src="./getpretty.png" alt="Pretty Accessories" loading="eager" onerror="this.style.display='none'">
   </a>
   <div class="nav-r">
     <div class="lang-wrap">
@@ -243,10 +251,9 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:140px;ba
     <div class="hero-img-wrap" aria-hidden="true">
       <img class="hero-athlete player-image"
            id="hero-athlete-img"
-           src="https://storage.googleapis.com/wttus/assets/1094068/images/Ariana1.png"
+           src="./Ariana1.png"
            alt="Ariana — Club Arsenal"
-           loading="eager"
-           crossorigin="anonymous">
+           loading="eager">
     </div>
   </div>
   <div class="scroll-cue">
@@ -266,9 +273,8 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:140px;ba
         <div class="ath-glow"></div>
         <div class="ath-img-wrap">
           <img class="ath-img player-image"
-               src="https://storage.googleapis.com/wttus/assets/1094068/images/Nailah2.png"
+               src="./Nailah2.png"
                alt="Nailah" loading="lazy"
-               crossorigin="anonymous"
                onerror="this.style.display='none'">
         </div>
         <div class="ath-info">
@@ -281,9 +287,8 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:140px;ba
         <div class="ath-glow"></div>
         <div class="ath-img-wrap">
           <img class="ath-img player-image"
-               src="https://storage.googleapis.com/wttus/assets/1094068/images/Ariana1.png"
+               src="./Ariana1.png"
                alt="Ariana" loading="lazy"
-               crossorigin="anonymous"
                onerror="this.style.display='none'">
         </div>
         <div class="ath-info">
@@ -296,9 +301,8 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:140px;ba
         <div class="ath-glow"></div>
         <div class="ath-img-wrap">
           <img class="ath-img player-image"
-               src="https://storage.googleapis.com/wttus/assets/1094068/images/arian-yaiza1.png"
+               src="./arian%20yaiza1.png"
                alt="Yaiza y Ariana" loading="lazy"
-               crossorigin="anonymous"
                onerror="this.style.display='none'">
         </div>
         <div class="ath-info">
@@ -323,9 +327,8 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:140px;ba
     <div class="tt-sec-grid">
       <div class="tt-left" data-aos="fade-right">
         <img class="tt-athlete player-image"
-             src="https://storage.googleapis.com/wttus/assets/1094068/images/Ariana3.png"
+             src="./Ariana3.png"
              alt="Ariana en TikTok" loading="lazy"
-             crossorigin="anonymous"
              onerror="this.style.display='none'">
       </div>
       <div class="tt-right" data-aos="fade-left">
@@ -360,9 +363,8 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:140px;ba
         <div class="p-glow"></div>
         <span class="sparkle-top">✨</span>
         <img class="p-athlete player-image"
-             src="https://storage.googleapis.com/wttus/assets/1094068/images/Ariana2.png"
+             src="./Ariana2.png"
              alt="" aria-hidden="true" loading="lazy"
-             crossorigin="anonymous"
              onerror="this.style.display='none'">
         <span class="p-icon">💎</span>
         <div class="p-name t" data-es="El accesorio que<br>te representa" data-en="The accessory that<br>represents you">El accesorio que<br>te representa</div>
@@ -397,9 +399,8 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:140px;ba
   <div class="dream-grid">
     <div class="dream-left" data-aos="fade-right">
       <img class="dream-athlete player-image"
-           src="https://storage.googleapis.com/wttus/assets/1094068/images/Nailah1.png"
+           src="./Nailah1.png"
            alt="Nailah — el sueño" loading="lazy"
-           crossorigin="anonymous"
            onerror="this.style.display='none'">
     </div>
     <div class="dream-right" data-aos="fade-left">
@@ -431,7 +432,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:140px;ba
 
 <footer>
   <div class="foot-wrap">
-    <img class="foot-logo" src="https://storage.googleapis.com/wttus/assets/1094068/images/getpretty.png" alt="Pretty Accessories" loading="lazy" onerror="this.style.display='none'">
+    <img class="foot-logo" src="./getpretty.png" alt="Pretty Accessories" loading="lazy" onerror="this.style.display='none'">
     <a class="foot-tt" href="https://www.tiktok.com/@pretty.accessorie7" target="_blank">📱 @pretty.accessorie7</a>
     <div class="foot-meta">
       <p class="t" data-es="Hecho con 💕 en Puerto Rico 🇵🇷" data-en="Made with 💕 in Puerto Rico 🇵🇷">Hecho con 💕 en Puerto Rico 🇵🇷</p>
@@ -519,8 +520,7 @@ function removeWhiteBackground(img, tolerance) {
     ctx.putImageData(imageData, 0, 0);
     img.src = canvas.toDataURL('image/png');
   } catch (e) {
-    /* CORS blocked — image still displays, just keeps white bg */
-    console.warn('removeWhiteBackground: CORS blocked on', img.src);
+    console.warn('removeWhiteBackground failed:', e.message);
   }
 }
 
