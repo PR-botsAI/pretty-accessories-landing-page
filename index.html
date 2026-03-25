@@ -80,13 +80,11 @@ nav.stuck{background:rgba(10,10,15,.92);backdrop-filter:blur(28px);box-shadow:0 
 @keyframes dotRing{0%,100%{transform:scale(1);opacity:.35}50%{transform:scale(1.7);opacity:0}}
 @keyframes footGlow{from{box-shadow:0 0 28px rgba(255,61,127,.4)}to{box-shadow:0 0 60px rgba(255,61,127,.7)}}
 
-/* ── FIX 1: Kill all animations on mobile always ── */
 @media(max-width:767px){
   .hero-player,.tt-athlete,.dream-athlete,.p-athlete,.ath-img{animation:none!important}
   .mesh::before,.mesh::after{animation:none!important}
 }
 
-/* ── FIX 1: Kill everything when voice is active ── */
 body.voice-active *{animation-play-state:paused!important}
 body.voice-active canvas{display:none!important}
 body.voice-active [data-tilt]{transform:none!important}
@@ -99,7 +97,6 @@ body.voice-active [data-tilt]{transform:none!important}
 .btn-mint:hover{transform:translateY(-3px);box-shadow:0 0 44px var(--mint-glow)}
 @media(min-width:768px){.btn-hot,.btn-mint{width:auto}}
 
-/* ── HERO ── */
 .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;align-items:center;overflow:hidden;padding-top:70px;}
 .hero-left{position:relative;z-index:5;display:flex;flex-direction:column;align-items:center;text-align:center;padding:24px 20px 20px;width:100%;}
 .hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,61,127,.12);border:1px solid rgba(255,61,127,.3);border-radius:50px;padding:7px 14px;font-family:'Unbounded',sans-serif;font-size:.54rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:20px;box-shadow:0 0 18px rgba(255,61,127,.12);max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
@@ -126,7 +123,6 @@ body.voice-active [data-tilt]{transform:none!important}
 }
 @media(min-width:1100px){.hero-left{padding-left:6vw}}
 
-/* ── ATHLETES ── */
 .athletes-sec{background:var(--dark2);overflow:hidden;position:relative}
 .athletes-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(255,61,127,.05) 0%,transparent 65%)}
 .athletes-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;gap:16px;padding:4px 20px 16px;margin:0 -20px;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
@@ -177,7 +173,6 @@ body.voice-active [data-tilt]{transform:none!important}
   .card-watermark{font-size:260px}
 }
 
-/* ── TIKTOK ── */
 .tt-sec{background:linear-gradient(180deg,var(--dark) 0%,var(--dark2) 100%);overflow:hidden;position:relative}
 .tt-sec-grid{display:flex;flex-direction:column;gap:36px;align-items:center}
 .tt-left{display:flex;justify-content:center;width:100%}
@@ -202,7 +197,6 @@ body.voice-active [data-tilt]{transform:none!important}
   .tt-right{flex:1}
 }
 
-/* ── PRODUCTS ── */
 .products-sec{background:linear-gradient(180deg,var(--dark2) 0%,var(--dark3) 100%);position:relative}
 .p-bento{display:flex;flex-direction:column;gap:14px}
 .p-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:22px;padding:22px 20px 20px;position:relative;overflow:hidden;cursor:pointer;transition:box-shadow .3s,transform .3s;display:flex;flex-direction:column;}
@@ -233,7 +227,6 @@ body.voice-active [data-tilt]{transform:none!important}
   .sparkle-top{right:130px}
 }
 
-/* ── DREAM ── */
 .dream-sec{background:#000;position:relative;overflow:hidden;min-height:90svh;display:flex;align-items:center}
 .dream-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 65% at 55% 50%,rgba(255,61,127,.07) 0%,transparent 70%);animation:dreamPulse 9s ease-in-out infinite alternate}
 .dream-grid{display:flex;flex-direction:column;gap:24px;align-items:center;width:100%;max-width:1120px;margin:0 auto;position:relative;z-index:2;padding:60px 20px}
@@ -258,7 +251,6 @@ body.voice-active [data-tilt]{transform:none!important}
   .dream-ctas{flex-direction:row;justify-content:center;max-width:none}
 }
 
-/* ── FOOTER ── */
 footer{position:relative;z-index:10;background:var(--dark);border-top:1px solid rgba(255,255,255,.05);padding:40px 20px 60px;text-align:center}
 footer::before{content:'';position:absolute;top:0;left:0;right:0;height:120px;background:radial-gradient(ellipse 50% 100% at 50% 0%,rgba(255,61,127,.04) 0%,transparent 70%)}
 .foot-wrap{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:12px}
@@ -532,7 +524,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:120px;ba
   </div>
 </footer>
 
-<!-- ══ FIX 2: PMGT — mini model, wider silence/padding, no audioBuffering ══ -->
+<!-- ══ PMGT VOICE LAUNCHER ══ -->
 <script>
   window.PayMeGPTConfig = {
     widgetId: '88975005',
@@ -546,8 +538,8 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:120px;ba
     theme: 'dark',
     customFooterText: 'Pretty Accessories 🇵🇷',
     provider: 'openai',
-    voice: 'nova',
-    model: 'gpt-4o-mini-realtime-preview',
+    voice: 'shimmer',
+    model: 'gpt-realtime-2025-08-28',
     language: 'es',
     streaming: true,
     latency: 'balanced',
@@ -565,7 +557,6 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:120px;ba
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
 <script>
-/* ── CURSOR ── */
 (function(){
   if(window.innerWidth<1024)return;
   var cur=document.getElementById('cursor'),trail=document.getElementById('cursor-trail');
@@ -580,7 +571,6 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:120px;ba
   });
 })();
 
-/* ── WHITE BG REMOVAL ── */
 function removeWhiteBackground(img,tol){
   tol=tol||30;
   try{
@@ -599,7 +589,6 @@ window.addEventListener('load',function(){
   });
 });
 
-/* ── LANG ── */
 var lang='es';
 function setLang(l){
   lang=l;
@@ -611,50 +600,29 @@ function setLang(l){
 window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('stuck',window.scrollY>50);},{passive:true});
 var isMob=function(){return window.innerWidth<768;};
 
-/* ── FIX 1: VOICE-ACTIVE CPU REDUCTION ── */
 (function(){
-  // Toggle body.voice-active when PMGT launcher opens/closes
-  // Pauses all CSS animations and hides canvas via CSS
   var observer=new MutationObserver(function(){
-    // PMGT injects elements with pmgt/paymegpt in class names when open
     var active=document.querySelector('[class*="pmgt"][class*="open"],[class*="paymegpt"][class*="open"],[class*="pmgt-launcher"][class*="active"],[class*="voice"][class*="active"]');
     var isOpen=!!active;
     document.body.classList.toggle('voice-active',isOpen);
     if(isOpen){
-      // Pause particles engine
-      if(window.pJSDom&&window.pJSDom.length>0){
-        try{window.pJSDom[0].pJS.fn.vendors.destroypJS();}catch(e){}
-      }
-      // Pause GSAP global timeline
+      if(window.pJSDom&&window.pJSDom.length>0){try{window.pJSDom[0].pJS.fn.vendors.destroypJS();}catch(e){}}
       if(window.gsap)gsap.globalTimeline.pause();
-      // Kill VanillaTilt on all tilt elements
-      document.querySelectorAll('[data-tilt]').forEach(function(el){
-        if(el.vanillaTilt)try{el.vanillaTilt.destroy();}catch(e){}
-      });
+      document.querySelectorAll('[data-tilt]').forEach(function(el){if(el.vanillaTilt)try{el.vanillaTilt.destroy();}catch(e){}});
     }
   });
   observer.observe(document.body,{childList:true,subtree:true,attributes:true,attributeFilter:['class']});
 })();
 
-/* ── CAROUSEL DOTS ── */
 (function(){
   var grid=document.getElementById('ath-grid');
   var dots=document.querySelectorAll('#ath-dots .cdot');
   if(!grid||!dots.length)return;
-  function updateDots(){
-    var idx=Math.round(grid.scrollLeft/(grid.scrollWidth/3));
-    dots.forEach(function(d,i){d.classList.toggle('active',i===idx);});
-  }
+  function updateDots(){var idx=Math.round(grid.scrollLeft/(grid.scrollWidth/3));dots.forEach(function(d,i){d.classList.toggle('active',i===idx);});}
   grid.addEventListener('scroll',updateDots,{passive:true});
-  dots.forEach(function(dot,i){
-    dot.addEventListener('click',function(){
-      var cards=grid.querySelectorAll('.ath-card');
-      if(cards[i])grid.scrollTo({left:cards[i].offsetLeft-20,behavior:'smooth'});
-    });
-  });
+  dots.forEach(function(dot,i){dot.addEventListener('click',function(){var cards=grid.querySelectorAll('.ath-card');if(cards[i])grid.scrollTo({left:cards[i].offsetLeft-20,behavior:'smooth'});});});
 })();
 
-/* ── GSAP ── */
 if(typeof gsap!=='undefined'&&typeof ScrollTrigger!=='undefined'){
   gsap.registerPlugin(ScrollTrigger);
   gsap.from(['.hero-hl-1','.hero-hl-2','.hero-hl-3'],{opacity:0,y:isMob()?30:0,x:isMob()?0:-50,duration:.7,stagger:.12,ease:'power3.out',delay:.15});
@@ -662,58 +630,26 @@ if(typeof gsap!=='undefined'&&typeof ScrollTrigger!=='undefined'){
   gsap.from('.hero-ctas',{opacity:0,y:14,duration:.5,delay:.9});
   if(!isMob()){
     gsap.to('.hero-player',{yPercent:15,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:1.4}});
-    document.querySelectorAll('.s-head,.dream-head,.tt-hl').forEach(function(el){
-      gsap.from(el,{y:35,opacity:0,duration:.7,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 90%',once:true}});
-    });
+    document.querySelectorAll('.s-head,.dream-head,.tt-hl').forEach(function(el){gsap.from(el,{y:35,opacity:0,duration:.7,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 90%',once:true}});});
   }
 }
 
-/* ── PARTICLES — desktop only ── */
 var pCount=isMob()?0:28;
 if(pCount>0){
-  particlesJS('particles-js',{
-    particles:{number:{value:pCount,density:{enable:true,value_area:900}},color:{value:['#FF3D7F','#00E5CC','#FFD700','#C026D3','#ffffff']},shape:{type:'star'},opacity:{value:.42,random:true,anim:{enable:true,speed:.7,opacity_min:.06,sync:false}},size:{value:2.2,random:true,anim:{enable:true,speed:1.3,size_min:.3,sync:false}},line_linked:{enable:false},move:{enable:true,speed:.9,direction:'top',random:true,straight:false,out_mode:'out'}},
-    interactivity:{detect_on:'canvas',events:{onhover:{enable:true,mode:'bubble'},onclick:{enable:true,mode:'repulse'},resize:true},modes:{bubble:{distance:150,size:4,duration:2,opacity:.7},repulse:{distance:110,duration:.4}}},
-    retina_detect:true
-  });
+  particlesJS('particles-js',{particles:{number:{value:pCount,density:{enable:true,value_area:900}},color:{value:['#FF3D7F','#00E5CC','#FFD700','#C026D3','#ffffff']},shape:{type:'star'},opacity:{value:.42,random:true,anim:{enable:true,speed:.7,opacity_min:.06,sync:false}},size:{value:2.2,random:true,anim:{enable:true,speed:1.3,size_min:.3,sync:false}},line_linked:{enable:false},move:{enable:true,speed:.9,direction:'top',random:true,straight:false,out_mode:'out'}},interactivity:{detect_on:'canvas',events:{onhover:{enable:true,mode:'bubble'},onclick:{enable:true,mode:'repulse'},resize:true},modes:{bubble:{distance:150,size:4,duration:2,opacity:.7},repulse:{distance:110,duration:.4}}},retina_detect:true});
 }
-if(!isMob()&&typeof VanillaTilt!=='undefined'){
-  VanillaTilt.init(document.querySelectorAll('[data-tilt]'),{max:10,speed:380,glare:true,'max-glare':.12,gyroscope:false,perspective:900});
-}
+if(!isMob()&&typeof VanillaTilt!=='undefined'){VanillaTilt.init(document.querySelectorAll('[data-tilt]'),{max:10,speed:380,glare:true,'max-glare':.12,gyroscope:false,perspective:900});}
 AOS.init({duration:650,once:true,offset:50,easing:'ease-out-cubic',disable:isMob()?'mobile':false});
 
-/* ── TT OEMBED ── */
 (function(){
   var bg=document.getElementById('tt-thumb-bg');if(!bg)return;
-  fetch('https://www.tiktok.com/oembed?url='+encodeURIComponent('https://www.tiktok.com/@pretty.accessorie7/video/7608660505602919711'))
-    .then(function(r){return r.json();})
-    .then(function(d){if(d&&d.thumbnail_url)bg.style.backgroundImage='url('+d.thumbnail_url+')';})
-    .catch(function(){});
+  fetch('https://www.tiktok.com/oembed?url='+encodeURIComponent('https://www.tiktok.com/@pretty.accessorie7/video/7608660505602919711')).then(function(r){return r.json();}).then(function(d){if(d&&d.thumbnail_url)bg.style.backgroundImage='url('+d.thumbnail_url+')';}).catch(function(){});
 })();
 
-/* ── WORLD MAP DOTS ── */
-var DOTS=[
-  {x:50,y:24,done:true},{x:26.5,y:41.5},{x:20,y:33},
-  {x:27,y:56},{x:24.5,y:40.5},{x:26,y:63},
-  {x:46,y:25},{x:50,y:22},{x:54,y:23},
-  {x:83,y:25},{x:83,y:60}
-];
+var DOTS=[{x:50,y:24,done:true},{x:26.5,y:41.5},{x:20,y:33},{x:27,y:56},{x:24.5,y:40.5},{x:26,y:63},{x:46,y:25},{x:50,y:22},{x:54,y:23},{x:83,y:25},{x:83,y:60}];
 var shown=0;
-function showDots(){
-  var wrap=document.getElementById('world-wrap');if(!wrap)return;
-  DOTS.forEach(function(c,i){
-    setTimeout(function(){
-      var d=document.createElement('div');
-      d.className='map-dot'+(c.done?' done':'');
-      d.style.cssText='left:'+c.x+'%;top:'+c.y+'%;color:'+(c.done?'#FFD700':'#00E5CC');
-      wrap.appendChild(d);shown++;
-      var el=document.getElementById('count-num');if(el)el.textContent=shown;
-    },i*280);
-  });
-}
-new IntersectionObserver(function(entries,obs){
-  entries.forEach(function(e){if(e.isIntersecting){showDots();obs.disconnect();}});
-},{threshold:0.1}).observe(document.getElementById('dream'));
+function showDots(){var wrap=document.getElementById('world-wrap');if(!wrap)return;DOTS.forEach(function(c,i){setTimeout(function(){var d=document.createElement('div');d.className='map-dot'+(c.done?' done':'');d.style.cssText='left:'+c.x+'%;top:'+c.y+'%;color:'+(c.done?'#FFD700':'#00E5CC');wrap.appendChild(d);shown++;var el=document.getElementById('count-num');if(el)el.textContent=shown;},i*280);});}
+new IntersectionObserver(function(entries,obs){entries.forEach(function(e){if(e.isIntersecting){showDots();obs.disconnect();}});},{threshold:0.1}).observe(document.getElementById('dream'));
 </script>
 </body>
 </html>
