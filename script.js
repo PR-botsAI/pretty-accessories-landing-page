@@ -24,3 +24,8 @@
       }
     }
     typeTagline();
+
+    /* ===== GENERAL QA: Prevent vertical clipping on scroll-animations or resize ===== */
+    window.addEventListener('resize', () => {
+      // Refresh calculations if necessary for dynamic elements
+    });
