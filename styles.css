@@ -1,6 +1,5 @@
 /* ===== BASE PAGE STYLES ===== */
-    /* Dark luxury aesthetic with subtle glow, texture, and mobile-safe spacing */
-    html, body { overflow-x: hidden; width: 100%; position: relative; }
+    html, body { overflow-x: hidden; width: 100%; position: relative; scroll-behavior: smooth; }
     body{font-family:'Plus Jakarta Sans',sans-serif;background:#0D0A1A;color:#fff}
     .font-bebas{font-family:'Bebas Neue',sans-serif}
     .font-fredoka{font-family:'Fredoka',sans-serif}
@@ -21,5 +20,15 @@
     @media (min-width:768px){.section-pad{padding:6rem 2rem}}
     
     /* Bug Fix Styles */
-    .responsive-h1 { font-size: clamp(3.5rem, 11vw, 9.5rem); line-height: 0.9; }
-    .map-container svg { width: 100%; height: auto; stroke: rgba(255, 255, 255, 0.15); fill: rgba(255, 255, 255, 0.05); stroke-width: 0.5; }
+    /* HERO FIX: Responsive H1 adjusted and ensuring container doesn't clip */
+    .responsive-h1 { font-size: clamp(3rem, 9.5vw, 8.5rem); line-height: 0.95; }
+    .hero-section { min-height: 100vh; height: auto; overflow: visible !important; }
+    .hero-content-wrapper { overflow: visible !important; position: relative; z-index: 10; }
+
+    /* MAP FIX: Stylized interactive map */
+    .map-frame {
+      filter: grayscale(1) invert(92%) contrast(1.2) brightness(0.9) hue-rotate(180deg);
+      border-radius: 1.5rem;
+      pointer-events: auto;
+    }
+    .map-container svg { width: 100%; height: auto; stroke: rgba(255, 255, 255, 0.2); fill: rgba(255, 255, 255, 0.08); stroke-width: 0.8; }
