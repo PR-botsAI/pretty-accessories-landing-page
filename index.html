@@ -227,38 +227,40 @@
   <!-- ============================================================================ -->
   <!-- HERO SECTION: Main landing area with headline, subtext, and CTA buttons     -->
   <!-- ============================================================================ -->
-  <section data-section="hero" class="hero-section min-h-screen pt-28 pb-14 px-4 sm:px-6 lg:px-8 flex items-center relative">
+  <section data-section="hero" class="hero-section pt-32 pb-20 px-4 sm:px-6 lg:px-8 flex items-center relative overflow-visible">
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,61,127,.25),transparent_30%),radial-gradient(circle_at_80%_20%,rgba(0,229,204,.18),transparent_25%),linear-gradient(180deg,#140a24_0%,#0D0A1A_48%,#090611_100%)]"></div>
     <div class="absolute inset-0 opacity-20 grid-lines"></div>
-    <div class="relative mx-auto max-w-7xl w-full">
-      <div class="grid lg:grid-cols-12 gap-10 items-center">
-        <div class="lg:col-span-7">
+    <div class="relative mx-auto max-w-7xl w-full hero-content-wrapper">
+      <div class="grid lg:grid-cols-12 gap-10 items-center overflow-visible">
+        <div class="lg:col-span-7 overflow-visible">
           <div class="flex flex-wrap gap-3 mb-6">
             <span class="floaty px-4 py-2 rounded-full glass text-xs sm:text-sm font-bold tracking-wide">CLUB ARSENAL ARECIBO 🏐</span>
             <span class="floaty px-4 py-2 rounded-full glass text-xs sm:text-sm font-bold tracking-wide">HATILLO & CAMUY PR 🇵🇷</span>
             <span class="floaty px-4 py-2 rounded-full glass text-xs sm:text-sm font-bold tracking-wide">TIKTOK SHOP 📱</span>
           </div>
-          <h1 class="font-bebas responsive-h1 tracking-[.04em]">
+          <h1 class="font-bebas responsive-h1 tracking-[.04em] mb-4">
             <span class="shimmer">PRETTY</span><br>
             <span class="text-white">ACCESSORIES</span>
           </h1>
-          <p class="mt-5 max-w-2xl text-base sm:text-lg md:text-xl text-white/82">
-            <span id="tagline" class="type-caret"></span>
-          </p>
-          <p class="mt-4 max-w-2xl text-sm sm:text-base text-white/65">
+          <div class="min-h-[2.5rem] mb-2">
+            <p class="text-base sm:text-lg md:text-xl text-white/90">
+              <span id="tagline" class="type-caret font-semibold"></span>
+            </p>
+          </div>
+          <p class="mt-2 max-w-2xl text-sm sm:text-base text-white/65 leading-relaxed">
             <span class="lang-es">Tres atletas de Puerto Rico con una vibra brutal: brillo, cancha y dream team energy. To' bien serio, to' bien pretty.</span>
             <span class="lang-en hidden">Three Puerto Rican athletes bringing island shine, court energy, and dream-team style. Seriously pretty, seriously real.</span>
           </p>
           <div class="mt-8 flex flex-col sm:flex-row gap-4">
-            <a href="#products" class="cta-primary inline-flex items-center justify-center px-6 py-4 rounded-2xl bg-gradient-to-r from-pink-500 via-fuchsia-600 to-cyan-400 text-white font-extrabold text-base shadow-lg shadow-pink-500/20 glow">
+            <a href="#products" class="cta-primary inline-flex items-center justify-center px-8 py-4 rounded-2xl bg-gradient-to-r from-pink-500 via-fuchsia-600 to-cyan-400 text-white font-extrabold text-base shadow-lg shadow-pink-500/20 glow">
               <span class="lang-es">VER SHOP</span><span class="lang-en hidden">SHOP NOW</span>
             </a>
-            <a href="#team" class="inline-flex items-center justify-center px-6 py-4 rounded-2xl border border-white/15 bg-white/5 text-white font-extrabold text-base hover:bg-white/10">
+            <a href="#team" class="inline-flex items-center justify-center px-8 py-4 rounded-2xl border border-white/15 bg-white/5 text-white font-extrabold text-base hover:bg-white/10 transition-colors">
               <span class="lang-es">CONOCE AL TEAM</span><span class="lang-en hidden">MEET THE TEAM</span>
             </a>
           </div>
         </div>
-        <div class="lg:col-span-5">
+        <div class="lg:col-span-5 relative z-10">
           <div class="relative">
             <div class="absolute -inset-8 bg-gradient-to-br from-pink-500/20 via-fuchsia-600/10 to-cyan-400/20 blur-3xl"></div>
             <div class="relative glass rounded-[2rem] p-5 sm:p-6 border border-white/10">
@@ -409,39 +411,40 @@
   <section data-section="dream" class="section-pad relative overflow-hidden">
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_10%,rgba(0,229,204,.18),transparent_20%),radial-gradient(circle_at_80%_60%,rgba(255,61,127,.18),transparent_20%),linear-gradient(180deg,#0D0A1A,#130a24)]"></div>
     
-    <!-- WORLD MAP SVG BACKGROUND (BUG 2 FIX) -->
-    <div class="absolute inset-0 z-0 flex items-center justify-center opacity-60 pointer-events-none map-container">
-      <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" class="w-full max-w-5xl h-auto">
-        <path d="M110,105 L120,100 L140,100 L150,110 L145,130 L130,140 L110,135 Z" /> <!-- North America Sim -->
-        <path d="M145,150 L160,150 L170,170 L160,210 L140,230 L130,210 L135,170 Z" /> <!-- South America Sim -->
-        <path d="M360,120 L400,100 L440,110 L450,150 L430,190 L390,200 L370,160 Z" /> <!-- Africa Sim -->
-        <path d="M380,80 L440,60 L500,65 L520,90 L500,110 L450,105 Z" /> <!-- Europe Sim -->
-        <path d="M520,80 L650,70 L700,100 L720,180 L650,220 L550,200 L530,140 Z" /> <!-- Asia Sim -->
-        <path d="M630,240 L680,240 L700,270 L670,300 L630,280 Z" /> <!-- Australia Sim -->
-        <circle cx="158" cy="155" r="3" fill="#FF3D7F" stroke="none" /> <!-- PR Marker -->
+    <!-- WORLD MAP VISUAL REPLACEMENT -->
+    <div class="absolute inset-0 z-0 flex items-center justify-center opacity-40 pointer-events-none map-container">
+      <svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg">
+        <path d="M150,150 Q200,100 250,150 T350,150 T450,250 T350,350 T200,300 T150,150" opacity="0.4" /> <!-- Stylized Landmass 1 -->
+        <path d="M600,100 Q700,50 800,100 T900,200 T800,350 T650,300 T600,100" opacity="0.4" /> <!-- Stylized Landmass 2 -->
+        <path d="M400,350 Q450,300 500,350 T550,450 T450,500 T400,350" opacity="0.4" /> <!-- Stylized Landmass 3 -->
+        <!-- Connection arcs -->
+        <path d="M210,180 Q400,50 620,110" fill="none" stroke="rgba(255,61,127,0.3)" stroke-width="1" stroke-dasharray="5,5" />
+        <path d="M210,180 Q350,400 480,360" fill="none" stroke="rgba(0,229,204,0.3)" stroke-width="1" stroke-dasharray="5,5" />
+        <!-- PR Star Marker -->
+        <circle cx="210" cy="180" r="4" fill="#FF3D7F" class="animate-pulse" />
       </svg>
     </div>
 
     <div class="relative z-10 mx-auto max-w-7xl text-center">
       <p class="text-sm uppercase tracking-[.35em] text-gold-300/90">THE DREAM</p>
       <h2 class="font-bebas text-6xl sm:text-7xl lg:text-8xl leading-none mt-2 shimmer">EL MUNDO ES NUESTRO</h2>
-      <p class="mt-5 max-w-3xl mx-auto text-white/80 text-lg">
+      <p class="mt-5 max-w-3xl mx-auto text-white/80 text-lg leading-relaxed">
         <span class="lang-es">Un spike por país, una foto por ciudad, un recuerdo por cada cancha visitada. Ese es el sueño: llevar el talento boricua a escenarios grandes, con estilo, fe y un flow que se siente en cualquier idioma.</span>
         <span class="lang-en hidden">One spike per country, one photo per city, one memory per court. That’s the dream: taking Puerto Rican talent to big stages with style, faith, and a flow that reads in any language.</span>
       </p>
       <div class="mt-8 flex flex-wrap justify-center gap-3">
-        <span class="px-4 py-2 rounded-full bg-white/8 border border-white/10">Puerto Rico 🇵🇷</span>
-        <span class="px-4 py-2 rounded-full bg-white/8 border border-white/10">USA 🇺🇸</span>
-        <span class="px-4 py-2 rounded-full bg-white/8 border border-white/10">República Dominicana 🇩🇴</span>
-        <span class="px-4 py-2 rounded-full bg-white/8 border border-white/10">México 🇲🇽</span>
-        <span class="px-4 py-2 rounded-full bg-white/8 border border-white/10">Japan 🇯🇵</span>
+        <span class="px-4 py-2 rounded-full bg-white/8 border border-white/10 hover:bg-white/15 transition-colors cursor-default">Puerto Rico 🇵🇷</span>
+        <span class="px-4 py-2 rounded-full bg-white/8 border border-white/10 hover:bg-white/15 transition-colors cursor-default">USA 🇺🇸</span>
+        <span class="px-4 py-2 rounded-full bg-white/8 border border-white/10 hover:bg-white/15 transition-colors cursor-default">República Dominicana 🇩🇴</span>
+        <span class="px-4 py-2 rounded-full bg-white/8 border border-white/10 hover:bg-white/15 transition-colors cursor-default">México 🇲🇽</span>
+        <span class="px-4 py-2 rounded-full bg-white/8 border border-white/10 hover:bg-white/15 transition-colors cursor-default">Japan 🇯🇵</span>
       </div>
-      <a href="#contact" class="cta-primary inline-flex mt-10 px-8 py-4 rounded-2xl bg-gradient-to-r from-pink-500 via-fuchsia-600 to-cyan-400 font-black text-white shadow-lg shadow-pink-500/20">QUIERO VER EL DROP</a>
+      <a href="#contact" class="cta-primary inline-flex mt-10 px-8 py-4 rounded-2xl bg-gradient-to-r from-pink-500 via-fuchsia-600 to-cyan-400 font-black text-white shadow-lg shadow-pink-500/20 hover:scale-105 transition-transform">QUIERO VER EL DROP</a>
     </div>
   </section>
 
   <!-- ============================================================================ -->
-  <!-- FIND US SECTION: Timeline, locations, and map-style pins                    -->
+  <!-- FIND US SECTION: Timeline, locations, and interactive map                   -->
   <!-- ============================================================================ -->
   <section data-section="find-us" id="find-us" class="section-pad bg-[#1a0a2e]">
     <div class="mx-auto max-w-7xl">
@@ -454,8 +457,8 @@
       </div>
 
       <div class="grid lg:grid-cols-12 gap-6">
-        <div class="lg:col-span-7 glass rounded-[2rem] p-6">
-          <div class="space-y-6 border-l border-white/10 pl-5">
+        <div class="lg:col-span-6 glass rounded-[2rem] p-6">
+          <div class="space-y-8 border-l border-white/10 pl-5">
             <div>
               <p class="text-xs uppercase tracking-[.3em] text-pink-300">TOURNAMENTS</p>
               <h3 class="font-fredoka text-2xl mt-1">Torneos por toda la isla</h3>
@@ -474,12 +477,25 @@
           </div>
         </div>
 
-        <div class="lg:col-span-5 glass rounded-[2rem] p-6">
-          <h3 class="font-fredoka text-2xl mb-4">Mapa PR vibes</h3>
-          <div class="space-y-4">
-            <div class="flex items-center justify-between rounded-2xl bg-white/5 p-4"><span>Hatillo</span><span class="text-pink-300 font-bold">📍 Nailah</span></div>
-            <div class="flex items-center justify-between rounded-2xl bg-white/5 p-4"><span>Camuy</span><span class="text-cyan-300 font-bold">📍 Ariana & Yaiza</span></div>
-            <div class="flex items-center justify-between rounded-2xl bg-white/5 p-4"><span>Arecibo</span><span class="text-gold-300 font-bold">📍 Club Arsenal</span></div>
+        <div class="lg:col-span-6 glass rounded-[2rem] p-4 flex flex-col">
+          <h3 class="font-fredoka text-xl mb-3 px-2">Nuestra Ruta 🇵🇷</h3>
+          <div class="flex-grow min-h-[350px] relative overflow-hidden rounded-2xl bg-black/40">
+            <!-- EMBEDDED REAL MAP Solution -->
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d121115.52481862593!2d-66.78!3d18.45!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2spr!4v1715800000000!5m2!1sen!2spr" 
+              class="absolute inset-0 w-full h-full border-0 map-frame" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            <!-- Legend Overlay -->
+            <div class="absolute bottom-4 left-4 right-4 pointer-events-none">
+              <div class="glass p-3 rounded-xl backdrop-blur-md flex flex-wrap gap-3 justify-center text-[10px] font-bold uppercase tracking-wider">
+                <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-pink-400 shadow-[0_0_8px_#f472b6]"></span> Hatillo</span>
+                <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_8px_#22d3ee]"></span> Camuy</span>
+                <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-gold-400 shadow-[0_0_8px_#fbbf24]"></span> Arecibo</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -495,8 +511,8 @@
       <h2 class="font-bebas text-5xl sm:text-6xl leading-none mt-2">DÁLE, ESCRÍBENOS</h2>
       <p class="mt-4 text-white/75 max-w-2xl mx-auto">Si quieres pedir, colaborar o llevar Pretty Accessories a tu torneo, ya tú sabes: mensaje por TikTok y to' bien.</p>
       <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="https://www.tiktok.com/@pretty.accessorie7" target="_blank" rel="noopener noreferrer" class="tiktok-btn inline-flex items-center justify-center px-6 py-4 rounded-2xl bg-gradient-to-r from-pink-500 via-fuchsia-600 to-cyan-400 text-white font-black">TikTok @pretty.accessorie7</a>
-        <a href="#hero" class="inline-flex items-center justify-center px-6 py-4 rounded-2xl border border-white/15 bg-white/5 font-black">Volver arriba</a>
+        <a href="https://www.tiktok.com/@pretty.accessorie7" target="_blank" rel="noopener noreferrer" class="tiktok-btn inline-flex items-center justify-center px-8 py-4 rounded-2xl bg-gradient-to-r from-pink-500 via-fuchsia-600 to-cyan-400 text-white font-black shadow-lg shadow-pink-500/20">TikTok @pretty.accessorie7</a>
+        <a href="#hero" class="inline-flex items-center justify-center px-8 py-4 rounded-2xl border border-white/15 bg-white/5 font-black hover:bg-white/10 transition-colors">Volver arriba</a>
       </div>
     </div>
   </section>
